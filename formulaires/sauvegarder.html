@@ -1,0 +1,39 @@
+#SET{dir_dump,#VAL{'<i>'}|concat{#ENV{_dir_dump},'</i>'}}
+#SET{dir_img,#VAL{'<i>'}|concat{#ENV{_dir_img},'</i>'}}
+
+#BOITE_OUVRIR{'','notice'}
+<p><:texte_admin_tech_01{dossier=#GET{dir_dump},img=#GET{dir_img}}:></p>
+<p><:texte_admin_tech_02{spipnet=#ENV{_spipnet}}:></p>
+#BOITE_FERMER
+<div class="formulaire_spip formulaire_#FORM formulaire_#FORM-#ENV{id,nouveau}">
+
+	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
+	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
+	[(#ENV{editable})
+	<form method='post' action='#ENV{action}' enctype='multipart/form-data'><div>
+		[(#REM) declarer les hidden qui declencheront le service du formulaire
+		parametre : url d'action ]
+		#ACTION_FORMULAIRE
+		<input type='hidden' name='reinstall' value='non' />
+	  <ul>
+	  	#SET{name,nom_sauvegarde}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
+	    <li class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+	    	<label for="#GET{name}"><:bouton_radio_sauvegarde_compressee:></label>
+				[<span class='erreur_message'>(#GET{erreurs})</span>]
+				<input type='text' class='text' name='#GET{name}' id='#GET{name}' value="#ENV{#GET{name}}" />
+	    </li>
+	  	#SET{name,export}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
+	    [<li class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
+	    	<label onclick="jQuery('#export_liste').toggle('fast');" style="cursor:pointer;"><:install_tables_base:></label>
+				[<span class='erreur_message'>(#GET{erreurs})</span>]
+				<div id="export_liste" style="display:none;">
+				(#ENV*{_tables})
+				</div>
+	    </li>]
+	  </ul>
+	  [(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
+	  <!--extra-->
+	  <p class='boutons'><span class='image_loading'>&nbsp;</span><input type='submit' class='submit' value='<:texte_sauvegarde_base:>' /></p>
+	</div></form>
+	]
+</div>
