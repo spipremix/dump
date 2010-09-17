@@ -44,7 +44,7 @@ function export_init($status_file, $archive, $tables=null, $where=array()){
 	// la constante sert a verifier qu'on utilise bien le connect/dump du plugin,
 	// et pas une base externe homonyme
 	if (!defined('_DUMP_SERVEUR_OK'))
-		return _T('erreur_connect_dump');
+		return _T('erreur_connect_dump', array('dump' => 'dump'));
 
 	$status['etape'] = 'init';
 	

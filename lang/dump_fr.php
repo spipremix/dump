@@ -6,12 +6,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	'label_nom_fichier_sauvegarde' => "Nom du fichier de sauvegarde",
 
-	'erreur_nom_fichier' => 'Ce nom de fichier n\'est pas autorise',
-	'erreur_sauvegarde_deja_en_cours' => 'Vous avez d&eacute;j&agreave; une sauvegarde en cours !',
+	'erreur_nom_fichier' => 'Ce nom de fichier n\'est pas autoris&eacute;',
+	'erreur_sauvegarde_deja_en_cours' => 'Vous avez d&eacute;j&agrave; une sauvegarde en cours !',
 	'erreur_sqlite_indisponible' => 'Impossible de faire une sauvegarde SQLite sur votre h&eacute;bergement',
-	'erreur_creation_base_sqlite' => 'Impossible de creer une base SQLite pour la sauvegarde',
-	'erreur_connect_dump' => 'Un serveur nomme "dump" existe d&eacute;j&agreave;. Renommez le.',
-	'avis_probleme_ecriture_fichier' => 'Probl&egrave;me d\'ecriture du fichier @fichier@',
+	'erreur_creation_base_sqlite' => 'Impossible de cr&eacute;er une base SQLite pour la sauvegarde',
+	'erreur_connect_dump' => 'Un serveur nomm&eacute; &#171;&#160;@dump@&#160;&#187; existe d&eacute;j&agrave;. Renommez-le.',
+	'avis_probleme_ecriture_fichier' => 'Probl&egrave;me d\'&#233;criture du fichier @fichier@',
 
 );
 
