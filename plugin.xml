@@ -13,10 +13,10 @@
 		<titre>texte_sauvegarde_base</titre>
 		<url>backup</url>
 	</bouton>
-	<bouton id='admin_restaurer' parent='bando_administration' position='2'>
+	<bouton id='restaurer' parent='bando_administration' position='2'>
 		<icone>images/base-restore-16.png</icone>
 		<titre>bouton_restaurer_base</titre>
-		<url>admin_restore</url>
+		<url>restore</url>
 	</bouton>
 
 	<necessite id="SPIP" version="[2.3.0-dev;)" />
