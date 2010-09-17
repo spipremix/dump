@@ -24,9 +24,11 @@ include_spip('inc/dump');
  */
 function export_init($status_file, $archive, $tables=null, $where=array()){	
 	$status_file = _DIR_TMP.basename($status_file).".php";
+
 	if (lire_fichier($status_file, $status)
 		AND $status = unserialize($status)
-		AND $status['etape']!=='fini')
+		AND $status['etape']!=='fini'
+		AND filemtime($status_file)>=time()-120) // si le fichier status est trop vieux c'est un abandon
 		return _T('dump:erreur_sauvegarde_deja_en_cours');
 
 	if (!$type_serveur = dump_type_serveur())
