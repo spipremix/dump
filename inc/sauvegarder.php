@@ -1,0 +1,79 @@
+<?php
+
+/***************************************************************************\
+ *  SPIP, Systeme de publication pour l'internet                           *
+ *                                                                         *
+ *  Copyright (c) 2001-2010                                                *
+ *  Arnaud Martin, Antoine Pitrou, Philippe Riviere, Emmanuel Saint-James  *
+ *                                                                         *
+ *  Ce programme est un logiciel libre distribue sous licence GNU/GPL.     *
+ *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
+\***************************************************************************/
+
+if (!defined("_ECRIRE_INC_VERSION")) return;
+
+include_spip('inc/dump');
+
+/**
+ * Afficher l'avancement de la copie
+ * @staticvar int $etape
+ * @param <type> $courant
+ * @param <type> $total
+ * @param <type> $table
+ */
+function sauvegarder_afficher_progres($courant,$total,$table) {
+	static $etape = 1;
+	if (unique($table)) {
+		if ($total<0)
+			echo "<br /><strong>".$etape. '. '."</strong>$table (". (-$total).")";
+		else
+			echo "<br /><strong>".$etape. '. '."$table</strong> ".($courant?" <i>($courant)</i> ":"");
+		$etape++;
+	}
+	if ($total>=0)
+		echo ". ";
+	flush();
+}
+
+
+function inc_sauvegarder_dist($status_file, $redirect='') {
+	$status_file = _DIR_TMP.basename($status_file).".php";
+	if (!lire_fichier($status_file, $status)
+		OR !$status = unserialize($status)) {
+	}
+	else {		
+		$timeout = ini_get('max_execution_time');
+		// valeur conservatrice si on a pas reussi a lire le max_execution_time
+		if (!$timeout) $timeout=30; // parions sur une valeur tellement courante ...
+		$max_time = time()+$timeout/2;
+		
+		include_spip('inc/minipres');
+		@ini_set("zlib.output_compression","0"); // pour permettre l'affichage au fur et a mesure
+		ob_end_flush();
+
+		$titre = _T('info_sauvegarde') . " (".count($status['tables']).") ";
+		$titre .= balise_img(chemin_image('searching.gif'));
+		echo ( install_debut_html($titre));
+		// script de rechargement auto sur timeout
+		echo http_script("window.setTimeout('location.href=\"".$redirect."\";',".($timeout*1000).")");
+		echo "<div style='text-align: left'>\n";
+
+		dump_serveur($status['connect']);
+		spip_connect('dump');
+
+		// au premier coup on ne fait rien sauf afficher l'ecran de sauvegarde
+		if (_request('step'))
+			$res = base_copier_tables($status_file, $status['tables'], '', 'dump', 'sauvegarder_afficher_progres', $max_time, false, lister_tables_noerase(),$status['where']?$status['where']:array());
+		echo ( "</div>\n");
+
+		if (!$res AND $redirect)
+			echo dump_relance($redirect);
+		echo (install_fin_html());
+		flush();
+
+		return $res;
+	}
+}
+
+
+?>

@@ -28,7 +28,7 @@ function formulaires_sauvegarder_charger_dist(){
 		'_spipnet' => $GLOBALS['home_server'] . '/' .  $GLOBALS['spip_lang'] . '_article1489.html',
 		'nom_sauvegarde' => dump_nom_fichier($dir_dump),
 		'_tables' => "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
-				dump_controle_tables_en_base('export', $check)
+				dump_controle_tables_en_base('tables', $check)
 			) . "</li></ol>\n",
 	);
 
@@ -57,16 +57,16 @@ function formulaires_sauvegarder_traiter_dist() {
 	$status_file = base_dump_meta_name(0);
 	$dir_dump = dump_repertoire();
 	$archive = $dir_dump . _request('nom_sauvegarde');
-	$tables = _request('export');
+	$tables = _request('tables');
 
-	include_spip('inc/export');
-	$res = export_init($status_file, $archive, $tables);
+	include_spip('inc/dump');
+	$res = dump_init($status_file, $archive, $tables);
 
 	if ($res===true) {
-		// on lance l'action export_all qui va realiser l'export
-		// et finira par une redirection vers la page export_fin
+		// on lance l'action sauvegarder qui va realiser la sauvegarde
+		// et finira par une redirection vers la page sauvegarde_fin
 		include_spip('inc/actions');
-		$redirect = generer_action_auteur('export_all', $status_file);
+		$redirect = generer_action_auteur('sauvegarder', $status_file);
 		return array('message_ok'=>'ok','redirect'=>$redirect);
 	}
 	else

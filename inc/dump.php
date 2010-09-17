@@ -90,5 +90,71 @@ function dump_serveur($args=null) {
 	return $connect_args;
 }
 
+/**
+ * Initialiser un dump
+ * @param string $status_file
+ * @param string $archive
+ * @param array $tables
+ * @param array $where
+ * @return bool/string
+ */
+function dump_init($status_file, $archive, $tables=null, $where=array()){
+	$status_file = _DIR_TMP.basename($status_file).".php";
+
+	if (lire_fichier($status_file, $status)
+		AND $status = unserialize($status)
+		AND $status['etape']!=='fini'
+		AND filemtime($status_file)>=time()-120) // si le fichier status est trop vieux c'est un abandon
+		return _T('dump:erreur_sauvegarde_deja_en_cours');
+
+	if (!$type_serveur = dump_type_serveur())
+		return _T('erreur_sqlite_indisponible');
+
+	if (!$tables)
+		list($tables,) = base_liste_table_for_dump(lister_tables_noexport());
+	$status = array('tables'=>$tables,'where'=>$where,'archive'=>$archive);
+
+	$status['connect'] = array(dirname($archive), '', '', '', basename($archive), $type_serveur, 'spip');
+	dump_serveur($status['connect']);
+	if (!spip_connect('dump'))
+		return _T('dump:erreur_creation_base_sqlite');
+
+	// la constante sert a verifier qu'on utilise bien le connect/dump du plugin,
+	// et pas une base externe homonyme
+	if (!defined('_DUMP_SERVEUR_OK'))
+		return _T('erreur_connect_dump', array('dump' => 'dump'));
+
+	$status['etape'] = 'init';
+
+	if (!ecrire_fichier($status_file, serialize($status)))
+		return _T('dump:avis_probleme_ecriture_fichier',array('fichier'=>$status_file));
+
+	return true;
+}
+
+/**
+ * Ecrire le js pour relancer la procedure de dump
+ * @param string $redirect
+ * @return string
+ */
+function dump_relance($redirect){
+	// si Javascript est dispo, anticiper le Time-out
+	return "<script language=\"JavaScript\" type=\"text/javascript\">window.setTimeout('location.href=\"$redirect\";',300);</script>\n";
+}
+
+
+/**
+ * Marquer la procedure de dump comme finie
+ * @param string $status_file
+ * @return <type>
+ */
+function dump_end($status_file){
+	$status_file = _DIR_TMP.basename($status_file).".php";
+	if (!lire_fichier($status_file, $status)
+		OR !$status = unserialize($status))
+		return;
+	$status['etape'] = 'fini';
+	ecrire_fichier($status_file, serialize($status));
+}
 
 ?>
