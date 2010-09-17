@@ -50,7 +50,7 @@ function dump_nom_fichier($dir,$extension='sqlite'){
 	while (file_exists($dir. $nom . ".$extension")) {
 		$nom = $site . sprintf('_%03d', ++$cpt);
 	}
-	return $nom;
+	return $nom.".$extension";
 }
 
 /**
@@ -99,7 +99,7 @@ function dump_serveur($args=null) {
  * @return bool/string
  */
 function dump_init($status_file, $archive, $tables=null, $where=array()){
-	$status_file = _DIR_TMP.basename($status_file).".php";
+	$status_file = _DIR_TMP.basename($status_file).".txt";
 
 	if (lire_fichier($status_file, $status)
 		AND $status = unserialize($status)
@@ -149,7 +149,7 @@ function dump_relance($redirect){
  * @return <type>
  */
 function dump_end($status_file){
-	$status_file = _DIR_TMP.basename($status_file).".php";
+	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)
 		OR !$status = unserialize($status))
 		return;

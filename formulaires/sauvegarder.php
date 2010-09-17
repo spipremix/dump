@@ -56,7 +56,7 @@ function formulaires_sauvegarder_verifier_dist() {
 function formulaires_sauvegarder_traiter_dist() {
 	$status_file = base_dump_meta_name(0);
 	$dir_dump = dump_repertoire();
-	$archive = $dir_dump . _request('nom_sauvegarde');
+	$archive = $dir_dump . basename(_request('nom_sauvegarde'),".sqlite");
 	$tables = _request('tables');
 
 	include_spip('inc/dump');

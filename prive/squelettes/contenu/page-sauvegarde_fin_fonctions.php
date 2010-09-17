@@ -13,7 +13,7 @@
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
 function dump_lire_status($status_file) {
-	$status_file = _DIR_TMP.basename($status_file).".php";
+	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)
 		OR !$status = unserialize($status))
 		return '';

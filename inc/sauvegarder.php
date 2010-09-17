@@ -37,7 +37,7 @@ function sauvegarder_afficher_progres($courant,$total,$table) {
 
 
 function inc_sauvegarder_dist($status_file, $redirect='') {
-	$status_file = _DIR_TMP.basename($status_file).".php";
+	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)
 		OR !$status = unserialize($status)) {
 	}
@@ -49,7 +49,6 @@ function inc_sauvegarder_dist($status_file, $redirect='') {
 		
 		include_spip('inc/minipres');
 		@ini_set("zlib.output_compression","0"); // pour permettre l'affichage au fur et a mesure
-		ob_end_flush();
 
 		$titre = _T('info_sauvegarde') . " (".count($status['tables']).") ";
 		$titre .= balise_img(chemin_image('searching.gif'));
@@ -69,6 +68,7 @@ function inc_sauvegarder_dist($status_file, $redirect='') {
 		if (!$res AND $redirect)
 			echo dump_relance($redirect);
 		echo (install_fin_html());
+		ob_end_flush();
 		flush();
 
 		return $res;
