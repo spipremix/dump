@@ -58,7 +58,7 @@ function export_init($status_file, $archive, $tables=null, $where=array()){
 
 function export_relance($redirect){
 	// si Javascript est dispo, anticiper le Time-out
-	return "<script language=\"JavaScript\" type=\"text/javascript\">window.setTimeout('location.href=\"$redirect\";',0);</script>\n";
+	return "<script language=\"JavaScript\" type=\"text/javascript\">window.setTimeout('location.href=\"$redirect\";',1000);</script>\n";
 }
 
 /**
@@ -109,6 +109,7 @@ function inc_export_dist($status_file, $redirect='') {
 		
 		include_spip('inc/minipres');
 		@ini_set("zlib.output_compression","0"); // pour permettre l'affichage au fur et a mesure
+		ob_end_flush();
 
 		echo ( install_debut_html(_T('info_sauvegarde') . " (".count($status['tables']).")"));
 		// script de rechargement auto sur timeout
@@ -124,7 +125,6 @@ function inc_export_dist($status_file, $redirect='') {
 		if (!$res AND $redirect)
 			echo export_relance($redirect);
 		echo (install_fin_html());
-		ob_end_flush();
 		flush();
 
 		return $res;
