@@ -27,10 +27,10 @@ function export_init($status_file, $archive, $tables=null, $where=array()){
 	if (lire_fichier($status_file, $status)
 		AND $status = unserialize($status)
 		AND $status['etape']!=='fini')
-		return _L("Vous avez deja une sauvegarde en cours !");
+		return _T('dump:erreur_sauvegarde_deja_en_cours');
 
 	if (!$type_serveur = dump_type_serveur())
-		return _L("SQLite n'est pas pris en charfe par votre hebergement");
+		return _T('erreur_sqlite_indisponible');
 
 	if (!$tables)
 		list($tables,) = base_liste_table_for_dump(lister_tables_noexport());
@@ -39,17 +39,17 @@ function export_init($status_file, $archive, $tables=null, $where=array()){
 	$status['connect'] = array(dirname($archive), '', '', '', basename($archive), $type_serveur, 'spip');
 	dump_serveur($status['connect']);
 	if (!spip_connect('dump'))
-		return _L("Impossible de creer une base SQLite pour la sauvegarde");
+		return _T('dump:erreur_creation_base_sqlite');
 
 	// la constante sert a verifier qu'on utilise bien le connect/dump du plugin,
 	// et pas une base externe homonyme
 	if (!defined('_DUMP_SERVEUR_OK'))
-		return _L("Un serveur nomme 'dump' existe deja. Renommez le.");
+		return _T('erreur_connect_dump');
 
 	$status['etape'] = 'init';
 	
 	if (!ecrire_fichier($status_file, serialize($status)))
-		return _L("Impossible d'ecrire le fichier $status_file");
+		return _T('dump:avis_probleme_ecriture_fichier',array('fichier'=>$status_file));
 
 	return true;
 }

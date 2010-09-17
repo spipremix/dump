@@ -45,7 +45,7 @@ function formulaires_sauvegarder_verifier_dist() {
 		$erreurs['nom_sauvegarde'] = _T('info_obligatoire');
 	elseif (!preg_match(',^[\w_][\w_.]*$,', $nom)
 		OR basename($nom)!==$nom)
-		$erreurs['nom_sauvegarde'] = _L('format de nom incorrect');
+		$erreurs['nom_sauvegarde'] = _T('dump:erreur_nom_fichier');
 
 	return $erreurs;
 }

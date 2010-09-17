@@ -18,7 +18,7 @@
 	  <ul>
 	  	#SET{name,nom_sauvegarde}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
 	    <li class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
-	    	<label for="#GET{name}"><:bouton_radio_sauvegarde_compressee:></label>
+	    	<label for="#GET{name}"><:dump:label_nom_fichier_sauvegarde:></label>
 				[<span class='erreur_message'>(#GET{erreurs})</span>]
 				<input type='text' class='text' name='#GET{name}' id='#GET{name}' value="#ENV{#GET{name}}" />
 	    </li>
