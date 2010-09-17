@@ -23,6 +23,12 @@ include_spip('inc/dump');
  * @return bool/string
  */
 function export_init($status_file, $archive, $tables=null, $where=array()){	
+	$status_file = _DIR_TMP.basename($status_file).".php";
+	if (lire_fichier($status_file, $status)
+		AND $status = unserialize($status)
+		AND $status['etape']!=='fini')
+		return _L("Vous avez deja une sauvegarde en cours !");
+
 	if (!$type_serveur = dump_type_serveur())
 		return _L("SQLite n'est pas pris en charfe par votre hebergement");
 
@@ -42,7 +48,6 @@ function export_init($status_file, $archive, $tables=null, $where=array()){
 
 	$status['etape'] = 'init';
 	
-	$status_file = _DIR_TMP.basename($status_file).".php";
 	if (!ecrire_fichier($status_file, serialize($status)))
 		return _L("Impossible d'ecrire le fichier $status_file");
 

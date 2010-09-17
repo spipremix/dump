@@ -3,7 +3,7 @@
 	<auteur>Collectif SPIP</auteur>
 	<icon>prive/themes/spip/images/dump-32.png</icon>
 	<licence>GPL</licence>
-	<version>1.0.0</version>
+	<version>1.1.0</version>
 	<etat>stable</etat>
 	<description>Export et Import de la base en XML</description>
 	<prefix>dump</prefix>
