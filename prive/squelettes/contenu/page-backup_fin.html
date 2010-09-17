@@ -10,8 +10,10 @@
 
 #SET{taille,#ENV{status}|dump_taille_sauvegarde}
 [(#GET{taille}|non)
+#SET{archive,#VAL{'<b>'}|concat{#ENV{status}|dump_nom_sauvegarde|joli_repertoire}|concat{'</b>'}}
+
 #BOITE_OUVRIR{'','error'}
-<:avis_erreur_sauvegarde{type='.',id_objet'='. .'}:>
+<:dump:erreur_taille_sauvegarde{fichier=#GET{archive}}:>
 #BOITE_FERMER
 ]
 [(#GET{taille}|oui)

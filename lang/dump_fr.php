@@ -6,6 +6,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	'label_nom_fichier_sauvegarde' => "Nom du fichier de sauvegarde",
 
+	'erreur_taille_sauvegarde' => 'La sauvegarde semble avoir &eacute;chou&eacute;. Le fichier @fichier@ est vide ou absent.',
 	'erreur_nom_fichier' => 'Ce nom de fichier n\'est pas autoris&eacute;',
 	'erreur_sauvegarde_deja_en_cours' => 'Vous avez d&eacute;j&agrave; une sauvegarde en cours !',
 	'erreur_sqlite_indisponible' => 'Impossible de faire une sauvegarde SQLite sur votre h&eacute;bergement',
