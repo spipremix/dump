@@ -12,97 +12,43 @@
 
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
-include_spip('inc/lang');
-include_spip('inc/actions');
+/**
+ *
+ * On arrive ici depuis exec=admin_tech
+ * - le premier coup on initialise par exec_export_all_args puis export_all_start
+ * - ensuite on enchaine sur inc/export, qui remplit le dump et renvoie ici a chaque timeout
+ * - a chaque coup on relance inc/export
+ * - lorsque inc/export a fini, il retourne $arg
+ * - on l'utilise pour clore le fichier
+ * - on renvoie
+ *   vers action=export_all pour afficher le resume
+ *
+ */
+
 include_spip('base/dump');
+include_spip('inc/export');
 
-// http://doc.spip.org/@action_export_all_dist
-function action_export_all_dist()
-{
-	$securiser_action = charger_fonction('securiser_action', 'inc');
-	$arg = $securiser_action();
-
-	@list(, $gz, $archive, $rub, $version) = explode(',', $arg);
-	$meta = base_dump_meta_name($rub);
-	$dir = base_dump_dir($meta);
-	$file = $dir . $archive;
-
-	utiliser_langue_visiteur();
-	export_all_fin($file, $meta, $rub);
-}
-
-// http://doc.spip.org/@export_all_fin
-function export_all_fin($file, $meta, $rub)
-{
-	global $spip_lang_left,$spip_lang_right;
-
-	$metatable = $meta . '_tables';
-	$tables_sauvegardees = isset($GLOBALS['meta'][$metatable])?unserialize($GLOBALS['meta'][$metatable]):array();
-	effacer_meta($meta);
-	effacer_meta($metatable);
-
-	$size = @(!file_exists($file) ? 0 : filesize($file));
-
-	if (!$size) {
-		$corps = _T('avis_erreur_sauvegarde', array('type'=>'.', 'id_objet'=>'. .'));
-	
-	} else {
-		$subdir = dirname($file);
-		$dir = dirname($subdir);
-		$nom = basename($file);
-		$dest = $dir . '/' . $nom;
-		if (file_exists($dest)) {
-			$n = 1;
-			while (@file_exists($new = "$dir/$n-$nom")) $n++;
-			@rename($dest, $new);
-		}
-		if (@rename($file, $dest)) {
-			spip_unlink($subdir);
-			spip_log("$file renomme en $dir/$nom");
-		}
-	// ne pas effrayer inutilement: il peut y avoir moins de fichiers
-	// qu'annonce' si certains etaient vides
-
-		$n = _T('taille_octets', array('taille' => number_format($size, 0, ' ', ' ')));
-		
-		// cette chaine est a refaire car il y a double ambiguite:
-		// - si plusieurs SPIP dans une base SQL (cf table_prefix)
-		// - si on exporte seulement une rubrique
-#			  _T('info_sauvegarde_reussi_02',		
-
-		if ($rub) {
-			$titre = sql_getfetsel('titre', 'spip_rubriques', "id_rubrique=$rub");
-			$titre = _T('info_sauvegarde_rubrique_reussi',
-				    array('archive' => ':<br /><b>'.joli_repertoire("$dir/$nom")."</b> ($n)", 'titre' => "<b>$titre</b>"));
-		}
-		else
-			$titre = _T('info_sauvegarde_reussi_02',
-			      array('archive' => ':<br /><b>'.joli_repertoire("$dir/$nom")."</b> ($n)"));
-
-		$corps = "<p style='text-align: $spip_lang_left'>".
-			  $titre .
-			  " <a href='" . generer_url_ecrire() . "'>".
-			_T('info_sauvegarde_reussi_03')
-			. "</a> "
-			._T('info_sauvegarde_reussi_04')
-			. "</p>\n";
-		
-		include_spip('inc/filtres');
-		$corps .= "<div style='text-align: $spip_lang_right'>"
-			. bouton_action(_T("retour"), generer_url_ecrire())
-			. "</div>";
-
-		// afficher la liste des tables qu'on a sauvegarde
-		sort($tables_sauvegardees);
-		$n = floor(count($tables_sauvegardees)/2);
-		$corps .= "<div style='width:49%;float:left;'><ul><li>" . join('</li><li>', array_slice($tables_sauvegardees,0,$n)) . "</li></ul></div>"
-		  . "<div style='width:49%;float:left;'><ul><li>" . join('</li><li>', array_slice($tables_sauvegardees,$n)) . "</li></ul></div>"
-		  . "<div class='nettoyeur'></div>";
+// http://doc.spip.org/@exec_export_all_dist
+function action_export_all_dist($arg=null){
+	if (!$arg) {
+		$securiser_action = charger_fonction('securiser_action', 'inc');
+		$arg = $securiser_action();
 	}
-	include_spip('inc/minipres');
-	echo minipres(_T('info_sauvegarde'), $corps);
-	exit;
-}
 
+	$status_file = $arg;
+	$redirect = parametre_url(generer_action_auteur('export_all',$status_file),"step",intval(_request('step')+1),'&');
+
+	// lancer export qui va se relancer jusqu'a sa fin
+	$export = charger_fonction('export', 'inc');
+	utiliser_langue_visiteur();
+	// quand on sort de $export avec true c'est qu'on a fini
+	if ($export($status_file,$redirect)) {
+		export_end($status_file);
+		include_spip('inc/headers');
+		echo redirige_formulaire(generer_url_ecrire("backup_fin",'status='.$status_file,'',true, true));
+
+	}
+
+}
 
 ?>

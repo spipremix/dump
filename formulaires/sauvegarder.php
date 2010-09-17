@@ -12,30 +12,23 @@
 
 if (!defined("_ECRIRE_INC_VERSION")) return;
 include_spip('base/dump');
+include_spip('inc/dump');
 
 /**
  * Charger #FORMULAIRE_SAUVEGARDER
  * @return array
  */
-function formulaires_sauvegarder_charger_dist(){
-	$repertoire = _DIR_DUMP;
-	if (!@file_exists($repertoire)
-		AND !$repertoire = sous_repertoire(_DIR_DUMP,'',false,true)
-	) {
-		$repertoire = preg_replace(','._DIR_TMP.',', '', _DIR_DUMP);
-		$repertoire = sous_repertoire(_DIR_TMP, $repertoire);
-	}
-	
-	$dir_dump = $repertoire;
+function formulaires_sauvegarder_charger_dist(){	
+	$dir_dump = dump_repertoire();
 	list($check,) = base_liste_table_for_dump(lister_tables_noexport());
 
 	$valeurs = array(
 		'_dir_dump'=>joli_repertoire($dir_dump),
 		'_dir_img'=>joli_repertoire(_DIR_IMG),
 		'_spipnet' => $GLOBALS['home_server'] . '/' .  $GLOBALS['spip_lang'] . '_article1489.html',
-		'nom_sauvegarde' => nom_fichier_dump($dir_dump),
+		'nom_sauvegarde' => dump_nom_fichier($dir_dump),
 		'_tables' => "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
-				controle_tables_en_base('export', $check)
+				dump_controle_tables_en_base('export', $check)
 			) . "</li></ol>\n",
 	);
 
@@ -50,7 +43,8 @@ function formulaires_sauvegarder_verifier_dist() {
 	$erreurs = array();
 	if (!$nom = _request('nom_sauvegarde'))
 		$erreurs['nom_sauvegarde'] = _T('info_obligatoire');
-	elseif (!preg_match(',^[\w_][\w_.]*$,', $nom))
+	elseif (!preg_match(',^[\w_][\w_.]*$,', $nom)
+		OR basename($nom)!==$nom)
 		$erreurs['nom_sauvegarde'] = _L('format de nom incorrect');
 
 	return $erreurs;
@@ -60,32 +54,25 @@ function formulaires_sauvegarder_verifier_dist() {
  * Traiter
  */
 function formulaires_sauvegarder_traiter_dist() {
-	$export = charger_fonction('export_all','exec');
-	$export();
-	// on ne revient pas ici !
-}
+	$status_file = base_dump_meta_name(0);
+	$dir_dump = dump_repertoire();
+	$archive = $dir_dump . _request('nom_sauvegarde');
+	$tables = _request('export');
 
-/**
- * Nom du fichier de sauvegarde
- *
- * @param string $dir
- * @param string $extension
- * @return string
- */
-function nom_fichier_dump($dir,$extension='sqlite'){
-	$site = isset($GLOBALS['meta']['nom_site'])
-	  ? preg_replace(array(",\W,is",",_(?=_),",",_$,"),array("_","",""), couper(translitteration(trim($GLOBALS['meta']['nom_site'])),30,""))
-	  : 'spip';
+	include_spip('inc/export');
+	$res = export_init($status_file, $archive, $tables);
 
-	$site .= '_' . date('Ymd');
-
-	$nom = $site;
-	$cpt=0;
-	while (file_exists($dir. $nom . ".$extension")) {
-		$nom = $site . sprintf('_%03d', ++$cpt);
+	if ($res===true) {
+		// on lance l'action export_all qui va realiser l'export
+		// et finira par une redirection vers la page export_fin
+		include_spip('inc/actions');
+		$redirect = generer_action_auteur('export_all', $status_file);
+		return array('message_ok'=>'ok','redirect'=>$redirect);
 	}
-	return $nom;
+	else
+		return array('message_erreur'=>$res);
 }
+
 
 /**
  * Fabrique la liste a cocher des tables presentes a sauvegarder
@@ -94,7 +81,7 @@ function nom_fichier_dump($dir,$extension='sqlite'){
  * @param bool $check
  * @return string
  */
-function controle_tables_en_base($name, $check)
+function dump_controle_tables_en_base($name, $check)
 {
 	$p = '/^' . $GLOBALS['table_prefix'] . '/';
 	$res = $check;

@@ -1,0 +1,30 @@
+[(#REM)
+
+  Squelette
+  (c) 2009 xxx
+  Distribue sous licence GPL
+
+]
+[(#ENV{status}|dump_verifie_sauvegarde_finie|interdire_acces)]
+<h1><:info_sauvegarde:></h1>
+
+#SET{taille,#ENV{status}|dump_taille_sauvegarde}
+[(#GET{taille}|non)
+#BOITE_OUVRIR{'','error'}
+<:avis_erreur_sauvegarde{type='.',id_objet'='. .'}:>
+#BOITE_FERMER
+]
+[(#GET{taille}|oui)
+#BOITE_OUVRIR{'','success'}
+
+#SET{taille,#VAL{taille_octets}|_T{#ARRAY{taille,#GET{taille}}}}
+
+#SET{archive,#VAL{'<b>'}|concat{#ENV{status}|dump_nom_sauvegarde|joli_repertoire}|concat{'</b> (',#GET{taille},', ',#ENV{status}|dump_date_sauvegarde|affdate_jourcourt{},')'}}
+<p>
+<:info_sauvegarde_reussi_02{archive=#GET{archive}}:> <:info_sauvegarde_reussi_03:> <:info_sauvegarde_reussi_04:>
+</p>
+
+#BOITE_FERMER
+
+[(#ENV{status}|dump_afficher_tables_sauvegardees)]
+]
