@@ -25,7 +25,7 @@ function formulaires_restaurer_charger_dist(){
 		'_dir_dump' => dump_repertoire(),
 		'choisi' => _request('fichier')?_request('fichier'):_request('nom'),
 		'nom_sauvegarde' => '',
-		'tout_restaurer' => ((_request('tables') OR _request('fichier')) AND !_request('tout_restaurer'))?'':'oui',
+		'tout_restaurer' => (_request('check_tables') AND !_request('tout_restaurer'))?'':'oui',
 		'fichier' => '',
 		'tri' => 'nom',
 	);
@@ -68,8 +68,8 @@ function formulaires_restaurer_verifier_dist() {
 		$tables = dump_saisie_tables('tables', $tables, array(), _request('tables')?_request('tables'):array());
 		$erreurs['tables'] = "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
 		  $tables
-			) . "</li></ol>\n";
-		if (!count(_request('tables')) AND !_request('tout_restaurer'))
+			) . "</li></ol><input type='hidden' name='check_tables' value='oui' />\n";
+		if (!count(_request('tables')) AND !_request('tout_restaurer') AND _request('check_tables'))
 			$erreurs['tout_restaurer'] = _T('dump:selectionnez_table_a_restaurer');
 	}
 
