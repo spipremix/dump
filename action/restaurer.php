@@ -45,7 +45,7 @@ function action_restaurer_dist($arg=null){
 	utiliser_langue_visiteur();
 	// quand on sort de $export avec true c'est qu'on a fini
 	if ($restaurer($status_file,$redirect)) {
-		dump_end($status_file);
+		dump_end($status_file,'restaurer');
 		include_spip('inc/headers');
 		echo redirige_formulaire(generer_url_ecrire("restaurer",'status='.$status_file,'',true, true));
 	}

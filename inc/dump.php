@@ -233,11 +233,28 @@ function dump_relance($redirect){
  * @param string $status_file
  * @return <type>
  */
-function dump_end($status_file){
+function dump_end($status_file, $action=''){
 	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)
 		OR !$status = unserialize($status))
 		return;
+	
+	switch($action) {
+		#case 'restaurer':
+			// supprimer la structure qui etait stockee dans le dump
+		#	sql_delete('spip_meta',"nom='dump_structure_temp'");
+		#	break;
+		case 'sauvegarder':
+			// stocker dans le dump la structure de la base source
+			$structure = array();
+			foreach($status['tables_copiees'] as $t=>$n)
+				$structure[$t] = sql_showtable($t,true);
+			dump_serveur($status['connect']);
+			spip_connect('dump');
+			sql_insertq('spip_meta',array('nom'=>'dump_structure_temp','valeur'=>serialize($structure),'impt'=>'non'),array(),'dump');
+			break;
+	}
+	
 	$status['etape'] = 'fini';
 	ecrire_fichier($status_file, serialize($status));
 }

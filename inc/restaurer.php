@@ -39,8 +39,22 @@ function inc_restaurer_dist($status_file, $redirect='') {
 		spip_connect('dump');
 
 		// au premier coup on ne fait rien sauf afficher l'ecran de sauvegarde
-		if (_request('step'))
-			$res = base_copier_tables($status_file, $status['tables'], 'dump', '', 'dump_afficher_progres', $max_time, false, lister_tables_noerase(),$status['where']?$status['where']:array());
+		if (_request('step')) {
+			$options = array(
+				'callback_progression' => 'dump_afficher_progres',
+				'max_time' => $max_time,
+				'no_erase_dest' => lister_tables_noerase(),
+				'where' => $status['where']?$status['where']:array(),
+				'desc_tables_dest' => array()
+			);
+			if ($desc = sql_getfetsel('valeur','spip_meta',"nom='dump_structure_temp'",'','','','','dump')
+				AND $desc = unserialize($desc))
+				$options['desc_tables_dest'] = $desc;
+			#var_dump(sql_allfetsel('nom,valeur','spip_meta',"",'','','','','dump'));
+			#die();
+			$res = base_copier_tables($status_file, $status['tables'], 'dump', '', $options);
+		}
+		
 		echo ( "</div>\n");
 
 		if (!$res AND $redirect)

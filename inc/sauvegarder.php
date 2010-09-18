@@ -39,8 +39,16 @@ function inc_sauvegarder_dist($status_file, $redirect='') {
 		spip_connect('dump');
 
 		// au premier coup on ne fait rien sauf afficher l'ecran de sauvegarde
-		if (_request('step'))
-			$res = base_copier_tables($status_file, $status['tables'], '', 'dump', 'dump_afficher_progres', $max_time, false, lister_tables_noerase(),$status['where']?$status['where']:array());
+		if (_request('step')) {
+			$options = array(
+				'callback_progression' => 'dump_afficher_progres',
+				'max_time' => $max_time,
+				'no_erase_dest' => lister_tables_noerase(),
+				'where' => $status['where']?$status['where']:array(),
+			);
+			$res = base_copier_tables($status_file, $status['tables'], '', 'dump', $options);
+		}
+		
 		echo ( "</div>\n");
 
 		if (!$res AND $redirect)
