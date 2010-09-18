@@ -52,7 +52,7 @@ function inc_sauvegarder_dist($status_file, $redirect='') {
 		include_spip('inc/minipres');
 		@ini_set("zlib.output_compression","0"); // pour permettre l'affichage au fur et a mesure
 
-		$titre = _T('info_sauvegarde') . " (".count($status['tables']).") ";
+		$titre = _T('dump:sauvegarde_en_cours') . " (".count($status['tables']).") ";
 		$titre .= balise_img(chemin_image('searching.gif'));
 		echo ( install_debut_html($titre));
 		// script de rechargement auto sur timeout

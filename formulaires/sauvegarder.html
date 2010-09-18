@@ -1,10 +1,3 @@
-#SET{dir_dump,#VAL{'<i>'}|concat{#ENV{_dir_dump},'</i>'}}
-#SET{dir_img,#VAL{'<i>'}|concat{#ENV{_dir_img},'</i>'}}
-
-#BOITE_OUVRIR{'','notice'}
-<p><:texte_admin_tech_01{dossier=#GET{dir_dump},img=#GET{dir_img}}:></p>
-<p><:texte_admin_tech_02{spipnet=#ENV{_spipnet}}:></p>
-#BOITE_FERMER
 <div class="formulaire_spip formulaire_#FORM formulaire_#FORM-#ENV{id,nouveau}">
 
 	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
