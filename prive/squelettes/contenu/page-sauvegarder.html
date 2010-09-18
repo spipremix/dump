@@ -37,9 +37,8 @@
 	[(#GET{taille}|oui)
 	#BOITE_OUVRIR{'','success'}
 
-	#SET{taille,#VAL{taille_octets}|_T{#ARRAY{taille,#GET{taille}}}}
+	[(#SET{archive,[(#VAL{'<b>'}|concat{#ENV{status}|dump_nom_sauvegarde|joli_repertoire}|concat{'</b> ('}|concat{[(#GET{taille}|taille_en_octets)]}|concat{')'})]})]
 
-	#SET{archive,#VAL{'<b>'}|concat{#ENV{status}|dump_nom_sauvegarde|joli_repertoire}|concat{'</b> (',#GET{taille},', ',#ENV{status}|dump_date_sauvegarde|affdate_jourcourt{},')'}}
 	<p>
 	<:info_sauvegarde_reussi_02{archive=#GET{archive}}:> <:info_sauvegarde_reussi_03:> <:info_sauvegarde_reussi_04:>
 	</p>
