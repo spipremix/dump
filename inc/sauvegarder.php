@@ -25,13 +25,15 @@ function sauvegarder_afficher_progres($courant,$total,$table) {
 	static $etape = 1;
 	if (unique($table)) {
 		if ($total<0)
-			echo "<br /><strong>".$etape. '. '."</strong>$table (". (-$total).")";
+			echo "<br /><strong>".$etape. '. '."</strong>$table ";
 		else
 			echo "<br /><strong>".$etape. '. '."$table</strong> ".($courant?" <i>($courant)</i> ":"");
 		$etape++;
 	}
 	if ($total>=0)
 		echo ". ";
+	else 
+		echo "(". (-$total).")";
 	flush();
 }
 

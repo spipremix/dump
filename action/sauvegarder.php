@@ -47,7 +47,7 @@ function action_sauvegarder_dist($arg=null){
 	if ($sauvegarder($status_file,$redirect)) {
 		dump_end($status_file);
 		include_spip('inc/headers');
-		echo redirige_formulaire(generer_url_ecrire("sauvegarde_fin",'status='.$status_file,'',true, true));
+		echo redirige_formulaire(generer_url_ecrire("sauvegarder_fin",'status='.$status_file,'',true, true));
 	}
 
 }

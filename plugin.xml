@@ -3,15 +3,15 @@
 	<auteur>Collectif SPIP</auteur>
 	<icon>prive/themes/spip/images/dump-32.png</icon>
 	<licence>GPL</licence>
-	<version>1.2.2</version>
+	<version>1.2.3</version>
 	<etat>stable</etat>
 	<description>Sauvegarde de la base en SQLite et restauration</description>
 	<prefix>dump</prefix>
 	
-	<bouton id='sauvegarde' parent='bando_administration' position='1'>
+	<bouton id='sauvegarder' parent='bando_administration' position='1'>
 		<icone>images/base-backup-16.png</icone>
 		<titre>texte_sauvegarde_base</titre>
-		<url>sauvegarde</url>
+		<url>sauvegarder</url>
 	</bouton>
 	<bouton id='restaurer' parent='bando_administration' position='2'>
 		<icone>images/base-restore-16.png</icone>
