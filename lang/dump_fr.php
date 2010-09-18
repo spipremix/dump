@@ -29,6 +29,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'confirmer_ecraser_base' => 'Oui, je veux &#233;craser ma base avec cette sauvegarde',
 	'confirmer_ecraser_tables_selection' => 'Oui, je veux &#233;craser les tables s&#233;lectionn&eacute;es avec cette sauvegarde',
 	'selectionnez_table_a_restaurer' => 'S&#233;lectionnez les tables &#224; restaurer',
+	'erreur_restaurer_verifiez' => 'Corrigez l\'erreur pour pouvoir restaurer.'
 
 );
 

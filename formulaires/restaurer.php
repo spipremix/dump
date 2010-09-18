@@ -55,13 +55,16 @@ function formulaires_restaurer_verifier_dist() {
 			$nom = "";
 		}
 	}
+	if (!$nom) {
+		$erreurs['message_erreur'] = _T('dump:erreur_restaurer_verifiez');
+	}
 	
 	if ($nom AND !_request('tout_restaurer')) {
 		$archive = dump_repertoire().$nom;
 		if (!$args = dump_connect_args($archive))
 			$erreurs['tout_restaurer'] = _T('dump:erreur_sqlite_indisponible');
 		dump_serveur($args);
-		$tables = sql_alltable(null, 'dump');
+		$tables = dump_lister_toutes_tables('dump');
 		$tables = dump_saisie_tables('tables', $tables, array(), _request('tables')?_request('tables'):array());
 		$erreurs['tables'] = "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
 		  $tables
@@ -70,11 +73,9 @@ function formulaires_restaurer_verifier_dist() {
 			$erreurs['tout_restaurer'] = _T('dump:selectionnez_table_a_restaurer');
 	}
 
-	if (count($erreurs)>1
-		OR (count($erreurs) AND !isset($erreurs['tables']))) {
-		$erreurs['message_erreur'] = _T('dump:erreur_restaurer_verifiez');
-	}
-	elseif ($nom) {
+	if ($nom
+		AND (!count($erreurs) OR (count($erreurs)==1 AND isset($erreurs['tables'])))
+		) {
 		if (_request('confirm')!==$nom) {
 			$erreurs['message_confirm'] =
 				_T('dump:info_selection_sauvegarde',array('fichier'=>  '<i>'.joli_repertoire(dump_repertoire().$nom)."</i>"))

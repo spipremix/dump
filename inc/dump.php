@@ -96,20 +96,22 @@ function dump_serveur($args=null) {
  * en excluant eventuellement une liste fournie
  * 
  * @param string $serveur
+ * @param array $tables
  * @param array $exclude
  * @return array 
  */
-function dump_lister_toutes_tables($serveur='', $exclude = array()) {
-	list($tables,) = base_liste_table_for_dump($exclude);
-
+function dump_lister_toutes_tables($serveur='', $tables=array(), $exclude = array()) {
+	spip_connect($serveur);
 	$connexion = $GLOBALS['connexions'][$serveur ? $serveur : 0];
 	$prefixe = $connexion['prefixe'];
 
 	$p = '/^' . $prefixe . '/';
 	$res = $tables;
 	foreach(sql_alltable(null,$serveur) as $t) {
-		$t = preg_replace($p, 'spip', $t);
-		if (!in_array($t, $tables) AND !in_array($t, $exclude)) $res[]= $t;
+		if (preg_match($p, $t)) {
+			$t = preg_replace($p, 'spip', $t);
+			if (!in_array($t, $tables) AND !in_array($t, $exclude)) $res[]= $t;
+		}
 	}
 	sort($res);
 	return $res;
