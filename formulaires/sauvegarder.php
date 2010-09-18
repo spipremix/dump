@@ -20,15 +20,19 @@ include_spip('inc/dump');
  */
 function formulaires_sauvegarder_charger_dist(){	
 	$dir_dump = dump_repertoire();
-	list($check,) = base_liste_table_for_dump(lister_tables_noexport());
+
+	// ici on liste tout, les tables exclue sont simplement non cochees
+	$tables = dump_lister_toutes_tables();
+	$exclude = lister_tables_noexport();
 
 	$valeurs = array(
 		'_dir_dump'=>joli_repertoire($dir_dump),
 		'_dir_img'=>joli_repertoire(_DIR_IMG),
 		'_spipnet' => $GLOBALS['home_server'] . '/' .  $GLOBALS['spip_lang'] . '_article1489.html',
 		'nom_sauvegarde' => dump_nom_fichier($dir_dump),
+		'tout_sauvegarder' => (_request('nom_sauvegarde') AND !_request('tout_sauvegarder'))?'':'oui',
 		'_tables' => "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
-				dump_controle_tables_en_base('tables', $check)
+		  dump_saisie_tables('tables', $tables, $exclude, _request('nom_sauvegarde')?(_request('tables')?_request('tables'):array()):null)
 			) . "</li></ol>\n",
 	);
 
@@ -57,7 +61,15 @@ function formulaires_sauvegarder_traiter_dist() {
 	$status_file = base_dump_meta_name(0);
 	$dir_dump = dump_repertoire();
 	$archive = $dir_dump . basename(_request('nom_sauvegarde'),".sqlite");
-	$tables = _request('tables');
+
+	if (_request('tout_sauvegarder')) {
+		// ici on prend toutes les tables sauf celles exclues par defaut
+		// (tables de cache en pratique)
+		$exclude = lister_tables_noexport();
+		$tables = dump_lister_toutes_tables('',$exclude);
+	}
+	else
+		$tables = _request('tables');
 
 	include_spip('inc/dump');
 	$res = dump_init($status_file, $archive, $tables);
@@ -73,7 +85,6 @@ function formulaires_sauvegarder_traiter_dist() {
 		return array('message_erreur'=>$res);
 }
 
-
 /**
  * Fabrique la liste a cocher des tables presentes a sauvegarder
  *
@@ -81,25 +92,22 @@ function formulaires_sauvegarder_traiter_dist() {
  * @param bool $check
  * @return string
  */
-function dump_controle_tables_en_base($name, $check)
-{
-	$p = '/^' . $GLOBALS['table_prefix'] . '/';
-	$res = $check;
-	foreach(sql_alltable() as $t) {
-		$t = preg_replace($p, 'spip', $t);
-		if (!in_array($t, $check)) $res[]= $t;
-	}
-	sort($res);
-
-	foreach ($res as $k => $t) {
+function dump_saisie_tables($name, $tables, $exclude, $post=null) {
+	foreach ($tables as $k => $t) {
+		// par defaut tout est coche sauf les tables dans $exclude
+		if (is_null($post))
+			$check = (in_array($t,$exclude)?false:true);
+		// mais si on a poste une selection, la reprendre
+		else
+			$check = isset($post[$t]);
 
 		$res[$k] = "<input type='checkbox' value='$t' name='$name"
 			. "[]' id='$name$k'"
-			. (in_array($t, $check) ? " checked='checked'" : '')
+			. ($check ? " checked='checked'" : '')
 			. "/>\n"
 			. "<label for='$name$k'>".$t."</label>"
 			. " ("
-			.  sql_countsel($t)
+			. sinon(singulier_ou_pluriel(sql_countsel($t), 'dump:une_donnee', 'dump:nb_donnees'),_T('dump:aucune_donnee'))
 	  		. ")";
 	}
 	return $res;
