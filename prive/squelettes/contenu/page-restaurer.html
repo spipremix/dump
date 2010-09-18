@@ -1,0 +1,17 @@
+[(#REM)
+
+  Squelette
+  (c) 2009 xxx
+  Distribue sous licence GPL
+
+]
+<h1><:texte_restaurer_base:></h1>
+
+#BOITE_OUVRIR{'','notice'}
+#SET{dir_dump,#VAL{'<i>'}|concat{#REM|dump_repertoire|joli_repertoire{},'</i>'}}
+<p><:texte_restaurer_sauvegarde{dossier=#GET{dir_dump}}:></p>
+#BOITE_FERMER
+
+<div class="ajax">
+	#FORMULAIRE_RESTAURER
+</div>

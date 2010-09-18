@@ -115,6 +115,41 @@ function dump_lister_toutes_tables($serveur='', $exclude = array()) {
 	return $res;
 }
 
+
+/**
+ * Fabrique la liste a cocher des tables presentes a sauvegarder
+ *
+ * @param string $name
+ * @param bool $check
+ * @return string
+ */
+function dump_saisie_tables($name, $tables, $exclude, $post=null) {
+	foreach ($tables as $k => $t) {
+		// par defaut tout est coche sauf les tables dans $exclude
+		if (is_null($post))
+			$check = (in_array($t,$exclude)?false:true);
+		// mais si on a poste une selection, la reprendre
+		else
+			$check = in_array($t,$post);
+
+		$res[$k] = "<input type='checkbox' value='$t' name='$name"
+			. "[]' id='$name$k'"
+			. ($check ? " checked='checked'" : '')
+			. "/>\n"
+			. "<label for='$name$k'>".$t."</label>"
+			. " ("
+			. sinon(singulier_ou_pluriel(sql_countsel($t), 'dump:une_donnee', 'dump:nb_donnees'),_T('dump:aucune_donnee'))
+	  		. ")";
+	}
+	return $res;
+}
+
+function dump_connect_args($archive) {
+	if (!$type_serveur = dump_type_serveur())
+		return null;
+	return array(dirname($archive), '', '', '', basename($archive,".sqlite"), $type_serveur, 'spip');
+}
+
 /**
  * Initialiser un dump
  * @param string $status_file
@@ -133,13 +168,13 @@ function dump_init($status_file, $archive, $tables=null, $where=array()){
 		return _T('dump:erreur_sauvegarde_deja_en_cours');
 
 	if (!$type_serveur = dump_type_serveur())
-		return _T('erreur_sqlite_indisponible');
+		return _T('dump:erreur_sqlite_indisponible');
 
 	if (!$tables)
 		list($tables,) = base_liste_table_for_dump(lister_tables_noexport());
 	$status = array('tables'=>$tables,'where'=>$where,'archive'=>$archive);
 
-	$status['connect'] = array(dirname($archive), '', '', '', basename($archive), $type_serveur, 'spip');
+	$status['connect'] = dump_connect_args($archive);
 	dump_serveur($status['connect']);
 	if (!spip_connect('dump'))
 		return _T('dump:erreur_creation_base_sqlite');
@@ -181,5 +216,91 @@ function dump_end($status_file){
 	$status['etape'] = 'fini';
 	ecrire_fichier($status_file, serialize($status));
 }
+
+/**
+ * Lister les fichiers de sauvegarde existant dans un repertoire
+ * trie par nom, date ou taille
+ * 
+ * @param string $dir
+ * @param string $tri
+ * @param string $extension
+ * @param int $limit
+ * @return array
+ */
+function dump_lister_sauvegardes($dir,$tri='nom',$extension="sqlite",$limit = 100) {
+	$liste_dump = preg_files($dir,'\.'.$extension.'$',$limit,false);
+
+	$n = strlen($dir);
+	$tn = $tl = $tt = $td = array();
+	foreach($liste_dump as $fichier){
+		$d = filemtime($fichier);
+		$t = filesize($fichier);
+		$fichier = substr($fichier, $n);
+		$tl[]= array('fichier'=>$fichier,'taille'=>$t,'date'=>$d);
+		$td[] = $d;
+		$tt[] = $t;
+		$tn[] = $fichier;
+	}
+	if ($tri == 'taille')
+		array_multisort($tt, SORT_ASC, $tl);
+	elseif ($tri == 'date')
+		array_multisort($td, SORT_ASC, $tl);
+	else
+		array_multisort($tn, SORT_ASC, $tl);
+	return $tl;
+}
+
+function dump_afficher_liste_sauvegardes($liste,$caption,$name,$selected,$url,$tri='nom',$id="sauvegardes"){
+	if (!count($liste))
+		return '';
+
+	$fichier_defaut = $f ? basename($f) : str_replace(array("@stamp@","@nom_site@"),array("",""),_SPIP_DUMP);
+
+	$self = self();
+	$class = 'row_'.alterner($i+1, 'even', 'odd');
+
+	$table = "<div class='liste-objets dump' id='$id'><table class='spip liste'><thead>"
+	  . ($caption?"<caption><strong class='caption'>$caption</strong></caption>":"")
+		. "<tr class='first_row'>"
+		. ($name?'<th></th>':'')
+	  . '<th>'
+		. lien_ou_expose(ancre_url(parametre_url($url,'tri','nom'),"#$id"), _T('info_nom'), $tri=="nom")
+	  . '</th><th>'
+		. lien_ou_expose(ancre_url(parametre_url($url,'tri','taille'),"#$id"), _T('dump:info_taille'), $tri=="taille")
+	 	. '</th><th>'
+		. lien_ou_expose(ancre_url(parametre_url($url,'tri','date'),"#$id"), _T('public:date'), $tri=="date")
+		. '</th></tr>'
+		. '</thead>'
+		. '<tbody>';
+
+	$i=0;
+	foreach($liste as $f) {
+		$i++;
+		$ligne = "<tr class='".alterner($i,'row_odd','row_even')."'>";
+		if ($name) {
+			$ligne .= "<td><input type='radio' name='$name' value='"
+			  . $f['fichier']
+			  . "' id='dump_$i' "
+			  . ($f['fichier']==$selected?"checked='checked' ":"")
+			  . "/></td>";
+		}
+		$ligne .= "<td class='principale'>\n<label for='dump_$i'>"
+		  . str_replace('/', ' / ', $f['fichier'])
+		  . "</label></td>";
+		$ligne .= "<td style='text-align: right'>"
+		  . taille_en_octets($f['taille'])
+		  . '</td>';
+		$ligne .= '<td>'
+		  . affdate_heure(date('Y-m-d H:i:s',$f['date']))
+		  . '</td>';
+		$ligne .= '</tr>';
+		$table .= $ligne;
+	}
+
+	$table .="</tbody></table></div>";
+
+	return $table;
+}
+
 
 ?>

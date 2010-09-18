@@ -7,21 +7,22 @@
 ]
 #SET{fin,#ENV{status}|dump_verifie_sauvegarde_finie}
 [(#GET{fin}|non)
-<h1><:texte_sauvegarde:></h1>
+	<h1><:texte_sauvegarde:></h1>
 
-#SET{dir_dump,#VAL{'<i>'}|concat{#REM|dump_repertoire|joli_repertoire{},'</i>'}}
-#SET{dir_img,#VAL{'<i>'}|concat{#EVAL{_DIR_IMG}|joli_repertoire{},'</i>'}}
-#SET{spipnet,#EVAL{$GLOBALS}|table_valeur{home_server}|concat{'/',#LANG,'_article1489.html'}}
+	#SET{dir_dump,#VAL{'<i>'}|concat{#REM|dump_repertoire|joli_repertoire{},'</i>'}}
+	#SET{dir_img,#VAL{'<i>'}|concat{#EVAL{_DIR_IMG}|joli_repertoire{},'</i>'}}
+	#SET{spipnet,#EVAL{$GLOBALS}|table_valeur{home_server}|concat{'/',#LANG,'_article1489.html'}}
 
-#BOITE_OUVRIR{'','notice'}
-<p><:texte_admin_tech_01{dossier=#GET{dir_dump},img=#GET{dir_img}}:></p>
-<p><:texte_admin_tech_02{spipnet=#GET{spipnet}}:></p>
-#BOITE_FERMER
+	#BOITE_OUVRIR{'','info'}
+	<p><:texte_admin_tech_01{dossier=#GET{dir_dump},img=#GET{dir_img}}:></p>
+	<p><:texte_admin_tech_02{spipnet=#GET{spipnet}}:></p>
+	#BOITE_FERMER
 
+	<div class="ajax">
+		#FORMULAIRE_SAUVEGARDER
+	</div>
 
-<div class="ajax">
-	#FORMULAIRE_SAUVEGARDER
-</div>
+	[(#REM|dump_repertoire|dump_lister_sauvegardes{#ENV{tri,nom}}|dump_afficher_liste_sauvegardes{<:dump:sauvegardes_existantes:>,'','',#SELF,#ENV{tri,nom}})]
 ]
 [(#GET{fin}|oui)
 	<h1><:info_sauvegarde:></h1>

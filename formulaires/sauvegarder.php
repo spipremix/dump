@@ -85,31 +85,4 @@ function formulaires_sauvegarder_traiter_dist() {
 		return array('message_erreur'=>$res);
 }
 
-/**
- * Fabrique la liste a cocher des tables presentes a sauvegarder
- *
- * @param string $name
- * @param bool $check
- * @return string
- */
-function dump_saisie_tables($name, $tables, $exclude, $post=null) {
-	foreach ($tables as $k => $t) {
-		// par defaut tout est coche sauf les tables dans $exclude
-		if (is_null($post))
-			$check = (in_array($t,$exclude)?false:true);
-		// mais si on a poste une selection, la reprendre
-		else
-			$check = isset($post[$t]);
-
-		$res[$k] = "<input type='checkbox' value='$t' name='$name"
-			. "[]' id='$name$k'"
-			. ($check ? " checked='checked'" : '')
-			. "/>\n"
-			. "<label for='$name$k'>".$t."</label>"
-			. " ("
-			. sinon(singulier_ou_pluriel(sql_countsel($t), 'dump:une_donnee', 'dump:nb_donnees'),_T('dump:aucune_donnee'))
-	  		. ")";
-	}
-	return $res;
-}
 ?>

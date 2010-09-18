@@ -15,7 +15,7 @@
 				[<span class='erreur_message'>(#GET{erreurs})</span>]
 				<input type='text' class='text' name='#GET{name}' id='#GET{name}' value="#ENV{#GET{name}}" />
 	    </li>
-	  	#SET{name,export}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
+	  	#SET{name,tables}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
 	    [<li class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 	    	<label><:install_tables_base:></label>
 				[<span class='erreur_message'>(#GET{erreurs})</span>]
