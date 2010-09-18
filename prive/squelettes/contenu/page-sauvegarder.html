@@ -9,8 +9,8 @@
 [(#GET{fin}|non)
 <h1><:texte_sauvegarde:></h1>
 
-#SET{dir_dump,#VAL{'<i>'}|concat{#ENV{_dir_dump},'</i>'}}
-#SET{dir_img,#VAL{'<i>'}|concat{#ENV{_dir_img},'</i>'}}
+#SET{dir_dump,#VAL{'<i>'}|concat{#REM|dump_repertoire|joli_repertoire{},'</i>'}}
+#SET{dir_img,#VAL{'<i>'}|concat{#EVAL{_DIR_IMG}|joli_repertoire{},'</i>'}}
 
 #BOITE_OUVRIR{'','notice'}
 <p><:texte_admin_tech_01{dossier=#GET{dir_dump},img=#GET{dir_img}}:></p>
@@ -43,8 +43,8 @@
 	<:info_sauvegarde_reussi_02{archive=#GET{archive}}:> <:info_sauvegarde_reussi_03:> <:info_sauvegarde_reussi_04:>
 	</p>
 
-	#BOITE_FERMER
-
 	[(#ENV{status}|dump_afficher_tables_sauvegardees)]
 	]
+	
+	#BOITE_FERMER
 ]

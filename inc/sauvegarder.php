@@ -24,16 +24,16 @@ include_spip('inc/dump');
 function sauvegarder_afficher_progres($courant,$total,$table) {
 	static $etape = 1;
 	if (unique($table)) {
-		if ($total<0)
+		if ($total<0 OR !is_numeric($total))
 			echo "<br /><strong>".$etape. '. '."</strong>$table ";
 		else
 			echo "<br /><strong>".$etape. '. '."$table</strong> ".($courant?" <i>($courant)</i> ":"");
 		$etape++;
 	}
-	if ($total>=0)
+	if (is_numeric($total) AND $total>=0)
 		echo ". ";
 	else 
-		echo "(". (-$total).")";
+		echo "(". (-intval($total)).")";
 	flush();
 }
 
