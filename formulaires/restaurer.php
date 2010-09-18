@@ -65,7 +65,7 @@ function formulaires_restaurer_verifier_dist() {
 			$erreurs['tout_restaurer'] = _T('dump:erreur_sqlite_indisponible');
 		dump_serveur($args);
 		$tables = dump_lister_toutes_tables('dump');
-		$tables = dump_saisie_tables('tables', $tables, array(), _request('tables')?_request('tables'):array());
+		$tables = dump_saisie_tables('tables', $tables, array(), _request('tables')?_request('tables'):array(),'dump');
 		$erreurs['tables'] = "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
 		  $tables
 			) . "</li></ol><input type='hidden' name='check_tables' value='oui' />\n";

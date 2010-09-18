@@ -125,7 +125,7 @@ function dump_lister_toutes_tables($serveur='', $tables=array(), $exclude = arra
  * @param bool $check
  * @return string
  */
-function dump_saisie_tables($name, $tables, $exclude, $post=null) {
+function dump_saisie_tables($name, $tables, $exclude, $post=null, $serveur='') {
 	foreach ($tables as $k => $t) {
 		// par defaut tout est coche sauf les tables dans $exclude
 		if (is_null($post))
@@ -140,7 +140,7 @@ function dump_saisie_tables($name, $tables, $exclude, $post=null) {
 			. "/>\n"
 			. "<label for='$name$k'>".$t."</label>"
 			. " ("
-			. sinon(singulier_ou_pluriel(sql_countsel($t), 'dump:une_donnee', 'dump:nb_donnees'),_T('dump:aucune_donnee'))
+			. sinon(singulier_ou_pluriel(sql_countsel($t,'','','',$serveur), 'dump:une_donnee', 'dump:nb_donnees'),_T('dump:aucune_donnee'))
 	  		. ")";
 	}
 	return $res;

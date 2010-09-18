@@ -31,7 +31,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'confirmer_ecraser_tables_selection' => 'Oui, je veux &#233;craser les tables s&#233;lectionn&eacute;es avec cette sauvegarde',
 	'selectionnez_table_a_restaurer' => 'S&#233;lectionnez les tables &#224; restaurer',
 	'erreur_restaurer_verifiez' => 'Corrigez l\'erreur pour pouvoir restaurer.',
-	'info_restauration_finie' => 'C\'est fini !. La sauvegarde @archive@ a ete restaur&eacute;e dans votre site. Vous pouvez',
+	'info_restauration_finie' => 'C\'est fini !. La sauvegarde @archive@ a &eacute;t&eacute; restaur&eacute;e dans votre site. Vous pouvez',
 
 );
 

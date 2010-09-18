@@ -21,7 +21,7 @@
 
 	#BOITE_OUVRIR{'','success'}
 
-	[(#SET{archive,[(#VAL{'<b>'}|concat{#ENV{status}|dump_nom_sauvegarde|joli_repertoire}|concat{'</b> ('}|concat{[(#GET{taille}|taille_en_octets)]}|concat{')'})]})]
+	[(#SET{archive,[(#VAL{'<br /><b>'}|concat{#ENV{status}|dump_nom_sauvegarde|joli_repertoire}|concat{'</b>'})]})]
 
 	<p>
 	<:dump:info_restauration_finie{archive=#GET{archive}}:>
