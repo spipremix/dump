@@ -33,7 +33,7 @@
 					onfocus="jQuery('#dump_0').attr('checked','chedked');"/>
 				<input type="radio" name="fichier" value="" id="dump_0" style="display:none;"/>
 	    </li>
-	  	#SET{name,tout_restaurer}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
+	  	[#SET{name,tout_restaurer}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
 	    <li class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">
 	    	<label><:install_tables_base:></label>
 				[<span class='erreur_message'>(#GET{erreurs})</span>]
@@ -42,10 +42,10 @@
 								 onchange="jQuery(this).attr('checked')?jQuery('#liste_tables').hide('fast'):jQuery('#liste_tables').show('fast');" />
 					<label for="tout_restaurer"><:dump:tout_restaurer:></label>
 				</div>
-				[<div id="liste_tables"[(#ENV{tout_restaurer}|oui)style="display:none;"]>
+				<div id="liste_tables"[(#ENV{tout_restaurer}|oui)style="display:none;"]>
 				(#ENV**{erreurs}|table_valeur{tables})
-				</div>]
-	    </li>
+				</div>
+	    </li>]
 	  </ul>
 	  [(#REM) ajouter les saisies supplementaires : extra et autre, a cet endroit ]
 	  <!--extra-->

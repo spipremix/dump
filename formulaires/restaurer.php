@@ -25,7 +25,7 @@ function formulaires_restaurer_charger_dist(){
 		'_dir_dump' => dump_repertoire(),
 		'choisi' => _request('fichier')?_request('fichier'):_request('nom'),
 		'nom_sauvegarde' => '',
-		'tout_restaurer' => ((_request('nom_sauvegarde') OR _request('fichier')) AND !_request('tout_restaurer'))?'':'oui',
+		'tout_restaurer' => ((_request('tables') OR _request('fichier')) AND !_request('tout_restaurer'))?'':'oui',
 		'fichier' => '',
 		'tri' => 'nom',
 	);
@@ -59,7 +59,7 @@ function formulaires_restaurer_verifier_dist() {
 		$erreurs['message_erreur'] = _T('dump:erreur_restaurer_verifiez');
 	}
 	
-	if ($nom AND !_request('tout_restaurer')) {
+	if ($nom) {
 		$archive = dump_repertoire().$nom;
 		if (!$args = dump_connect_args($archive))
 			$erreurs['tout_restaurer'] = _T('dump:erreur_sqlite_indisponible');
@@ -69,7 +69,7 @@ function formulaires_restaurer_verifier_dist() {
 		$erreurs['tables'] = "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
 		  $tables
 			) . "</li></ol>\n";
-		if (!count(_request('tables')))
+		if (!count(_request('tables')) AND !_request('tout_restaurer'))
 			$erreurs['tout_restaurer'] = _T('dump:selectionnez_table_a_restaurer');
 	}
 
@@ -99,22 +99,23 @@ function formulaires_restaurer_verifier_dist() {
  * Traiter
  */
 function formulaires_restaurer_traiter_dist() {
-	die();
-	$status_file = base_dump_meta_name(0);
+
+	$archive = (_request('fichier')?_request('fichier'):_request('nom'));
 	$dir_dump = dump_repertoire();
-	$archive = $dir_dump . basename(_request('nom_sauvegarde'),".sqlite");
+	$archive = $dir_dump . basename($archive,".sqlite");
+	
+	$status_file = base_dump_meta_name(0);
 
 	if (_request('tout_restaurer')) {
-		// ici on prend toutes les tables sauf celles exclues par defaut
-		// (tables de cache en pratique)
-		$exclude = lister_tables_noexport();
-		$tables = dump_lister_toutes_tables('',$exclude);
+		$args = dump_connect_args($archive);
+		dump_serveur($args);
+		$tables = dump_lister_toutes_tables('dump');
 	}
 	else
 		$tables = _request('tables');
 
 	include_spip('inc/dump');
-	$res = dump_init($status_file, $archive, $tables);
+	$res = dump_init($status_file, $archive, $tables,array('spip_meta'=>"impt='oui'"));
 
 	if ($res===true) {
 		// on lance l'action restaurer qui va realiser la sauvegarde

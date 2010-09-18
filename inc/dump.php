@@ -195,6 +195,29 @@ function dump_init($status_file, $archive, $tables=null, $where=array()){
 }
 
 /**
+ * Afficher l'avancement de la copie
+ * @staticvar int $etape
+ * @param <type> $courant
+ * @param <type> $total
+ * @param <type> $table
+ */
+function dump_afficher_progres($courant,$total,$table) {
+	static $etape = 1;
+	if (unique($table)) {
+		if ($total<0 OR !is_numeric($total))
+			echo "<br /><strong>".$etape. '. '."</strong>$table ";
+		else
+			echo "<br /><strong>".$etape. '. '."$table</strong> ".($courant?" <i>($courant)</i> ":"");
+		$etape++;
+	}
+	if (is_numeric($total) AND $total>=0)
+		echo ". ";
+	else
+		echo "(". (-intval($total)).")";
+	flush();
+}
+
+/**
  * Ecrire le js pour relancer la procedure de dump
  * @param string $redirect
  * @return string
@@ -304,5 +327,46 @@ function dump_afficher_liste_sauvegardes($liste,$caption,$name,$selected,$url,$t
 	return $table;
 }
 
+
+
+function dump_lire_status($status_file) {
+	$status_file = _DIR_TMP.basename($status_file).".txt";
+	if (!lire_fichier($status_file, $status)
+		OR !$status = unserialize($status))
+		return '';
+
+	return $status;
+}
+
+function dump_verifie_sauvegarde_finie($status_file) {
+	if (!$status=dump_lire_status($status_file)
+	 OR $status['etape']!=='fini')
+	 return '';
+	return ' ';
+}
+
+function dump_nom_sauvegarde($status_file) {
+	if (!$status=dump_lire_status($status_file)
+	  OR !file_exists($f=$status['archive'].".sqlite"))
+		return '';
+
+	return $f;
+}
+
+function dump_taille_sauvegarde($status_file) {
+	if (!$f=dump_nom_sauvegarde($status_file)
+		OR !$s = filesize($f))
+		return '';
+
+	return $s;
+}
+
+function dump_date_sauvegarde($status_file) {
+	if (!$f=dump_nom_sauvegarde($status_file)
+		OR !$d = filemtime($f))
+		return '';
+
+	return date('Y-m-d',$d);
+}
 
 ?>

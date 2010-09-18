@@ -5,13 +5,36 @@
   Distribue sous licence GPL
 
 ]
-<h1><:texte_restaurer_base:></h1>
+#SET{fin,#ENV{status}|dump_verifie_sauvegarde_finie}
+[(#GET{fin}|non)
+	<h1><:texte_restaurer_base:></h1>
 
-#BOITE_OUVRIR{'','notice'}
-#SET{dir_dump,#VAL{'<i>'}|concat{#REM|dump_repertoire|joli_repertoire{},'</i>'}}
-<p><:texte_restaurer_sauvegarde{dossier=#GET{dir_dump}}:></p>
-#BOITE_FERMER
+	#BOITE_OUVRIR{'','notice'}
+	#SET{dir_dump,#VAL{'<i>'}|concat{#REM|dump_repertoire|joli_repertoire{},'</i>'}}
+	<p><:texte_restaurer_sauvegarde{dossier=#GET{dir_dump}}:></p>
+	#BOITE_FERMER
 
-<div class="ajax">
-	#FORMULAIRE_RESTAURER
-</div>
+	<div class="ajax">
+		#FORMULAIRE_RESTAURER
+	</div>
+][(#GET{fin}|oui)
+
+	#BOITE_OUVRIR{'','success'}
+
+	[(#SET{archive,[(#VAL{'<b>'}|concat{#ENV{status}|dump_nom_sauvegarde|joli_repertoire}|concat{'</b> ('}|concat{[(#GET{taille}|taille_en_octets)]}|concat{')'})]})]
+
+	<p>
+	<:dump:info_restauration_finie{archive=#GET{archive}}:>
+	<:info_sauvegarde_reussi_03:> <:info_sauvegarde_reussi_04:>
+	</p>
+
+	#BOITE_FERMER
+
+	[#BOITE_OUVRIR{'','error'}
+	
+	(#ENV{status}|dump_afficher_tables_restaurees_erreurs)
+	#BOITE_FERMER
+
+	]
+
+]

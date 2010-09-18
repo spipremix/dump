@@ -14,7 +14,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 
 include_spip('inc/dump');
 
-function inc_sauvegarder_dist($status_file, $redirect='') {
+function inc_restaurer_dist($status_file, $redirect='') {
 	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)
 		OR !$status = unserialize($status)) {
@@ -28,7 +28,7 @@ function inc_sauvegarder_dist($status_file, $redirect='') {
 		include_spip('inc/minipres');
 		@ini_set("zlib.output_compression","0"); // pour permettre l'affichage au fur et a mesure
 
-		$titre = _T('dump:sauvegarde_en_cours') . " (".count($status['tables']).") ";
+		$titre = _T('dump:restauration_en_cours') . " (".count($status['tables']).") ";
 		$titre .= balise_img(chemin_image('searching.gif'));
 		echo ( install_debut_html($titre));
 		// script de rechargement auto sur timeout
@@ -40,7 +40,7 @@ function inc_sauvegarder_dist($status_file, $redirect='') {
 
 		// au premier coup on ne fait rien sauf afficher l'ecran de sauvegarde
 		if (_request('step'))
-			$res = base_copier_tables($status_file, $status['tables'], '', 'dump', 'dump_afficher_progres', $max_time, false, lister_tables_noerase(),$status['where']?$status['where']:array());
+			$res = base_copier_tables($status_file, $status['tables'], 'dump', '', 'dump_afficher_progres', $max_time, false, lister_tables_noerase(),$status['where']?$status['where']:array());
 		echo ( "</div>\n");
 
 		if (!$res AND $redirect)

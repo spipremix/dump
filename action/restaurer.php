@@ -14,12 +14,12 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 
 /**
  *
- * On arrive ici depuis le #FORMULAIRE_SAUVEGARDER
+ * On arrive ici depuis le #FORMULAIRE_RESTAURER
  * - l'initialisation a ete faite avant redirection
- * - on enchaine sur inc/sauvegarder, qui remplit le dump et renvoie ici a chaque timeout
- * - a chaque coup on relance inc/sauvegarder
- * - lorsque inc/sauvegarder a fini, il retourne true
- * - on renvoie vers exec=sauvegarder pour afficher le resume
+ * - on enchaine sur inc/restaurer, qui remplit le dump et renvoie ici a chaque timeout
+ * - a chaque coup on relance inc/restaurer
+ * - lorsque inc/restaurer a fini, il retourne true
+ * - on renvoie vers exec=restaurer pour afficher le resume
  *
  */
 
@@ -31,23 +31,23 @@ include_spip('inc/dump');
  * 
  * @param string $arg
  */
-function action_sauvegarder_dist($arg=null){
+function action_restaurer_dist($arg=null){
 	if (!$arg) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
 	}
 
 	$status_file = $arg;
-	$redirect = parametre_url(generer_action_auteur('sauvegarder',$status_file),"step",intval(_request('step')+1),'&');
+	$redirect = parametre_url(generer_action_auteur('restaurer',$status_file),"step",intval(_request('step')+1),'&');
 
 	// lancer export qui va se relancer jusqu'a sa fin
-	$sauvegarder = charger_fonction('sauvegarder', 'inc');
+	$restaurer = charger_fonction('restaurer', 'inc');
 	utiliser_langue_visiteur();
 	// quand on sort de $export avec true c'est qu'on a fini
-	if ($sauvegarder($status_file,$redirect)) {
+	if ($restaurer($status_file,$redirect)) {
 		dump_end($status_file);
 		include_spip('inc/headers');
-		echo redirige_formulaire(generer_url_ecrire("sauvegarder",'status='.$status_file,'',true, true));
+		echo redirige_formulaire(generer_url_ecrire("restaurer",'status='.$status_file,'',true, true));
 	}
 
 }
