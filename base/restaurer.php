@@ -14,12 +14,15 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 
 include_spip('inc/dump');
 
-function inc_restaurer_dist($status_file, $redirect='') {
+function base_restaurer_dist($titre='', $reprise=false) {
+	$status_file = _DUMP_STATUS_FILE;
 	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)
 		OR !$status = unserialize($status)) {
 	}
-	else {		
+	else {
+		$redirect = parametre_url(generer_action_auteur('restaurer',_DUMP_STATUS_FILE),"step",intval(_request('step')+1),'&');
+
 		$timeout = ini_get('max_execution_time');
 		// valeur conservatrice si on a pas reussi a lire le max_execution_time
 		if (!$timeout) $timeout=30; // parions sur une valeur tellement courante ...
@@ -57,13 +60,21 @@ function inc_restaurer_dist($status_file, $redirect='') {
 		
 		echo ( "</div>\n");
 
-		if (!$res AND $redirect)
+		if (!$res)
 			echo dump_relance($redirect);
+		
 		echo (install_fin_html());
 		ob_end_flush();
 		flush();
 
-		return $res;
+		if (!$res)
+			exit;
+		
+		// quand on sort de $export avec true c'est qu'on a fini
+		dump_end(_DUMP_STATUS_FILE,'restaurer');
+		include_spip('inc/headers');
+		echo redirige_formulaire(generer_url_ecrire("restaurer",'status='._DUMP_STATUS_FILE,'',true, true));
+
 	}
 }
 

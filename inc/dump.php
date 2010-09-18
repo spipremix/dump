@@ -160,14 +160,14 @@ function dump_connect_args($archive) {
  * @param array $where
  * @return bool/string
  */
-function dump_init($status_file, $archive, $tables=null, $where=array()){
+function dump_init($status_file, $archive, $tables=null, $where=array(),$action='sauvegarde'){
 	$status_file = _DIR_TMP.basename($status_file).".txt";
 
 	if (lire_fichier($status_file, $status)
 		AND $status = unserialize($status)
 		AND $status['etape']!=='fini'
 		AND filemtime($status_file)>=time()-120) // si le fichier status est trop vieux c'est un abandon
-		return _T('dump:erreur_sauvegarde_deja_en_cours');
+		return _T("dump:erreur_{$action}_deja_en_cours");
 
 	if (!$type_serveur = dump_type_serveur())
 		return _T('dump:erreur_sqlite_indisponible');

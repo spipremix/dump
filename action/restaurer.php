@@ -38,16 +38,23 @@ function action_restaurer_dist($arg=null){
 	}
 
 	$status_file = $arg;
-	$redirect = parametre_url(generer_action_auteur('restaurer',$status_file),"step",intval(_request('step')+1),'&');
+	define('_DUMP_STATUS_FILE',$status_file);
+	$status_file = _DIR_TMP.basename($status_file).".txt";
+	if (!lire_fichier($status_file, $status)
+		OR !$status = unserialize($status)) {
 
-	// lancer export qui va se relancer jusqu'a sa fin
-	$restaurer = charger_fonction('restaurer', 'inc');
-	utiliser_langue_visiteur();
-	// quand on sort de $export avec true c'est qu'on a fini
-	if ($restaurer($status_file,$redirect)) {
-		dump_end($status_file,'restaurer');
 		include_spip('inc/headers');
-		echo redirige_formulaire(generer_url_ecrire("restaurer",'status='.$status_file,'',true, true));
+		echo redirige_formulaire(generer_url_ecrire("restaurer",'status='._DUMP_STATUS_FILE,'',true, true));
+	}
+	else {
+		utiliser_langue_visiteur();
+		$archive = "<br />".joli_repertoire($status['archive']);
+		$action = _T('info_restauration_sauvegarde', array('archive' => $archive));
+		#$_POST['action'] = _request('action');
+		#$_POST['arg'] = _request('arg');
+		#$_POST['hash'] = _request('hash');
+		$admin = charger_fonction('admin', 'inc');
+		echo $admin('restaurer', $action, "", true);
 	}
 
 }

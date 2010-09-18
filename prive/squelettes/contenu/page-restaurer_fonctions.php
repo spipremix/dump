@@ -18,7 +18,10 @@ function dump_afficher_tables_restaurees_erreurs($status_file) {
 
 	$corps = "";
 	$erreurs = array();
-	
+
+	if (!$tables)
+		return "<p>"._L("Aucune donnee restauree")."</p>";
+
 	// lister les tables copiees aller verifier dans la base
 	// qu'on a le bon nombre de donnees
 	foreach($tables as $t=>$n) {

@@ -104,7 +104,7 @@ function formulaires_restaurer_traiter_dist() {
 	$dir_dump = dump_repertoire();
 	$archive = $dir_dump . basename($archive,".sqlite");
 	
-	$status_file = base_dump_meta_name(0);
+	$status_file = base_dump_meta_name(0)."_restauration";
 
 	if (_request('tout_restaurer')) {
 		$args = dump_connect_args($archive);
