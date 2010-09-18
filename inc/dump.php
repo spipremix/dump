@@ -39,6 +39,7 @@ function dump_repertoire() {
  * @return string
  */
 function dump_nom_fichier($dir,$extension='sqlite'){
+	include_spip('inc/texte');
 	$site = isset($GLOBALS['meta']['nom_site'])
 	  ? preg_replace(array(",\W,is",",_(?=_),",",_$,"),array("_","",""), couper(translitteration(trim($GLOBALS['meta']['nom_site'])),30,""))
 	  : 'spip';
