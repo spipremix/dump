@@ -14,6 +14,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_connect_dump' => 'Un serveur nomm&eacute; &#171;&#160;@dump@&#160;&#187; existe d&eacute;j&agrave;. Renommez-le.',
 	'avis_probleme_ecriture_fichier' => 'Probl&egrave;me d\'&#233;criture du fichier @fichier@',
 	'sauvegarde_en_cours' => 'Sauvegarde en cours',
+	'details_sauvegarde' => 'D&#233;tails de la sauvegarde&nbsp;:',
 
 	'tout_sauvegarder' => 'Sauvegarder toutes les tables',
 	'une_donnee' => '1 enregistrement',

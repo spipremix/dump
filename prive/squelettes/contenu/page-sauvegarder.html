@@ -43,7 +43,8 @@
 	<:info_sauvegarde_reussi_02{archive=#GET{archive}}:> <:info_sauvegarde_reussi_03:> <:info_sauvegarde_reussi_04:>
 	</p>
 
-	[(#ENV{status}|dump_afficher_tables_sauvegardees)]
+	[<h4><:dump:details_sauvegarde:></h4>
+	(#ENV{status}|dump_afficher_tables_sauvegardees)]
 	]
 	
 	#BOITE_FERMER
