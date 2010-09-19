@@ -4,7 +4,7 @@
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
-	'label_nom_fichier_sauvegarde' => "Fichier de sauvegarde",
+	'label_nom_fichier_sauvegarde' => "Nom du fichier pour la sauvegarde",
 	'label_nom_fichier_restaurer' => 'Ou indiquez le nom du fichier &#224; restaurer',
 	'label_selectionnez_fichier' => 'S&#233;lectionnez un fichier dans la liste',
 
