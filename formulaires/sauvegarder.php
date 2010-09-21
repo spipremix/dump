@@ -24,7 +24,7 @@ function formulaires_sauvegarder_charger_dist(){
 	// ici on liste tout, les tables exclue sont simplement non cochees
 	$exclude = lister_tables_noexport();
 	list($tables,) = base_liste_table_for_dump($exclude);
-	$tables = dump_lister_toutes_tables('',$tables);
+	$tables = base_lister_toutes_tables('',$tables);
 
 	$valeurs = array(
 		'_dir_dump'=>joli_repertoire($dir_dump),
@@ -33,7 +33,7 @@ function formulaires_sauvegarder_charger_dist(){
 		'nom_sauvegarde' => dump_nom_fichier($dir_dump),
 		'tout_sauvegarder' => (_request('nom_sauvegarde') AND !_request('tout_sauvegarder'))?'':'oui',
 		'_tables' => "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
-		  dump_saisie_tables('tables', $tables, $exclude, _request('nom_sauvegarde')?(_request('tables')?_request('tables'):array()):null)
+		  base_saisie_tables('tables', $tables, $exclude, _request('nom_sauvegarde')?(_request('tables')?_request('tables'):array()):null)
 			) . "</li></ol>\n",
 	);
 
@@ -68,7 +68,7 @@ function formulaires_sauvegarder_traiter_dist() {
 		// (tables de cache en pratique)
 		$exclude = lister_tables_noexport();
 		list($tables,) = base_liste_table_for_dump($exclude);
-		$tables = dump_lister_toutes_tables('',$tables,$exclude);
+		$tables = base_lister_toutes_tables('',$tables,$exclude);
 	}
 	else
 		$tables = _request('tables');
