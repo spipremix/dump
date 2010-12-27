@@ -32,7 +32,8 @@ function base_restaurer_dist($titre='', $reprise=false) {
 		@ini_set("zlib.output_compression","0"); // pour permettre l'affichage au fur et a mesure
 
 		$titre = _T('dump:restauration_en_cours') . " (".count($status['tables']).") ";
-		$titre .= balise_img(chemin_image('searching.gif'));
+		$balise_img = chercher_filtre('balise_img');
+		$titre .= $balise_img(chemin_image('searching.gif'));
 		echo ( install_debut_html($titre));
 		// script de rechargement auto sur timeout
 		echo http_script("window.setTimeout('location.href=\"".$redirect."\";',".($timeout*1000).")");
