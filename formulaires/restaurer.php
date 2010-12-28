@@ -109,7 +109,7 @@ function formulaires_restaurer_traiter_dist() {
 	if (_request('tout_restaurer')) {
 		$args = dump_connect_args($archive);
 		dump_serveur($args);
-		$tables = dump_lister_toutes_tables('dump');
+		$tables = base_lister_toutes_tables('dump');
 	}
 	else
 		$tables = _request('tables');
