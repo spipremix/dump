@@ -3,7 +3,7 @@
 	[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{message_ok})</p>]
 	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 	[(#ENV{editable})
-	<form method='post' action='#ENV{action}' enctype='multipart/form-data'><div>
+	<form method='post' action='#ENV{action}'><div>
 		[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{erreurs}|table_valeur{message_confirm})</p>]
 		[(#REM) declarer les hidden qui declencheront le service du formulaire
 		parametre : url d'action ]
@@ -20,9 +20,8 @@
 	    <li class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]"[(#ENV{choisi}|oui)style='display:none;']>
 	    	<label for="#GET{name}"><:dump:label_selectionnez_fichier:></label>
 				[<span class='erreur_message'>(#GET{erreurs})</span>]
-				[<div class="choix">(#ENV{_dir_dump}
-				|dump_lister_sauvegardes{#ENV{tri,nom}}
-				|dump_afficher_liste_sauvegardes{<:dump:sauvegardes_existantes:>,fichier,#ENV{fichier},#SELF,#ENV{tri,nom}})
+				[<div class="choix">
+					(#INCLURE{fond=formulaires/inc-lister-sauvegardes,env,ajax,name=fichier,id=sauvegarde,titre=<:dump:sauvegardes_existantes:>})
 				</div>]
 	    </li>
 	  	#SET{name,nom_sauvegarde}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
@@ -31,7 +30,7 @@
 				[<span class='erreur_message'>(#GET{erreurs})</span>]
 				<input type='text' class='text' name='#GET{name}' id='#GET{name}' value="#ENV{#GET{name}}"
 					onfocus="jQuery('#dump_0').attr('checked','chedked');"/>
-				<input type="radio" name="fichier" value="" id="dump_0" style="display:none;"/>
+				<input type="radio" name="zzz" value="" id="dump_0" style="display:none;"/>
 	    </li>
 	  	[#SET{name,tout_restaurer}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
 	    <li class="editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]">

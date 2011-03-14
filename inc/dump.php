@@ -237,59 +237,6 @@ function dump_lister_sauvegardes($dir,$tri='nom',$extension="sqlite",$limit = 10
 	return $tl;
 }
 
-function dump_afficher_liste_sauvegardes($liste,$caption,$name,$selected,$url,$tri='nom',$id="sauvegardes"){
-	if (!count($liste))
-		return '';
-
-	$fichier_defaut = $f ? basename($f) : str_replace(array("@stamp@","@nom_site@"),array("",""),_SPIP_DUMP);
-
-	$self = self();
-	$class = 'row_'.alterner($i+1, 'even', 'odd');
-
-	$table = "<div class='liste-objets dump' id='$id'><table class='spip liste'><thead>"
-	  . ($caption?"<caption><strong class='caption'>$caption</strong></caption>":"")
-		. "<tr class='first_row'>"
-		. ($name?'<th></th>':'')
-	  . '<th>'
-		. lien_ou_expose(ancre_url(parametre_url($url,'tri','nom'),"#$id"), _T('info_nom'), $tri=="nom")
-	  . '</th><th>'
-		. lien_ou_expose(ancre_url(parametre_url($url,'tri','taille'),"#$id"), _T('dump:info_taille'), $tri=="taille")
-	 	. '</th><th>'
-		. lien_ou_expose(ancre_url(parametre_url($url,'tri','date'),"#$id"), _T('public:date'), $tri=="date")
-		. '</th></tr>'
-		. '</thead>'
-		. '<tbody>';
-
-	$i=0;
-	foreach($liste as $f) {
-		$i++;
-		$ligne = "<tr class='".alterner($i,'row_odd','row_even')."'>";
-		if ($name) {
-			$ligne .= "<td><input type='radio' name='$name' value='"
-			  . $f['fichier']
-			  . "' id='dump_$i' "
-			  . ($f['fichier']==$selected?"checked='checked' ":"")
-			  . "/></td>";
-		}
-		$ligne .= "<td class='principale'>\n<label for='dump_$i'>"
-		  . str_replace('/', ' / ', $f['fichier'])
-		  . "</label></td>";
-		$ligne .= "<td style='text-align: right'>"
-		  . taille_en_octets($f['taille'])
-		  . '</td>';
-		$ligne .= '<td>'
-		  . affdate_heure(date('Y-m-d H:i:s',$f['date']))
-		  . '</td>';
-		$ligne .= '</tr>';
-		$table .= $ligne;
-	}
-
-	$table .="</tbody></table></div>";
-
-	return $table;
-}
-
-
 
 function dump_lire_status($status_file) {
 	$status_file = _DIR_TMP.basename($status_file).".txt";
