@@ -11,7 +11,7 @@
 		</tr>
 		</thead>
 		<tbody>
-			<BOUCLE_dump(POUR){tableau #ENV{_dir_dump}|dump_lister_sauvegardes{#ENV{tri,nom}}}>
+			<BOUCLE_dump(POUR){tableau #ENV{_dir_dump,#REM|dump_repertoire}|dump_lister_sauvegardes{#ENV{tri,nom}}}>
 				<tr class="[(#COMPTEUR_BOUCLE|alterner{row_odd,row_even})]">
 					[<td><input type='radio' name="(#ENV{name,''})" value="#VALEUR{fichier}" id="dump_#COMPTEUR_BOUCLE"
 								[(#ENV{#ENV{name}}|=={#VALEUR{fichier}}|oui)checked="checked"]

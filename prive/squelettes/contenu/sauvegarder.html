@@ -22,7 +22,9 @@
 		#FORMULAIRE_SAUVEGARDER
 	</div>
 
-	[(#REM|dump_repertoire|dump_lister_sauvegardes{#ENV{tri,nom}}|dump_afficher_liste_sauvegardes{<:dump:sauvegardes_existantes:>,'','',#SELF,#ENV{tri,nom}})]
+	[
+		(#INCLURE{fond=formulaires/inc-lister-sauvegardes,env,ajax,name='',id=sauvegarde,titre=<:dump:sauvegardes_existantes:>})
+	]
 ]
 [(#GET{fin}|oui)
 	<h1><:info_sauvegarde:></h1>
