@@ -11,12 +11,12 @@
 	
 	<bouton id='sauvegarder' parent='bando_administration' position='1'>
 		<icone>images/base-backup-16.png</icone>
-		<titre>texte_sauvegarde_base</titre>
+		<titre>dump:texte_sauvegarde_base</titre>
 		<url>sauvegarder</url>
 	</bouton>
 	<bouton id='restaurer' parent='bando_administration' position='2'>
 		<icone>images/base-restore-16.png</icone>
-		<titre>bouton_restaurer_base</titre>
+		<titre>dump:bouton_restaurer_base</titre>
 		<url>restaurer</url>
 	</bouton>
 
