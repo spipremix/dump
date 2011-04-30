@@ -6,7 +6,7 @@
 		<tr class="first_row">
 			[(#ENV{name,''}|oui)<th></th>]
 			<th>[(#SELF|parametre_url{tri,nom}|ancre_url{##ENV{id,sauvegardes}}|lien_ou_expose{<:info_nom:>,#ENV{tri,nom}|=={nom},ajax})]</th>
-			<th>[(#SELF|parametre_url{tri,taille}|ancre_url{##ENV{id,sauvegardes}}|lien_ou_expose{<:dump:info_taille:>,#ENV{tri,nom}|=={taille},ajax})]</th>
+			<th>[(#SELF|parametre_url{tri,taille}|ancre_url{##ENV{id,sauvegardes}}|lien_ou_expose{<:label_poids_fichier:>,#ENV{tri,nom}|=={taille},ajax})]</th>
 			<th>[(#SELF|parametre_url{tri,date}|ancre_url{##ENV{id,sauvegardes}}|lien_ou_expose{<:public:date:>,#ENV{tri,nom}|=={date},ajax})]</th>
 		</tr>
 		</thead>

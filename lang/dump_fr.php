@@ -24,10 +24,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	'tout_sauvegarder' => 'Sauvegarder toutes les tables',
 	'tout_restaurer' => 'Restaurer toutes les tables',
-	'une_donnee' => '1&nbsp;enregistrement',
-	'nb_donnees' => '@nb@&nbsp;enregistrements',
 	'aucune_donnee' => 'vide',
-	'info_taille' => 'Taille', # ???
 	'sauvegardes_existantes' => 'Sauvegardes existantes',
 	'info_selection_sauvegarde' => 'Vous avez choisi de restaurer la sauvegarde @fichier@. Cette opération est irréversible.',
 	'confirmer_ecraser_base' => 'Oui, je veux écraser ma base avec cette sauvegarde',
