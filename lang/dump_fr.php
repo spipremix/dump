@@ -1,27 +1,25 @@
 <?php
-
-// Ceci est un fichier langue de SPIP -- This is a SPIP language file
-// Produit automatiquement par le plugin LangOnet a partir de la langue source fr
-// Module: dump
-// Langue: fr
-// Date: 30-04-2011 13:36:26
-// Items: 38
-
+// This is a SPIP language file  --  Ceci est un fichier langue de SPIP
+// Fichier source, a modifier dans svn://zone.spip.org/spip-zone/_core_/plugins/dump/lang/
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
-// A
+	// A
 	'aucune_donnee' => 'vide',
 	'avis_probleme_ecriture_fichier' => 'Problème d\'écriture du fichier @fichier@',
-// B
+
+	// B
 	'bouton_restaurer_base' => 'Restaurer la base',
-// C
+
+	// C
 	'confirmer_ecraser_base' => 'Oui, je veux écraser ma base avec cette sauvegarde',
 	'confirmer_ecraser_tables_selection' => 'Oui, je veux écraser les tables sélectionnées avec cette sauvegarde',
-// D
+
+	// D
 	'details_sauvegarde' => 'Détails de la sauvegarde :',
-// E
+
+	// E
 	'erreur_aucune_donnee_restauree' => 'Aucune donnée restaurée',
 	'erreur_connect_dump' => 'Un serveur nommé « @dump@ » existe déjà. Renommez-le.',
 	'erreur_creation_base_sqlite' => 'Impossible de créer une base SQLite pour la sauvegarde',
@@ -32,7 +30,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_table_absente' => 'Table @table@ absente',
 	'erreur_table_donnees_manquantes' => 'Table @table@, données manquantes',
 	'erreur_taille_sauvegarde' => 'La sauvegarde semble avoir échoué. Le fichier @fichier@ est vide ou absent.',
-// I
+
+	// I
 	'info_restauration_finie' => 'C\'est fini !. La sauvegarde @archive@ a été restaurée dans votre site. Vous pouvez',
 	'info_restauration_sauvegarde' => 'Restauration de la sauvegarde @archive@',
 	'info_sauvegarde' => 'Sauvegarde',
@@ -40,19 +39,23 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_sauvegarde_reussi_03' => 'retourner à la gestion',
 	'info_sauvegarde_reussi_04' => 'de votre site.',
 	'info_selection_sauvegarde' => 'Vous avez choisi de restaurer la sauvegarde @fichier@. Cette opération est irréversible.',
-// L
+
+	// L
 	'label_nom_fichier_restaurer' => 'Ou indiquez le nom du fichier à restaurer',
 	'label_nom_fichier_sauvegarde' => 'Nom du fichier pour la sauvegarde',
 	'label_selectionnez_fichier' => 'Sélectionnez un fichier dans la liste',
-// R
+
+	// R
 	'restauration_en_cours' => 'Restauration en cours',
-// S
+
+	// S
 	'sauvegarde_en_cours' => 'Sauvegarde en cours',
 	'sauvegardes_existantes' => 'Sauvegardes existantes',
 	'selectionnez_table_a_restaurer' => 'Sélectionnez les tables à restaurer',
-// T
+
+	// T
 	'texte_admin_tech_01' => 'Cette option vous permet de sauvegarder le contenu de la base dans un fichier qui sera stocké dans le répertoire @dossier@. N\'oubliez pas également de récupérer l\'intégralité du répertoire @img@, qui contient les images et les documents utilisés dans les articles et les rubriques.',
-	'texte_admin_tech_02' => 'Attention: cette sauvegarde ne pourra être restaurée QUE dans un site installé sous la même version de SPIP. Il ne faut donc surtout pas « vider la base » en espérant réinstaller la sauvegarde après une mise à jour... Consultez <a href=\"@spipnet@\">la documentation de SPIP</a>.',
+	'texte_admin_tech_02' => 'Attention: cette sauvegarde ne pourra être restaurée QUE dans un site installé sous la même version de SPIP. Il ne faut donc surtout pas « vider la base » en espérant réinstaller la sauvegarde après une mise à jour... Consultez <a href="@spipnet@">la documentation de SPIP</a>.',
 	'texte_restaurer_base' => 'Restaurer le contenu d\'une sauvegarde de la base',
 	'texte_restaurer_sauvegarde' => 'Cette option vous permet de restaurer une sauvegarde précédemment
 		effectuée de la base. A cet effet, le fichier contenant la sauvegarde doit avoir été
@@ -62,6 +65,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Sauvegarder le contenu de la base',
 	'texte_sauvegarde_base' => 'Sauvegarder la base',
 	'tout_restaurer' => 'Restaurer toutes les tables',
-	'tout_sauvegarder' => 'Sauvegarder toutes les tables',
+	'tout_sauvegarder' => 'Sauvegarder toutes les tables'
 );
+
 ?>
