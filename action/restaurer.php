@@ -49,10 +49,7 @@ function action_restaurer_dist($arg=null){
 	else {
 		utiliser_langue_visiteur();
 		$archive = "<br />".joli_repertoire($status['archive']);
-		$action = _T('info_restauration_sauvegarde', array('archive' => $archive));
-		#$_POST['action'] = _request('action');
-		#$_POST['arg'] = _request('arg');
-		#$_POST['hash'] = _request('hash');
+		$action = _T('dump:info_restauration_sauvegarde', array('archive' => $archive));
 		$admin = charger_fonction('admin', 'inc');
 		echo $admin('restaurer', $action, "", true);
 	}
