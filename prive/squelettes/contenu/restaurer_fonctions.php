@@ -20,18 +20,18 @@ function dump_afficher_tables_restaurees_erreurs($status_file) {
 	$erreurs = array();
 
 	if (!$tables)
-		return "<p>"._L("Aucune donnee restauree")."</p>";
+		return "<p>"._T("dump:erreur_aucune_donnee_restauree")."</p>";
 
 	// lister les tables copiees aller verifier dans la base
 	// qu'on a le bon nombre de donnees
 	foreach($tables as $t=>$n) {
 		if (!sql_showtable($t) OR $n===0)
-			$erreurs[$t] = _L("Table <strong>$t</strong> absente");
+			$erreurs[$t] = _T('dump:erreur_table_absente',array('table'=>"<strong>$t</strong>"));
 		else {
 			$n = abs(intval($n));
 			$n_dump = intval(sql_countsel($t));
 			if ($n_dump<$n)
-				$erreurs[$t] = _L("Table <strong>$t</strong>, donnees manquantes");
+				$erreurs[$t] = _T('dump:erreur_table_donnees_manquantes',array('table'=>"<strong>$t</strong>"));;
 		}
 	}
 
