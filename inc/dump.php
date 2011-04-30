@@ -112,7 +112,7 @@ function dump_init($status_file, $archive, $tables=null, $where=array(),$action=
 		AND $status = unserialize($status)
 		AND $status['etape']!=='fini'
 		AND filemtime($status_file)>=time()-120) // si le fichier status est trop vieux c'est un abandon
-		return _T("dump:erreur_{$action}_deja_en_cours");
+		return _T("dump:erreur_".$action."_deja_en_cours");
 
 	if (!$type_serveur = dump_type_serveur())
 		return _T('dump:erreur_sqlite_indisponible');
