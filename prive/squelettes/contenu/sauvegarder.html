@@ -1,13 +1,6 @@
-[(#REM)
-
-  Squelette
-  (c) 2009 xxx
-  Distribue sous licence GPL
-
-]
 #SET{fin,#ENV{status}|dump_verifie_sauvegarde_finie}
 [(#GET{fin}|non)
-	<h1><:dump:texte_sauvegarde:></h1>
+	<h1 class="grostitre"><:dump:texte_sauvegarde:></h1>
 
 	#SET{dir_dump,#VAL{'<i>'}|concat{#REM|dump_repertoire|joli_repertoire{},'</i>'}}
 	#SET{dir_img,#VAL{'<i>'}|concat{#EVAL{_DIR_IMG}|joli_repertoire{},'</i>'}}
