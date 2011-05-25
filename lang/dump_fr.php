@@ -46,7 +46,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_selectionnez_fichier' => 'Sélectionnez un fichier dans la liste',
 
 	// N
-	'nb_donnees' => '@nb enregistrements',
+	'nb_donnees' => '@nb@ enregistrements',
 
 	// R
 	'restauration_en_cours' => 'Restauration en cours',
