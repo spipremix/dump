@@ -45,6 +45,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_nom_fichier_sauvegarde' => 'Nom du fichier pour la sauvegarde',
 	'label_selectionnez_fichier' => 'Sélectionnez un fichier dans la liste',
 
+	// N
+	'nb_donnees' => '@nb enregistrements',
+
 	// R
 	'restauration_en_cours' => 'Restauration en cours',
 
@@ -65,7 +68,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Sauvegarder le contenu de la base',
 	'texte_sauvegarde_base' => 'Sauvegarder la base',
 	'tout_restaurer' => 'Restaurer toutes les tables',
-	'tout_sauvegarder' => 'Sauvegarder toutes les tables'
+	'tout_sauvegarder' => 'Sauvegarder toutes les tables',
+
+	// U
+	'une_donnee' => '1 enregistrement',
 );
 
 ?>
