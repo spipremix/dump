@@ -71,7 +71,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_sauvegarder' => 'Sauvegarder toutes les tables',
 
 	// U
-	'une_donnee' => '1 enregistrement',
+	'une_donnee' => '1 enregistrement'
 );
 
 ?>

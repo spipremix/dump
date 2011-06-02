@@ -47,6 +47,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_nom_fichier_sauvegarde' => 'Nom du fichier pour la sauvegarde', # NEW
 	'label_selectionnez_fichier' => 'Sélectionnez un fichier dans la liste', # NEW
 
+	// N
+	'nb_donnees' => '@nb@ enregistrements', # NEW
+
 	// R
 	'restauration_en_cours' => 'Restauration en cours', # NEW
 
@@ -68,7 +71,10 @@ NUR por retejo starigita per la sama versio de SPIP. Nepre ne " malplenigu la d
 	'texte_sauvegarde' => 'Konservi la enhavon de la datenbazo',
 	'texte_sauvegarde_base' => 'Konservi la datenbazon',
 	'tout_restaurer' => 'Restaurer toutes les tables', # NEW
-	'tout_sauvegarder' => 'Sauvegarder toutes les tables' # NEW
+	'tout_sauvegarder' => 'Sauvegarder toutes les tables', # NEW
+
+	// U
+	'une_donnee' => '1 enregistrement' # NEW
 );
 
 ?>
