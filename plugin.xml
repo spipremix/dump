@@ -5,6 +5,7 @@
 	<licence>GPL</licence>
 	<version>1.4.2</version>
 	<etat>stable</etat>
+	<slogan>Sauvegarde et restauration de la base SPIP</slogan>
 	<description>Sauvegarde de la base en SQLite et restauration</description>
 	<prefix>dump</prefix>
 	<categorie>maintenance</categorie>
