@@ -21,7 +21,8 @@
 	    	<label for="#GET{name}"><:dump:label_selectionnez_fichier:></label>
 				[<span class='erreur_message'>(#GET{erreurs})</span>]
 				[<div class="choix">
-					(#INCLURE{fond=formulaires/inc-lister-sauvegardes,env,ajax,name=fichier,id=sauvegarde,titre=<:dump:sauvegardes_existantes:>})
+					(#INCLURE{fond=formulaires/inc-lister-sauvegardes,env,ajax,name=fichier,id=sauvegarde,titre=<:dump:sauvegardes_existantes:>}
+					|sinon{<:dump:info_aucune_sauvegarde_trouvee:>})
 				</div>]
 	    </li>
 	  	#SET{name,nom_sauvegarde}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
