@@ -34,6 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_taille_sauvegarde' => 'La sauvegarde semble avoir échoué. Le fichier @fichier@ est vide ou absent.', # NEW
 
 	// I
+	'info_aucune_sauvegarde_trouvee' => 'Aucune sauvegarde trouvée', # NEW
 	'info_restauration_finie' => 'C\'est fini !. La sauvegarde @archive@ a été restaurée dans votre site. Vous pouvez', # NEW
 	'info_restauration_sauvegarde' => 'အရံသိမ်းထားသော@archive@ကို ပြန်လည်ဖော်ထုတ်ပါ', # MODIF
 	'info_sauvegarde' => 'အရံသိမ်းဆည်းပါ',

@@ -34,6 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_taille_sauvegarde' => 'يبدو ان النسخ الاحتياطي فشل. فالملف @fichier@ فارغ او غير موجود. ',
 
 	// I
+	'info_aucune_sauvegarde_trouvee' => 'Aucune sauvegarde trouvée', # NEW
 	'info_restauration_finie' => 'انتهى! تم استرجاع النسخة الاحتياطية @archive@ في الموقع؟ يمكنك',
 	'info_restauration_sauvegarde' => 'إسترجاع النسخة الاحتياطية @archive@',
 	'info_sauvegarde' => 'نسخة إحتياطية',
