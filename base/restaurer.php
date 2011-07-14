@@ -74,7 +74,7 @@ function base_restaurer_dist($titre='', $reprise=false) {
 		// quand on sort de $export avec true c'est qu'on a fini
 		dump_end(_DUMP_STATUS_FILE,'restaurer');
 		
-		// verifier les plugins et extensions au sortir de la restaurations
+		// verifier les plugins et extensions au sortir de la restauration
 		include_spip('inc/plugin');
 		actualise_plugins_actifs();
 		
