@@ -34,7 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_taille_sauvegarde' => 'يبدو ان النسخ الاحتياطي فشل. فالملف @fichier@ فارغ او غير موجود. ',
 
 	// I
-	'info_aucune_sauvegarde_trouvee' => 'Aucune sauvegarde trouvée', # NEW
+	'info_aucune_sauvegarde_trouvee' => 'لم يتم العثور على اي نسخة احتياطية',
 	'info_restauration_finie' => 'انتهى! تم استرجاع النسخة الاحتياطية @archive@ في الموقع؟ يمكنك',
 	'info_restauration_sauvegarde' => 'إسترجاع النسخة الاحتياطية @archive@',
 	'info_sauvegarde' => 'نسخة إحتياطية',
@@ -49,7 +49,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_selectionnez_fichier' => 'تحديد ملف في القائمة',
 
 	// N
-	'nb_donnees' => '@nb@ enregistrements', # NEW
+	'nb_donnees' => '@nb@ تسجيل',
 
 	// R
 	'restauration_en_cours' => 'استرجاع قيد التنفيذ',
@@ -74,7 +74,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'tout_sauvegarder' => 'حفظ كل الجداول',
 
 	// U
-	'une_donnee' => '1 enregistrement' # NEW
+	'une_donnee' => 'تسجيل واحد'
 );
 
 ?>
