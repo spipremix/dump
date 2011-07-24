@@ -1,7 +1,7 @@
 <plugin>
 	<nom>Database Dump</nom>
 	<auteur>Collectif SPIP</auteur>
-	<icon>prive/themes/spip/images/dump-32.png</icon>
+	<icon>prive/themes/spip/images/base-backup-32.png</icon>
 	<licence>GPL</licence>
 	<version>1.4.2</version>
 	<etat>stable</etat>
