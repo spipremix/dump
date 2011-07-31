@@ -16,6 +16,6 @@
 
 	<traduire module="dump" reference="fr" gestionnaire="salvatore" />
 
-	<menu nom="sauvegarder" titre="dump:texte_sauvegarde_base" parent="bando_administration" position="1" icone="images/base-backup-16.png" action="sauvegarder" />
-	<menu nom="restaurer" titre="dump:bouton_restaurer_base" parent="bando_administration" position="2" icone="images/base-restore-16.png" action="restaurer" />
+	<menu nom="sauvegarder" titre="dump:texte_sauvegarde_base" parent="menu_administration" position="1" icone="images/base-backup-16.png" action="sauvegarder" />
+	<menu nom="restaurer" titre="dump:bouton_restaurer_base" parent="menu_administration" position="2" icone="images/base-restore-16.png" action="restaurer" />
 </paquet>
