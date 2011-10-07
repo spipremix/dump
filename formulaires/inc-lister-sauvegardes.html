@@ -17,7 +17,7 @@
 								[(#ENV{#ENV{name}}|=={#VALEUR{fichier}}|oui)checked="checked"]
 								/></td>]
 					<td class="principale">
-						<label for="dump_#COMPTEUR_BOUCLE" style="word-wrap:break-word;">#VALEUR{fichier}</label>
+						<label for="dump_#COMPTEUR_BOUCLE" style="word-wrap:break-word;">[(#VALEUR{fichier}|basename{.sqlite})]</label>
 					</td>
 					<td style="text-align:right">
 						[(#VALEUR{taille}|taille_en_octets)]
