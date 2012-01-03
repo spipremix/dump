@@ -1,9 +1,9 @@
 <traduction module="dump" gestionnaire="salvatore" url="http://trad.spip.org" source="svn://zone.spip.org/spip-zone/_core_/plugins/dump/lang/" reference="fr">
 	<langue code="ar">
-		<traducteur nom="kandalaft" />
+		<traducteur nom="George" />
 	</langue>
 	<langue code="en">
-		<traducteur nom="squonk" />
+		<traducteur nom="sQuonk" />
 	</langue>
 	<langue code="fr" />
 	<langue code="sk">
