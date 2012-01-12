@@ -59,10 +59,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// T
 	'texte_admin_tech_01' => 'Cette option vous permet de sauvegarder le contenu de la base dans un fichier qui sera stocké dans le répertoire @dossier@. N\'oubliez pas également de récupérer l\'intégralité du répertoire @img@, qui contient les images et les documents utilisés dans les articles et les rubriques.',
-	'texte_admin_tech_02' => 'Attention: cette sauvegarde ne pourra être restaurée QUE dans un site installé sous la même version de SPIP. Il ne faut donc surtout pas « vider la base » en espérant réinstaller la sauvegarde après une mise à jour... Consultez <a href="@spipnet@">la documentation de SPIP</a>.',
+	'texte_admin_tech_02' => 'Attention: cette sauvegarde ne pourra être restaurée QUE dans un site installé sous la même version de SPIP. Il ne faut donc surtout pas « vider la base » en espérant réinstaller la sauvegarde après une mise à jour… Consultez <a href="@spipnet@">la documentation de SPIP</a>.',
 	'texte_restaurer_base' => 'Restaurer le contenu d\'une sauvegarde de la base',
 	'texte_restaurer_sauvegarde' => 'Cette option vous permet de restaurer une sauvegarde précédemment
-		effectuée de la base. A cet effet, le fichier contenant la sauvegarde doit avoir été
+		effectuée de la base. À cet effet, le fichier contenant la sauvegarde doit avoir été
 		placé dans le répertoire @dossier@.
 		Soyez prudent avec cette fonctionnalité : <b>les modifications, pertes éventuelles, sont
 		irréversibles.</b>',
