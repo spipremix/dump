@@ -62,13 +62,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// T
 	'texte_admin_tech_01' => 'Táto možnosť vám umožňuje uložiť obsah databázy do súboru uloženého v priečinku @dossier@. Tiež nezabudnite obnoviť celý priečinok @img@, v ktorom sú obrázky a súbory, ktoré sa používajú v článkoch a rubrikách.',
-	'texte_admin_tech_02' => 'Pozor: táto záloha môže byť obnovená IBA v takej verzii SPIPu, v ktorej bola vytvorená. Nemôžete "vyprázdniť databázu" a očakávať, že sa po aktualizácii preinštaluje zo zálohy. Viac informácii si môžete prečítať <a href="@spipnet@">v dokumentácii k SPIPu.</a>', # MODIF
+	'texte_admin_tech_02' => 'Pozor: táto záloha môže byť obnovená IBA v takej verzii SPIPu, v ktorej bola vytvorená. Nemôžete "vyprázdniť" databázu a očakávať, že sa po aktualizácii preinštaluje zo zálohy. Viac informácii si môžete prečítať <a href="@spipnet@">v dokumentácii k SPIPu.</a>',
 	'texte_restaurer_base' => 'Obnoviť obsah databázy zálohy',
-	'texte_restaurer_sauvegarde' => 'Táto možnosť vám umožňuje obnoviť predchádzajúcu
-zálohu databázy. Na to treba súbor so zálohou
+	'texte_restaurer_sauvegarde' => 'Táto možnosť vám umožňuje obnoviť predchádzajúcu verziu databázy zo zálohy. Na tento účel treba súbor so zálohou
 presunúť do priečinka @dossier@.
-Pri tejto funkcii buďte veľmi opatrní: <b>akékoľvek potenciálne zmeny ani straty
-sa nedajú odvolať.</b>', # MODIF
+Pri používaní tejto funkcie treba byť obozretný: <b>akékoľvek zmeny ani straty
+sa nedajú odvolať.</b>',
 	'texte_sauvegarde' => 'Záloha obsahu databázy',
 	'texte_sauvegarde_base' => 'Zálohovať databázu',
 	'tout_restaurer' => 'Obnoviť všetky tabuľky',
