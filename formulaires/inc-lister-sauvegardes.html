@@ -19,10 +19,10 @@
 					[<td><input type='radio' name="(#ENV{name,''})" value="#VALEUR{fichier}" id="dump_#COMPTEUR_BOUCLE"
 								[(#ENV{#ENV{name}}|=={#VALEUR{fichier}}|oui)checked="checked"]
 								/></td>]
-					<td class="principale">
-						<label for="dump_#COMPTEUR_BOUCLE" style="word-wrap:break-word;" title="[(#VALEUR{fichier}|basename{.sqlite})]">[(#VALEUR{fichier}|basename{.sqlite}|couper{20})]</label>
+					<td class="fichier principale">
+						<label for="dump_#COMPTEUR_BOUCLE" title="[(#VALEUR{fichier}|basename{.sqlite}|attribut_html)]">[(#VALEUR{fichier}|basename{.sqlite})]</label>
 					</td>
-					<td style="text-align:right">
+					<td class="taille">
 						[(#VALEUR{taille}|taille_en_octets)]
 					</td>
 					<td>
