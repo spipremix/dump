@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de http://www.spip.net/trad-lang/
+// extrait automatiquement de http://trad.spip.org/tradlang_module/dump?lang_cible=ru
 // ** ne pas modifier le fichier **
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
@@ -8,7 +8,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
-	'aucune_donnee' => 'vide', # NEW
+	'aucune_donnee' => 'пусто',
 	'avis_probleme_ecriture_fichier' => 'Problème d\'écriture du fichier @fichier@', # NEW
 
 	// B
@@ -22,9 +22,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'details_sauvegarde' => 'Détails de la sauvegarde :', # NEW
 
 	// E
-	'erreur_aucune_donnee_restauree' => 'Aucune donnée restaurée', # NEW
+	'erreur_aucune_donnee_restauree' => 'Не удалось восстановить информацию',
 	'erreur_connect_dump' => 'Un serveur nommé « @dump@ » existe déjà. Renommez-le.', # NEW
-	'erreur_creation_base_sqlite' => 'Impossible de créer une base SQLite pour la sauvegarde', # NEW
+	'erreur_creation_base_sqlite' => 'Не удалось создать SQLite базу для бэкапа',
 	'erreur_nom_fichier' => 'Ce nom de fichier n\'est pas autorisé', # NEW
 	'erreur_restaurer_verifiez' => 'Corrigez l\'erreur pour pouvoir restaurer.', # NEW
 	'erreur_sauvegarde_deja_en_cours' => 'Vous avez déjà une sauvegarde en cours', # NEW
@@ -44,20 +44,20 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_selection_sauvegarde' => 'Vous avez choisi de restaurer la sauvegarde @fichier@. Cette opération est irréversible.', # NEW
 
 	// L
-	'label_nom_fichier_restaurer' => 'Ou indiquez le nom du fichier à restaurer', # NEW
-	'label_nom_fichier_sauvegarde' => 'Nom du fichier pour la sauvegarde', # NEW
-	'label_selectionnez_fichier' => 'Sélectionnez un fichier dans la liste', # NEW
+	'label_nom_fichier_restaurer' => 'Или укажите название файла резервной копии',
+	'label_nom_fichier_sauvegarde' => 'Название файла резервной копии',
+	'label_selectionnez_fichier' => 'Выбрать файл из списка',
 
 	// N
-	'nb_donnees' => '@nb@ enregistrements', # NEW
+	'nb_donnees' => '@nb@ записей',
 
 	// R
-	'restauration_en_cours' => 'Restauration en cours', # NEW
+	'restauration_en_cours' => 'Идет восстановление',
 
 	// S
-	'sauvegarde_en_cours' => 'Sauvegarde en cours', # NEW
-	'sauvegardes_existantes' => 'Sauvegardes existantes', # NEW
-	'selectionnez_table_a_restaurer' => 'Sélectionnez les tables à restaurer', # NEW
+	'sauvegarde_en_cours' => 'Идет сохранение данных',
+	'sauvegardes_existantes' => 'Резервные копии',
+	'selectionnez_table_a_restaurer' => 'Выбрать таблицы для восстановления',
 
 	// T
 	'texte_admin_tech_01' => 'Вы можете сделать резервную копию базы данных.Файл будет сохранен в каталоге @dossier@.<br />Также не забудьте сделать копию папки @img@, которая содержит изображения и документы, используемые в статьях и разделах.',
@@ -65,14 +65,14 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_restaurer_base' => 'Восстановление из резервной копии',
 	'texte_restaurer_sauvegarde' => 'Эта опция позволяет восстановить сайт из резервной копии базы данных. Для восстановления перепишите файл с резервной копией в папку @dossier@.
 
-<b>Внимание:</b>  вся текущая информация будет заменена информацией с резервной копии. Эта операция необратима, если вы не уверены в том, что вы делаете - сделайте резервную копию перед началом восстановления. ',
+<b>Внимание:</b>  вся текущая информация будет заменена информацией с резервной копии. Эта операция необратима, если вы не уверены в том, что вы делаете - сделайте резервную копию перед началом восстановления. ', # MODIF
 	'texte_sauvegarde' => 'Резервное копирование базы данных',
 	'texte_sauvegarde_base' => 'Резервное копирование базы данных',
-	'tout_restaurer' => 'Restaurer toutes les tables', # NEW
-	'tout_sauvegarder' => 'Sauvegarder toutes les tables', # NEW
+	'tout_restaurer' => 'Восстановить все таблицы',
+	'tout_sauvegarder' => 'Сохранить все таблицы',
 
 	// U
-	'une_donnee' => '1 enregistrement' # NEW
+	'une_donnee' => '1 запись'
 );
 
 ?>
