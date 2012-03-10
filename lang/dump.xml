@@ -6,6 +6,9 @@
 		<traducteur nom="sQuonk" lien="http://trad.spip.org/auteur/squonk" />
 		<traducteur nom="kent1" lien="http://trad.spip.org/auteur/kent1" />
 	</langue>
+	<langue code="fa" url="http://trad.spip.org/tradlang_module/dump?lang_cible=fa">
+		<traducteur nom="Davood Hossein" lien="http://trad.spip.org/auteur/davood-hossein" />
+	</langue>
 	<langue code="fr" />
 	<langue code="nl" url="http://trad.spip.org/tradlang_module/dump?lang_cible=nl">
 		<traducteur nom="gerbrand" lien="http://trad.spip.org/auteur/gerbrand" />

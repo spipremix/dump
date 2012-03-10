@@ -1,6 +1,6 @@
 <?php
 // This is a SPIP language file  --  Ceci est un fichier langue de SPIP
-// extrait automatiquement de http://www.spip.net/trad-lang/
+// extrait automatiquement de http://trad.spip.org/tradlang_module/dump?lang_cible=fa
 // ** ne pas modifier le fichier **
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
@@ -8,34 +8,42 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
-	'aucune_donnee' => 'vide', # NEW
-	'avis_probleme_ecriture_fichier' => 'Problème d\'écriture du fichier @fichier@', # NEW
+	'aucune_donnee' => 'هيچ داده‌اي در پرونده نيست.',
+	'avis_probleme_ecriture_fichier' => 'مشكل نوشتن پرونده‌ي 
+ @fichier@',
 
 	// B
 	'bouton_restaurer_base' => 'باز سازى پايگاه',
 
 	// C
-	'confirmer_ecraser_base' => 'Oui, je veux écraser ma base avec cette sauvegarde', # NEW
-	'confirmer_ecraser_tables_selection' => 'Oui, je veux écraser les tables sélectionnées avec cette sauvegarde', # NEW
+	'confirmer_ecraser_base' => 'بله، مي‌خواهم پايگاه داده‌هايم را با اين بك‌آپ بازنويسي كنم',
+	'confirmer_ecraser_tables_selection' => 'بله، مي‌خواهم جدول منتخب را با اين بك‌آپ بازنويسي كنم',
 
 	// D
-	'details_sauvegarde' => 'Détails de la sauvegarde :', # NEW
+	'details_sauvegarde' => 'حزئيات بك‌آپ :',
 
 	// E
-	'erreur_aucune_donnee_restauree' => 'Aucune donnée restaurée', # NEW
-	'erreur_connect_dump' => 'Un serveur nommé « @dump@ » existe déjà. Renommez-le.', # NEW
-	'erreur_creation_base_sqlite' => 'Impossible de créer une base SQLite pour la sauvegarde', # NEW
-	'erreur_nom_fichier' => 'Ce nom de fichier n\'est pas autorisé', # NEW
-	'erreur_restaurer_verifiez' => 'Corrigez l\'erreur pour pouvoir restaurer.', # NEW
-	'erreur_sauvegarde_deja_en_cours' => 'Vous avez déjà une sauvegarde en cours', # NEW
-	'erreur_sqlite_indisponible' => 'Impossible de faire une sauvegarde SQLite sur votre hébergement', # NEW
-	'erreur_table_absente' => 'Table @table@ absente', # NEW
-	'erreur_table_donnees_manquantes' => 'Table @table@, données manquantes', # NEW
-	'erreur_taille_sauvegarde' => 'La sauvegarde semble avoir échoué. Le fichier @fichier@ est vide ou absent.', # NEW
+	'erreur_aucune_donnee_restauree' => 'هيچ داده‌اي ذخيره نشده',
+	'erreur_connect_dump' => 'سروري به نام 
+« @dump@ »
+ پيشتر وجود داشته. دوباره آن را  نام‌گذاري كنيد',
+	'erreur_creation_base_sqlite' => 'ايجاد يك پايگاه اس.كيو.لايت براي اين بك‌آپ ممكن نيست',
+	'erreur_nom_fichier' => 'اين نام پرونده مجاز نيست',
+	'erreur_restaurer_verifiez' => 'براي ذخيره شدن خطا را برطرف كنيد.',
+	'erreur_sauvegarde_deja_en_cours' => 'شما يك بك‌آپ در جريان داريد',
+	'erreur_sqlite_indisponible' => 'گرفتن بك‌آپ اس.كيو.لايت روي ميزبان ارايه‌‌دهنده‌ي شما ممكن نيست',
+	'erreur_table_absente' => '@table@ فقدان جدول ',
+	'erreur_table_donnees_manquantes' => '@table@ جدول ،
+نبود داده‌ها',
+	'erreur_taille_sauvegarde' => 'به نظر مي‌رسد بك‌اپ موفق نبوده، پرونده‌ي
+@fichier@
+  خالي است يا موجود نيست',
 
 	// I
 	'info_aucune_sauvegarde_trouvee' => 'Aucune sauvegarde trouvée', # NEW
-	'info_restauration_finie' => 'C\'est fini !. La sauvegarde @archive@ a été restaurée dans votre site. Vous pouvez', # NEW
+	'info_restauration_finie' => 'تمام شد. بك‌آپ
+@archive@
+روي سايت شما ذخيره شد. شما مي‌توانيد',
 	'info_restauration_sauvegarde' => 'استفرار مجدد حفظ @archive@',
 	'info_sauvegarde' => 'ذخيره',
 	'info_sauvegarde_reussi_02' => 'ذخيره پايگاه در  @archive@انجام شد. شما ميتوانيد',
@@ -64,7 +72,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_admin_tech_02' => 'توجه! اين بك‌ آپ (ذخيره) فقط بايد  با همان نسخه‌ي اسپيپي كه ساخته شده بازسازي شود. به خصوص نبايد پايگاه‌داده‌ها را به منظور نصب دوباره‌ي بك‌آپ (ذخيره) پس از بروز رساني خالي كرد... براى اطلاع بيشتر به <a href="@spipnet@">la اسناد اسپيپ</a> رجوع كنيد.', # MODIF
 	'texte_restaurer_base' => 'محتوى ذخيره پايگاه را بازسازى كنيد',
 	'texte_restaurer_sauvegarde' => 'اين گزينش بشما امكان بازسازى ذخيره از پايگاه را ميدهد. دراينصورت بايد فايل محتوى ذخيره را در اين رپرتوار قرار دهيد.@dossier@.
-با احتياط عمل كنيد چون هرگونه دستكارى يا از بين رفتن غيرقابل برگشت ميباشد.</b>',
+با احتياط عمل كنيد چون هرگونه دستكارى يا از بين رفتن غيرقابل برگشت ميباشد.</b>', # MODIF
 	'texte_sauvegarde' => 'محتوى پايگاه را ذخيره كنيد',
 	'texte_sauvegarde_base' => 'پايگاه را ذخيره كنيد',
 	'tout_restaurer' => 'Restaurer toutes les tables', # NEW
