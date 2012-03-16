@@ -9,24 +9,24 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// A
 	'aucune_donnee' => 'пусто',
-	'avis_probleme_ecriture_fichier' => 'Problème d\'écriture du fichier @fichier@', # NEW
+	'avis_probleme_ecriture_fichier' => 'Не удалось сохранить файл @fichier@',
 
 	// B
 	'bouton_restaurer_base' => 'Восстановление базы данных',
 
 	// C
-	'confirmer_ecraser_base' => 'Oui, je veux écraser ma base avec cette sauvegarde', # NEW
-	'confirmer_ecraser_tables_selection' => 'Oui, je veux écraser les tables sélectionnées avec cette sauvegarde', # NEW
+	'confirmer_ecraser_base' => 'Да, я хочу перезаписать всю текущую информацию данными из резервной копии',
+	'confirmer_ecraser_tables_selection' => 'Да, я хочу заменить информацию в выбранных таблицах данными из резервной копии.',
 
 	// D
-	'details_sauvegarde' => 'Détails de la sauvegarde :', # NEW
+	'details_sauvegarde' => 'Информация о резервной копии :',
 
 	// E
 	'erreur_aucune_donnee_restauree' => 'Не удалось восстановить информацию',
-	'erreur_connect_dump' => 'Un serveur nommé « @dump@ » existe déjà. Renommez-le.', # NEW
+	'erreur_connect_dump' => 'Сервер « @dump@ » уже существует. Переименуйте его.',
 	'erreur_creation_base_sqlite' => 'Не удалось создать SQLite базу для бэкапа',
-	'erreur_nom_fichier' => 'Ce nom de fichier n\'est pas autorisé', # NEW
-	'erreur_restaurer_verifiez' => 'Corrigez l\'erreur pour pouvoir restaurer.', # NEW
+	'erreur_nom_fichier' => 'Данное называние файла не разрешено',
+	'erreur_restaurer_verifiez' => 'Исправьте ошибки для того, что бы продолжить восстановление.',
 	'erreur_sauvegarde_deja_en_cours' => 'Vous avez déjà une sauvegarde en cours', # NEW
 	'erreur_sqlite_indisponible' => 'Impossible de faire une sauvegarde SQLite sur votre hébergement', # NEW
 	'erreur_table_absente' => 'Table @table@ absente', # NEW
@@ -61,11 +61,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// T
 	'texte_admin_tech_01' => 'Вы можете сделать резервную копию базы данных.Файл будет сохранен в каталоге @dossier@.<br />Также не забудьте сделать копию папки @img@, которая содержит изображения и документы, используемые в статьях и разделах.',
-	'texte_admin_tech_02' => '<br /><b>Предупреждение:</b> эта резервная копия может быть восстановлена только той же версией SPIP, которой была создана. Для получения подробной  информации смотрите <a href="@spipnet@">документацию</a>.', # MODIF
+	'texte_admin_tech_02' => 'Внимание: вы можете востаносить резервную копию только в той же версии SPIP, в какой вы ее создали. Подробнее в <a href="@spipnet@">документации</a>.',
 	'texte_restaurer_base' => 'Восстановление из резервной копии',
-	'texte_restaurer_sauvegarde' => 'Эта опция позволяет восстановить сайт из резервной копии базы данных. Для восстановления перепишите файл с резервной копией в папку @dossier@.
+	'texte_restaurer_sauvegarde' => 'Вы можете восстановить сайт из резервной копии. Для этого поместите файл с копией в папку @dossier@.
 
-<b>Внимание:</b>  вся текущая информация будет заменена информацией с резервной копии. Эта операция необратима, если вы не уверены в том, что вы делаете - сделайте резервную копию перед началом восстановления. ', # MODIF
+
+<b>Внимание:</b>  вся текущая информация будет заменена информацией с резервной копии. Эта операция необратима, если вы не уверены в том, что вы делаете - сделайте резервную копию перед началом восстановления. ',
 	'texte_sauvegarde' => 'Резервное копирование базы данных',
 	'texte_sauvegarde_base' => 'Резервное копирование базы данных',
 	'tout_restaurer' => 'Восстановить все таблицы',
