@@ -27,10 +27,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_creation_base_sqlite' => 'Не удалось создать SQLite базу для бэкапа',
 	'erreur_nom_fichier' => 'Данное называние файла не разрешено',
 	'erreur_restaurer_verifiez' => 'Исправьте ошибки для того, что бы продолжить восстановление.',
-	'erreur_sauvegarde_deja_en_cours' => 'Vous avez déjà une sauvegarde en cours', # NEW
-	'erreur_sqlite_indisponible' => 'Impossible de faire une sauvegarde SQLite sur votre hébergement', # NEW
-	'erreur_table_absente' => 'Table @table@ absente', # NEW
-	'erreur_table_donnees_manquantes' => 'Table @table@, données manquantes', # NEW
+	'erreur_sauvegarde_deja_en_cours' => 'Резервная копия уже создается',
+	'erreur_sqlite_indisponible' => 'Не получается сделать резервную копию SQLite на вашем хостинге',
+	'erreur_table_absente' => 'Не хватает таблицы @table@ ',
+	'erreur_table_donnees_manquantes' => 'В таблице @table@ нет информации',
 	'erreur_taille_sauvegarde' => 'La sauvegarde semble avoir échoué. Le fichier @fichier@ est vide ou absent.', # NEW
 
 	// I
