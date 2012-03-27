@@ -50,6 +50,13 @@ function action_sauvegarder_dist($arg=null){
 		echo redirige_formulaire(generer_url_ecrire("sauvegarder",'status='.$status_file,'',true, true));
 	}
 
+	// forcer l'envoi du buffer par tous les moyens !
+	echo(str_repeat("<br />\r\n",256));
+	while (@ob_get_level()){
+		@ob_flush();
+		@flush();
+		@ob_end_flush();
+	}
 }
 
 ?>

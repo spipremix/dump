@@ -54,6 +54,14 @@ function action_restaurer_dist($arg=null){
 		echo $admin('restaurer', $action, "", true);
 	}
 
+	// forcer l'envoi du buffer par tous les moyens !
+	echo(str_repeat("<br />\r\n",256));
+	while (@ob_get_level()){
+		@ob_flush();
+		@flush();
+		@ob_end_flush();
+	}
+
 }
 
 ?>

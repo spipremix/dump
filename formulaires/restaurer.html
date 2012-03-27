@@ -17,7 +17,7 @@
 				><:bouton_changer:></a>&#93;
 	    </li>]
 	  	#SET{name,fichier}#SET{erreurs,#ENV**{erreurs}|table_valeur{#GET{name}}}#SET{obli,obligatoire}
-	    <li class="editer editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]"[(#ENV{choisi}|oui)style='display:none;']>
+	    <li class="editer pleine_largeur editer_[(#GET{name})][ (#GET{obli})][ (#GET{erreurs}|oui)erreur]"[(#ENV{choisi}|oui)style='display:none;']>
 	    	<label for="#GET{name}"><:dump:label_selectionnez_fichier:></label>
 				[<span class='erreur_message'>(#GET{erreurs})</span>]
 				[<div class="choix">
