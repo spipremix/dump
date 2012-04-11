@@ -13,6 +13,7 @@
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
 include_spip('inc/dump');
+include_spip('inc/actions');
 
 function base_restaurer_dist($titre='', $reprise=false) {
 	$status_file = _DUMP_STATUS_FILE;
