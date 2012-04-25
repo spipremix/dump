@@ -10,6 +10,9 @@
 		<traducteur nom="Davood Hossein" lien="http://trad.spip.org/auteur/davood-hossein" />
 	</langue>
 	<langue code="fr" />
+	<langue code="it" url="http://trad.spip.org/tradlang_module/dump?lang_cible=it">
+		<traducteur nom="phante" lien="http://trad.spip.org/auteur/phante" />
+	</langue>
 	<langue code="nl" url="http://trad.spip.org/tradlang_module/dump?lang_cible=nl">
 		<traducteur nom="gerbrand" lien="http://trad.spip.org/auteur/gerbrand" />
 		<traducteur nom="Suske" lien="http://trad.spip.org/auteur/suske" />
