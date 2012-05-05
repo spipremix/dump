@@ -39,7 +39,7 @@
 				[<span class='erreur_message'>(#GET{erreurs})</span>]
 				<div class="choix">
 					<input type="checkbox" name="tout_restaurer" id="tout_restaurer" value="oui"[(#ENV{tout_restaurer}|oui)checked="checked"]
-								 onchange="jQuery(this).attr('checked')?jQuery('#liste_tables').hide('fast'):jQuery('#liste_tables').show('fast');" />
+								 onchange="jQuery(this).prop('checked')?jQuery('#liste_tables').hide('fast'):jQuery('#liste_tables').show('fast');" />
 					<label for="tout_restaurer"><:dump:tout_restaurer:></label>
 				</div>
 				<div id="liste_tables"[(#ENV{tout_restaurer}|oui)style="display:none;"]>
