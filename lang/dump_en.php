@@ -63,11 +63,8 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_admin_tech_01' => 'This option lets you save the content of the database as a file in the directory @dossier@. Do not forget to retrieve the whole @img@ directory, which contains the images and documents used in the articles and sections.',
 	'texte_admin_tech_02' => 'Warning: this backup can ONLY be restored by the same version of SPIP that created it. You cannot "empty the database" and expect to reinstall the backup after an upgrade...  Refer to <a href="@spipnet@">SPIP documentation</a>.',
 	'texte_restaurer_base' => 'Restore a database content backup',
-	'texte_restaurer_sauvegarde' => 'This option allows you to restore a previous
-backup of the database. For this, the file containing the backup should have been
-stored in the directory @dossier@.
-Be very careful with this feature: <b>any potential modifications or losses are
-irreversible.</b>',
+	'texte_restaurer_sauvegarde' => 'This option allows you to restore a previous backup of the database. For this, the file containing the backup should have been stored in the directory @dossier@.
+Be very careful with this feature: <b>any potential modifications or losses are irreversible.</b>',
 	'texte_sauvegarde' => 'Backup database content',
 	'texte_sauvegarde_base' => 'Backup the database',
 	'tout_restaurer' => 'Restore all the tables',
