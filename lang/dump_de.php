@@ -34,7 +34,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_taille_sauvegarde' => 'Die Sicherung ist anscheinend fehlgeschlagen. Die Datei @fichier@ ist leer oder nicht vorhanden.',
 
 	// I
-	'info_aucune_sauvegarde_trouvee' => 'Aucune sauvegarde trouvée', # NEW
+	'info_aucune_sauvegarde_trouvee' => 'Keine Sicherheitskopie gefunden',
 	'info_restauration_finie' => 'Fertig ! Die Sicherung @archive@ wurde in Ihre Website eingespielt. Sie können ',
 	'info_restauration_sauvegarde' => 'Wiederherstellung der Sicherung @archive@',
 	'info_sauvegarde' => 'Sicherung',
@@ -49,7 +49,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'label_selectionnez_fichier' => 'Wählen Sie eine Datei aus der Liste',
 
 	// N
-	'nb_donnees' => '@nb@ enregistrements', # NEW
+	'nb_donnees' => '@nb@ Sicherheitskopien',
 
 	// R
 	'restauration_en_cours' => 'Wiederherstellung läuft',
@@ -67,10 +67,10 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Inhalt der Datenbank sichern',
 	'texte_sauvegarde_base' => 'Datenbank sichern',
 	'tout_restaurer' => 'Alle Tabellen wieder herstellen',
-	'tout_sauvegarder' => 'Sauvegarder toutes les tables', # NEW
+	'tout_sauvegarder' => 'Alle Tabellen sichern',
 
 	// U
-	'une_donnee' => '1 enregistrement' # NEW
+	'une_donnee' => '1 Sicherheitskopie'
 );
 
 ?>
