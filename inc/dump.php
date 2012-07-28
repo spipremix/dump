@@ -12,6 +12,9 @@
 
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
+/**
+ * API permettant la manipulation des sauvegardes
+ */
 
 /**
  * Repertoire de sauvegarde
@@ -34,9 +37,9 @@ function dump_repertoire() {
  * Nom du fichier de sauvegarde
  * la fourniture de l'extension permet de verifier que le nom n'existe pas deja
  *
- * @param string $dir
- * @param string $extension
- * @return string
+ * @param string $dir           Chemin de stockage du fichier
+ * @param string $extension     Extension du fichier de sauvegarde
+ * @return string 
  */
 function dump_nom_fichier($dir,$extension='sqlite'){
 	include_spip('inc/texte');
@@ -79,7 +82,7 @@ function dump_type_serveur() {
  * si on passe $args, les arguments de la connexion sont memorises
  * renvoie toujours les derniers arguments memorises
  *
- * @staticvar array $connect_args
+ * @staticvar array $connect_args    Pour stocker le premier conteneur
  * @param array $connect
  * @return array
  */
@@ -99,10 +102,12 @@ function dump_connect_args($archive) {
 
 /**
  * Initialiser un dump
- * @param string $status_file
- * @param string $archive
- * @param array $tables
- * @param array $where
+ *
+ * @param string $status_file   Fichier contenant les informations serialisees sur le statut de l'export
+ * @param string $archive 		Nom de l'archive (stockee dans le fichier de statut)
+ * @param array $tables         Liste des tables a exporter (autocaculee par defaut)
+ * @param array $where          Condition sur l'export
+ * @param string $action        Pour differencier la sauvegarde de l'import
  * @return bool/string
  */
 function dump_init($status_file, $archive, $tables=null, $where=array(),$action='sauvegarde'){
@@ -141,10 +146,11 @@ function dump_init($status_file, $archive, $tables=null, $where=array(),$action=
 
 /**
  * Afficher l'avancement de la copie
- * @staticvar int $etape
- * @param <type> $courant
- * @param <type> $total
- * @param <type> $table
+ *
+ * @staticvar int $etape    Nombre de fois ou on est passe dans cette foncion
+ * @param <type> $courant   Flag pour indiquer si c'est la table sur laquelle on travaille actuellement
+ * @param <type> $total     Nombre total de tables
+ * @param <type> $table     Nom de la table
  */
 function dump_afficher_progres($courant,$total,$table) {
 	static $etape = 1;
@@ -164,8 +170,9 @@ function dump_afficher_progres($courant,$total,$table) {
 
 /**
  * Ecrire le js pour relancer la procedure de dump
- * @param string $redirect
- * @return string
+ *
+ * @param string $redirect  URL de la prochaine etape du dump
+ * @return string           Code HTML de redirection
  */
 function dump_relance($redirect){
 	// si Javascript est dispo, anticiper le Time-out
@@ -175,8 +182,8 @@ function dump_relance($redirect){
 
 /**
  * Marquer la procedure de dump comme finie
- * @param string $status_file
- * @return <type>
+ *
+ * @param string $status_file    Fichier qui memorise les infos utiles concernant la sauvegarde en cours
  */
 function dump_end($status_file, $action=''){
 	$status_file = _DIR_TMP.basename($status_file).".txt";
@@ -209,10 +216,10 @@ function dump_end($status_file, $action=''){
  * Lister les fichiers de sauvegarde existant dans un repertoire
  * trie par nom, date ou taille
  * 
- * @param string $dir
- * @param string $tri
- * @param string $extension
- * @param int $limit
+ * @param string $dir           Repertoire de sauvegarde
+ * @param string $tri           Tri pour recuperer les fichiers
+ * @param string $extension     Extension des fichiers de sauvegarde
+ * @param int $limit            Nombre max de fichiers listes
  * @return array
  */
 function dump_lister_sauvegardes($dir,$tri='nom',$extension="sqlite",$limit = 100) {
@@ -238,7 +245,12 @@ function dump_lister_sauvegardes($dir,$tri='nom',$extension="sqlite",$limit = 10
 	return $tl;
 }
 
-
+/**
+ * Extraire le statut contenu dans un fichier
+ * 
+ * @param $status_file       Nom du fichier stocke dans _DIR_TMP
+ * @return array
+ */
 function dump_lire_status($status_file) {
 	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)
@@ -248,6 +260,12 @@ function dump_lire_status($status_file) {
 	return $status;
 }
 
+/**
+ * Verifier qu'un sauvegarde est finie
+ * 
+ * @param $status_file      Nom du fichier stocke dans _DIR_TMP
+ * @return string           Chaine non vide s'il reste des choses a faire
+ */
 function dump_verifie_sauvegarde_finie($status_file) {
 	if (!$status=dump_lire_status($status_file)
 	 OR $status['etape']!=='fini')
@@ -255,6 +273,12 @@ function dump_verifie_sauvegarde_finie($status_file) {
 	return ' ';
 }
 
+/**
+ * Recuperer le nom du fichier d'archivage qui est memorise dans le fichier de statut
+ * 
+ * @param $status_file      Nom du fichier stocke dans _DIR_TMP
+ * @return string           Nom ou chaine vide si on a un probleme
+ */
 function dump_nom_sauvegarde($status_file) {
 	if (!$status=dump_lire_status($status_file)
 	  OR !file_exists($f=$status['archive'].".sqlite"))
@@ -263,6 +287,12 @@ function dump_nom_sauvegarde($status_file) {
 	return $f;
 }
 
+/**
+ * Recuperer la taille du fichier de sauvegarde
+ * 
+ * @param $status_file      Nom du fichier stocke dans _DIR_TMP
+ * @return string/int       Taille ou Chaine vide en cas de probleme
+ */
 function dump_taille_sauvegarde($status_file) {
 	if (!$f=dump_nom_sauvegarde($status_file)
 		OR !$s = filesize($f))
@@ -271,6 +301,12 @@ function dump_taille_sauvegarde($status_file) {
 	return $s;
 }
 
+/**
+ * Recuperer la date de derniere modification du fichier de sauvegarde
+ * 
+ * @param $status_file      Nom du fichier stocke dans _DIR_TMP
+ * @return string/int       Date ou Chaine vide en cas de probleme
+ */
 function dump_date_sauvegarde($status_file) {
 	if (!$f=dump_nom_sauvegarde($status_file)
 		OR !$d = filemtime($f))

@@ -15,6 +15,12 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 include_spip('inc/dump');
 include_spip('inc/actions');
 
+/**
+ * Restauration d'une sauvegarde
+ *
+ * @param string $titre     Titre de la page
+ * @param bool $reprise     true s'il s'agit d'une reprise de sauvegarde
+ */
 function base_restaurer_dist($titre='', $reprise=false) {
 	$status_file = _DUMP_STATUS_FILE;
 	$status_file = _DIR_TMP.basename($status_file).".txt";
@@ -55,8 +61,6 @@ function base_restaurer_dist($titre='', $reprise=false) {
 			if ($desc = sql_getfetsel('valeur','spip_meta',"nom='dump_structure_temp'",'','','','','dump')
 				AND $desc = unserialize($desc))
 				$options['desc_tables_dest'] = $desc;
-			#var_dump(sql_allfetsel('nom,valeur','spip_meta',"",'','','','','dump'));
-			#die();
 			$res = base_copier_tables($status_file, $status['tables'], 'dump', '', $options);
 		}
 		else {

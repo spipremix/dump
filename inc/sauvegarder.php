@@ -14,6 +14,14 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 
 include_spip('inc/dump');
 
+/**
+ * Fonction principale de sauvegarde
+ * En mode sqlite on passe par une copie de base a base (dans l'API de SPIP)
+ *
+ * @param string $status_file       Nom du fichier de status (stocke dans _DIR_TMP)
+ * @param string $redirect          Redirection apres la sauvegarde
+ * @return bool
+ */
 function inc_sauvegarder_dist($status_file, $redirect='') {
 	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)

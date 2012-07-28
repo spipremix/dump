@@ -12,6 +12,10 @@
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
+/**
+ * Se reconnecter a la base sqlite dont le nom est stocke dans le fichier de statut
+ */
+
 include_spip('inc/dump');
 if ($args = dump_serveur()) {
 	$GLOBALS['spip_connect_version'] = 0.7;

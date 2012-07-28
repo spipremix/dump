@@ -14,6 +14,12 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 
 include_spip('inc/dump');
 
+/**
+ * Afficher les erreurs survenues dans la sauvegarde
+ *
+ * @param string $status_file   Nom du fichier qui contient le statut de la sauvegarde sous une forme serialisee
+ * @return string               Code HTML a afficher
+ */
 function dump_afficher_tables_sauvegardees($status_file) {
 	$status = dump_lire_status($status_file);
 	$tables = $status['tables_copiees'];
