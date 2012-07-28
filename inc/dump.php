@@ -104,7 +104,7 @@ function dump_connect_args($archive) {
  * Initialiser un dump
  *
  * @param string $status_file   Fichier contenant les informations serialisees sur le statut de l'export
- * @param string $archive 		Nom de l'archive (stockee dans le fichier de statut)
+ * @param string $archive       Nom de l'archive (stockee dans le fichier de statut)
  * @param array $tables         Liste des tables a exporter (autocaculee par defaut)
  * @param array $where          Condition sur l'export
  * @param string $action        Pour differencier la sauvegarde de l'import
