@@ -10,15 +10,21 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined("_ECRIRE_INC_VERSION")) return;
-
 /**
  * API permettant la manipulation des sauvegardes
+ *
+ * @package SPIP\Dump\API
  */
 
+if (!defined("_ECRIRE_INC_VERSION")) return;
+
+
 /**
- * Repertoire de sauvegarde
+ * Répertoire de sauvegarde
  *
+ * Crée et retourne le chemin du répertoire de sauvegarde
+ * @see _DIR_DUMP
+ * 
  * @return string
  */
 function dump_repertoire() {
@@ -35,7 +41,8 @@ function dump_repertoire() {
 
 /**
  * Nom du fichier de sauvegarde
- * la fourniture de l'extension permet de verifier que le nom n'existe pas deja
+ * 
+ * la fourniture de l'extension permet de vérifier que le nom n'existe pas déjà.
  *
  * @param string $dir           Chemin de stockage du fichier
  * @param string $extension     Extension du fichier de sauvegarde
@@ -58,7 +65,7 @@ function dump_nom_fichier($dir,$extension='sqlite'){
 }
 
 /**
- * Determine le type de serveur de sauvegarde
+ * Détermine le type de serveur de sauvegarde,
  * sqlite2 ou sqlite3
  * 
  * @return string
@@ -79,11 +86,12 @@ function dump_type_serveur() {
 
 /**
  * Conteneur pour les arguments de la connexion
- * si on passe $args, les arguments de la connexion sont memorises
- * renvoie toujours les derniers arguments memorises
+ * 
+ * Si on passe $args, les arguments de la connexion sont memorisés.
+ * Renvoie toujours les derniers arguments memorisés.
  *
  * @staticvar array $connect_args    Pour stocker le premier conteneur
- * @param array $connect
+ * @param array $args
  * @return array
  */
 function dump_serveur($args=null) {
