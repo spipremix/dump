@@ -177,7 +177,7 @@ function dump_afficher_progres($courant,$total,$table) {
 }
 
 /**
- * Ecrire le js pour relancer la procedure de dump
+ * Écrire le js pour relancer la procédure de dump
  *
  * @param string $redirect  URL de la prochaine etape du dump
  * @return string           Code HTML de redirection
@@ -189,9 +189,15 @@ function dump_relance($redirect){
 
 
 /**
- * Marquer la procedure de dump comme finie
+ * Marquer la procédure de dump comme finie
  *
- * @param string $status_file    Fichier qui memorise les infos utiles concernant la sauvegarde en cours
+ * @param string $status_file
+ *     Fichier qui mémorise les infos utiles concernant la sauvegarde en cours
+ * @param string $action
+ *     Type d'action supplémentaire à réaliser :
+ *
+ *     - restaurer : supprimer la structure qui était stockée dans le dump
+ *     - 'auvegarder : stocker dans le dump la structure de la base source
  */
 function dump_end($status_file, $action=''){
 	$status_file = _DIR_TMP.basename($status_file).".txt";
