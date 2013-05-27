@@ -10,15 +10,20 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
+/**
+ * Gestion du formulaire de sauvegarde de la base de données
+ * @package SPIP\Dump\Formulaires
+ */
+ 
 if (!defined("_ECRIRE_INC_VERSION")) return;
 include_spip('base/dump');
 include_spip('inc/dump');
 
 /**
- * Charger #FORMULAIRE_SAUVEGARDER
+ * Charger `#FORMULAIRE_SAUVEGARDER`
  * @return array
  */
-function formulaires_sauvegarder_charger_dist(){	
+function formulaires_sauvegarder_charger_dist(){
 	$dir_dump = dump_repertoire();
 
 	// ici on liste tout, les tables exclue sont simplement non cochees
