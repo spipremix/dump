@@ -15,6 +15,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'confirmer_ecraser_base' => 'Oui, je veux écraser ma base avec cette sauvegarde',
 	'confirmer_ecraser_tables_selection' => 'Oui, je veux écraser les tables sélectionnées avec cette sauvegarde',
+	'confirmer_supprimer_sauvegarde' => 'Êtes-vous sur de vouloir supprimer cette sauvegarde ?',
 
 	// D
 	'details_sauvegarde' => 'Détails de la sauvegarde :',
