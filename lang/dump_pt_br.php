@@ -17,6 +17,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'confirmer_ecraser_base' => 'Sim, quero substituir minha base de dados por essa cópia de segurança',
 	'confirmer_ecraser_tables_selection' => 'Sim, quero substituir as tabelas selecionadas por essa cópia de segurança',
+	'confirmer_supprimer_sauvegarde' => 'Tem certeza de que quer remover essa cópia de segurança?',
 
 	// D
 	'details_sauvegarde' => 'Detalhes da cópia de segurança:',
