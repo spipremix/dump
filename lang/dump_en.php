@@ -17,6 +17,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'confirmer_ecraser_base' => 'Yes, I want to overwrite my database with the backup',
 	'confirmer_ecraser_tables_selection' => 'Yes, I want to overwrite the selected tables with the backup',
+	'confirmer_supprimer_sauvegarde' => 'Do you really want to delete this backup?',
 
 	// D
 	'details_sauvegarde' => 'Details of the backup:',
