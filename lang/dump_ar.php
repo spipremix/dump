@@ -17,6 +17,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'confirmer_ecraser_base' => 'نعم، أريد استبدال القاعدة بهذه النسخة الاحتياطية',
 	'confirmer_ecraser_tables_selection' => 'نعم أريد استبدال الجداول المحددة بهذه النسخة الاحتياطية',
+	'confirmer_supprimer_sauvegarde' => 'هل تريد فعلاً حذف هذه النسخة الاحتياطية؟',
 
 	// D
 	'details_sauvegarde' => 'نفاصيل النسخة الاحتياطية:',
