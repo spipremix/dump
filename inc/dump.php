@@ -50,9 +50,12 @@ function dump_repertoire() {
  */
 function dump_nom_fichier($dir,$extension='sqlite'){
 	include_spip('inc/texte');
-	$site = isset($GLOBALS['meta']['nom_site'])
-	  ? preg_replace(array(",\W,is",",_(?=_),",",_$,"),array("_","",""), couper(translitteration(trim($GLOBALS['meta']['nom_site'])),30,""))
-	  : 'spip';
+	$site = 'spip';
+	if (isset($GLOBALS['meta']['nom_site'])){
+		$site = typo($GLOBALS['meta']['nom_site']); // extraire_multi
+		$site = couper(translitteration(trim($site)),30,"");
+		$site = preg_replace(array(",\W,is",",_(?=_),",",_$,"),array("_","",""), $site);
+	}
 
 	$site .= '_' . date('Ymd');
 
@@ -217,6 +220,11 @@ function dump_end($status_file, $action=''){
 				$structure[$t] = sql_showtable($t,true);
 			dump_serveur($status['connect']);
 			spip_connect('dump');
+			// si spip_meta n'a pas ete backup elle n'est pas dans le dump, il faut la creer pour y stocker cette meta
+			if (!sql_showtable("spip_meta",true,"dump")){
+				$desc = sql_showtable("spip_meta",true);
+				sql_create("spip_meta",$desc['field'],$desc['key'],false,false,"dump");
+			}
 			sql_delete('spip_meta',"nom='dump_structure_temp'",'dump'); #enlever une vieille structure deja la, au cas ou
 			sql_insertq('spip_meta',array('nom'=>'dump_structure_temp','valeur'=>serialize($structure),'impt'=>'non'),array(),'dump');
 			break;
