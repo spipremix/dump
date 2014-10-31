@@ -39,6 +39,7 @@ function formulaires_restaurer_charger_dist(){
  */
 function formulaires_restaurer_verifier_dist() {
 	$erreurs = array();
+	$nom = "";
 	if (!$fichier=_request('fichier') AND !$nom = _request('nom_sauvegarde'))
 		$erreurs['fichier'] = _T('info_obligatoire');
 	elseif ($fichier) {
@@ -92,6 +93,8 @@ function formulaires_restaurer_verifier_dist() {
 			unset($erreurs['tables']);
 	}
 
+	if (count($erreurs) AND !isset($erreurs['message_erreur']))
+		$erreurs['message_erreur'] = ''; // pas de message general automatique ici
 	return $erreurs;
 }
 

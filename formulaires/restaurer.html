@@ -7,7 +7,7 @@
 	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 	[(#ENV{editable})
 	<form method='post' action='#ENV{action}'><div>
-		[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{erreurs}|table_valeur{message_confirm})</p>]
+		[<p class="reponse_formulaire reponse_formulaire_ok">(#ENV*{erreurs/message_confirm})</p>]
 		[(#REM) declarer les hidden qui declencheront le service du formulaire
 		parametre : url d'action ]
 		#ACTION_FORMULAIRE
