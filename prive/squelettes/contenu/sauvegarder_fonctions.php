@@ -42,11 +42,21 @@ function dump_afficher_tables_sauvegardees($status_file) {
 		$tables[$t] = $res;
 	}
 
-	$n = floor(count($tables)/2);
-	$corps = "<div style='width:49%;float:left;'><ul class='spip'><li class='spip'>" . join("</li><li class='spip'>", array_slice($tables,0,$n)) . "</li></ul></div>"
-		. "<div style='width:49%;float:left;'><ul class='spip'><li>" . join("</li><li class='spip'>", array_slice($tables,$n)) . "</li></ul></div>"
-		. "<div class='nettoyeur'></div>";
+	$corps = "";
+	switch (count($tables)) {
+		case 0;
+			break;
+		case 1:
+			$corps = "<div style='width:49%;float:left;'><ul class='spip'><li class='spip'>" . join("</li><li class='spip'>", $tables) . "</li></ul></div>";
+			break;
+		default:
+			$n = floor(count($tables)/2);
+			$corps = "<div style='width:49%;float:left;'><ul class='spip'><li class='spip'>" . join("</li><li class='spip'>", array_slice($tables,0,$n)) . "</li></ul></div>"
+				. "<div style='width:49%;float:left;'><ul class='spip'><li>" . join("</li><li class='spip'>", array_slice($tables,$n)) . "</li></ul></div>";
+	}
+	$corps .= "<div class='nettoyeur'></div>";
 	return $corps;
+
 }
 
 function dump_afficher_erreurs($status_file) {
