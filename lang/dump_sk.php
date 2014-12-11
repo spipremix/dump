@@ -17,6 +17,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'confirmer_ecraser_base' => 'Áno, chcem prepísať svoju databázu so zálohou',
 	'confirmer_ecraser_tables_selection' => 'Áno, chcem prepísať vybrané tabuľky so zálohou',
+	'confirmer_supprimer_sauvegarde' => 'Určite chcete vymazať túto zálohu?',
 
 	// D
 	'details_sauvegarde' => 'Podrobnosti o zálohe:',
