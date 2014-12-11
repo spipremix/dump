@@ -24,7 +24,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// E
 	'erreur_aucune_donnee_restauree' => 'Nenhum dado restaurado',
-	'erreur_connect_dump' => 'Já existe um servidor chamado « @dump@ ». Escolha outro nome.',
+	'erreur_connect_dump' => 'Já existe um servidor chamado «@dump@». Escolha outro nome.',
 	'erreur_creation_base_sqlite' => 'Impossível criar uma base SQLite para a cópia de segurança',
 	'erreur_nom_fichier' => 'Este nome de arquivo não é autorizado',
 	'erreur_restaurer_verifiez' => 'Corrija o erro para poder restaurar.',
