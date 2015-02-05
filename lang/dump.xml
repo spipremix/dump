@@ -25,8 +25,9 @@
 	</langue>
 	<langue code="da" url="http://trad.spip.net/tradlang_module/dump?lang_cible=da" total="42" traduits="9" relire="0" modifs="3" nouveaux="30" pourcent="21.43">
 	</langue>
-	<langue code="de" url="http://trad.spip.net/tradlang_module/dump?lang_cible=de" total="42" traduits="41" relire="0" modifs="0" nouveaux="1" pourcent="97.62">
+	<langue code="de" url="http://trad.spip.net/tradlang_module/dump?lang_cible=de" total="42" traduits="42" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="klaus++" lien="http://trad.spip.net/auteur/klaus" />
+		<traducteur nom="Torsten Willmann" lien="http://trad.spip.net/auteur/torsten-willmann" />
 	</langue>
 	<langue code="en" url="http://trad.spip.net/tradlang_module/dump?lang_cible=en" total="42" traduits="42" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="Hanjo" lien="http://trad.spip.net/auteur/hanjo" />
