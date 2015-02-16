@@ -17,6 +17,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'confirmer_ecraser_base' => 'Ahì, vouòli escrasà la miéu basa embé aquela sauvagarda',
 	'confirmer_ecraser_tables_selection' => 'Ahì, vouòli escrasà li taula seleciounadi embé aquela sauvagarda',
+	'confirmer_supprimer_sauvegarde' => 'Sias segur de voulé suprimà aquela sauvagarda ?',
 
 	// D
 	'details_sauvegarde' => 'Detai de la sauvagarda :',
