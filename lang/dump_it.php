@@ -17,6 +17,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// C
 	'confirmer_ecraser_base' => 'Si, io voglio sovrascrivere il mio database con il backup',
 	'confirmer_ecraser_tables_selection' => 'Si, io voglio sovrascrivere le tabelle selezionate con il backup',
+	'confirmer_supprimer_sauvegarde' => 'Sei sicuro di voler cancellare questo salvataggio ?',
 
 	// D
 	'details_sauvegarde' => 'Dettagli del backup :',

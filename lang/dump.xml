@@ -64,7 +64,8 @@
 	</langue>
 	<langue code="id" url="http://trad.spip.net/tradlang_module/dump?lang_cible=id" total="42" traduits="9" relire="0" modifs="3" nouveaux="30" pourcent="21.43">
 	</langue>
-	<langue code="it" url="http://trad.spip.net/tradlang_module/dump?lang_cible=it" total="42" traduits="41" relire="0" modifs="0" nouveaux="1" pourcent="97.62">
+	<langue code="it" url="http://trad.spip.net/tradlang_module/dump?lang_cible=it" total="42" traduits="42" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="Julia14" lien="http://trad.spip.net/auteur/julia14" />
 		<traducteur nom="phante" lien="http://trad.spip.net/auteur/phante" />
 	</langue>
 	<langue code="it_fem" url="http://trad.spip.net/tradlang_module/dump?lang_cible=it_fem" total="42" traduits="10" relire="0" modifs="2" nouveaux="30" pourcent="23.81">
