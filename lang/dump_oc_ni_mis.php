@@ -25,11 +25,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// E
 	'erreur_aucune_donnee_restauree' => 'Minga dounada restaurada',
 	'erreur_connect_dump' => 'Esista jà un servidour nouminat « @dump@ ». Renouminàs-lou.',
-	'erreur_creation_base_sqlite' => 'Impoussible de creà una basa SQLite da la sauvagarda',
+	'erreur_creation_base_sqlite' => 'Empoussible de creà una basa SQLite per la sauvagarda',
 	'erreur_nom_fichier' => 'Aqueu noum de fichié es pas autourisat',
 	'erreur_restaurer_verifiez' => 'Courregès l’errour per poudé restaurà.',
 	'erreur_sauvegarde_deja_en_cours' => 'Avès jà una sauvagarda en cours',
-	'erreur_sqlite_indisponible' => 'Impoussible de faire una sauvagarda SQLite sus lou vouòstre aubergadour',
+	'erreur_sqlite_indisponible' => 'Empoussible de faire una sauvagarda SQLite sus lou vouòstre aubergadour',
 	'erreur_table_absente' => 'Taula @table@ assenta',
 	'erreur_table_donnees_manquantes' => 'Taula @table@, dounada mancanti',
 	'erreur_taille_sauvegarde' => 'La sauvagarda a souhit. Lou fichié @fichier@ es viéu o assent.',
