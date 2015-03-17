@@ -24,7 +24,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// E
 	'erreur_aucune_donnee_restauree' => 'Minga dounada restaurada',
-	'erreur_connect_dump' => 'Esista jà un servidour nouminat « @dump@ ». Renouminàs-lou.',
+	'erreur_connect_dump' => 'Esista jà un servidou nouminat « @dump@ ». Renouminàs-lou.',
 	'erreur_creation_base_sqlite' => 'Empoussible de creà una basa SQLite per la sauvagarda',
 	'erreur_nom_fichier' => 'Aqueu noum de fichié es pas autourisat',
 	'erreur_restaurer_verifiez' => 'Courregès l’errour per poudé restaurà.',
