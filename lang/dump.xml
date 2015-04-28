@@ -57,7 +57,8 @@
 		<traducteur nom="b_b" lien="http://trad.spip.net/auteur/b_b" />
 		<traducteur nom="denisb" lien="http://trad.spip.net/auteur/denisb" />
 	</langue>
-	<langue code="fr_tu" url="http://trad.spip.net/tradlang_module/dump?lang_cible=fr_tu" total="42" traduits="41" relire="0" modifs="0" nouveaux="1" pourcent="97.62">
+	<langue code="fr_tu" url="http://trad.spip.net/tradlang_module/dump?lang_cible=fr_tu" total="42" traduits="42" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
+		<traducteur nom="RealET" lien="http://trad.spip.net/auteur/realet" />
 	</langue>
 	<langue code="gl" url="http://trad.spip.net/tradlang_module/dump?lang_cible=gl" total="42" traduits="10" relire="0" modifs="2" nouveaux="30" pourcent="23.81">
 	</langue>
