@@ -35,7 +35,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'erreur_taille_sauvegarde' => 'La sauvagarda a souhit. Lou fichié @fichier@ es viéu o assent.',
 
 	// I
-	'info_aucune_sauvegarde_trouvee' => 'Minga sauvagarda troubada',
+	'info_aucune_sauvegarde_trouvee' => 'Minga sauvagarda trouvada',
 	'info_restauration_finie' => 'Es acabat ! La sauvagarda @archive@ es estada restaurada en lou vouòstre sit. Poudès',
 	'info_restauration_sauvegarde' => 'Restauracioun de la sauvagarda @archive@',
 	'info_sauvegarde' => 'Sauvagarda',
@@ -46,7 +46,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// L
 	'label_nom_fichier_restaurer' => 'O indàs lou noum dóu fichié da restaurà',
-	'label_nom_fichier_sauvegarde' => 'Noum dóu fichié da la sauvegarde',
+	'label_nom_fichier_sauvegarde' => 'Noum dóu fichié per la sauvegarde',
 	'label_selectionnez_fichier' => 'Seleciounàs un fichié en la lista',
 
 	// N
