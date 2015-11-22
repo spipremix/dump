@@ -21,7 +21,7 @@ include_spip('inc/actions');
  * @param string $titre     Titre de la page
  * @param bool $reprise     true s'il s'agit d'une reprise de sauvegarde
  */
-function base_restaurer_dist($titre='', $reprise=false) {
+function base_restaurer_dist($titre = '', $reprise = false) {
 	$status_file = _DUMP_STATUS_FILE;
 	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)

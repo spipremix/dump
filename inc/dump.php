@@ -48,7 +48,7 @@ function dump_repertoire() {
  * @param string $extension     Extension du fichier de sauvegarde
  * @return string 
  */
-function dump_nom_fichier($dir,$extension='sqlite'){
+function dump_nom_fichier($dir, $extension = 'sqlite'){
 	include_spip('inc/texte');
 	$site = 'spip';
 	if (isset($GLOBALS['meta']['nom_site'])){
@@ -97,7 +97,7 @@ function dump_type_serveur() {
  * @param array $args
  * @return array
  */
-function dump_serveur($args=null) {
+function dump_serveur($args = null) {
 	static $connect_args = null;
 	if ($args)
 		$connect_args = $args;
@@ -121,7 +121,7 @@ function dump_connect_args($archive) {
  * @param string $action        Pour differencier la sauvegarde de l'import
  * @return bool/string
  */
-function dump_init($status_file, $archive, $tables=null, $where=array(),$action='sauvegarde'){
+function dump_init($status_file, $archive, $tables = null, $where = array(), $action = 'sauvegarde'){
 	$status_file = _DIR_TMP.basename($status_file).".txt";
 
 	if (lire_fichier($status_file, $status)
@@ -163,7 +163,7 @@ function dump_init($status_file, $archive, $tables=null, $where=array(),$action=
  * @param <type> $total     Nombre total de tables
  * @param <type> $table     Nom de la table
  */
-function dump_afficher_progres($courant,$total,$table) {
+function dump_afficher_progres($courant, $total, $table) {
 	static $etape = 1;
 	if (unique($table)) {
 		if ($total<0 OR !is_numeric($total))
@@ -202,7 +202,7 @@ function dump_relance($redirect){
  *     - restaurer : supprimer la structure qui était stockée dans le dump
  *     - 'auvegarder : stocker dans le dump la structure de la base source
  */
-function dump_end($status_file, $action=''){
+function dump_end($status_file, $action = ''){
 	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)
 		OR !$status = unserialize($status))
@@ -244,7 +244,7 @@ function dump_end($status_file, $action=''){
  * @param int $limit            Nombre max de fichiers listes
  * @return array
  */
-function dump_lister_sauvegardes($dir,$tri='nom',$extension="sqlite",$limit = 100) {
+function dump_lister_sauvegardes($dir, $tri = 'nom', $extension = "sqlite", $limit = 100) {
 	$liste_dump = preg_files($dir,'\.'.$extension.'$',$limit,false);
 
 	$n = strlen($dir);

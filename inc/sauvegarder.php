@@ -22,7 +22,7 @@ include_spip('inc/dump');
  * @param string $redirect          Redirection apres la sauvegarde
  * @return bool
  */
-function inc_sauvegarder_dist($status_file, $redirect='') {
+function inc_sauvegarder_dist($status_file, $redirect = '') {
 	$status_file = _DIR_TMP.basename($status_file).".txt";
 	if (!lire_fichier($status_file, $status)
 		OR !$status = unserialize($status)) {
