@@ -10,7 +10,9 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined("_ECRIRE_INC_VERSION")) return;
+if (!defined("_ECRIRE_INC_VERSION")) {
+	return;
+}
 
 include_spip('inc/dump');
 include_spip('inc/autoriser');
@@ -20,23 +22,23 @@ include_spip('inc/autoriser');
  *
  * @param string $arg
  */
-function action_supprimer_dump_dist($arg = null){
-	if (!$arg){
+function action_supprimer_dump_dist($arg = null) {
+	if (!$arg) {
 		$securiser_action = charger_fonction('securiser_action', 'inc');
 		$arg = $securiser_action();
 	}
 
 	$fichier = $arg;
 
-	if (autoriser('webmestre')){
+	if (autoriser('webmestre')) {
 		// verifier que c'est bien une sauvegarde
 		include_spip("inc/dump");
 		$dir = dump_repertoire();
 		$dumps = dump_lister_sauvegardes($dir);
 
-		foreach($dumps as $dump){
-			if ($dump['fichier']==$fichier){
-				spip_unlink($dir.$fichier);
+		foreach ($dumps as $dump) {
+			if ($dump['fichier'] == $fichier) {
+				spip_unlink($dir . $fichier);
 			}
 		}
 	}
