@@ -35,7 +35,7 @@ function dump_afficher_tables_sauvegardees($status_file) {
 		$n = abs(intval($n));
 		$n_dump = intval(sql_countsel($t, '', '', '', 'dump'));
 		$res = "$t ";
-		if ($n_dump == 0 AND $n == 0) {
+		if ($n_dump == 0 and $n == 0) {
 			$res .= "(" . _T('dump:aucune_donnee') . ")";
 		} else {
 			$res .= "($n_dump/$n)";
@@ -55,7 +55,7 @@ function dump_afficher_tables_sauvegardees($status_file) {
 					$tables) . "</li></ul></div>";
 			break;
 		default:
-			$n = floor(count($tables)/2);
+			$n = floor(count($tables) / 2);
 			$corps = "<div style='width:49%;float:left;'><ul class='spip'><li class='spip'>" . join("</li><li class='spip'>",
 					array_slice($tables, 0, $n)) . "</li></ul></div>"
 				. "<div style='width:49%;float:left;'><ul class='spip'><li>" . join("</li><li class='spip'>",
@@ -76,5 +76,3 @@ function dump_afficher_erreurs($status_file) {
 
 	return $erreurs;
 }
-
-?>
