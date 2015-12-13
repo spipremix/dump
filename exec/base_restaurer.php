@@ -29,5 +29,3 @@ function exec_base_restaurer_dist() {
 	$restaurer($status_file);
 
 }
-
-?>

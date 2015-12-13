@@ -32,7 +32,7 @@ function formulaires_sauvegarder_charger_dist() {
 
 	// ici on liste tout, les tables exclue sont simplement non cochees
 	$exclude = lister_tables_noexport();
-	list($tables,) = base_liste_table_for_dump($exclude);
+	list($tables, ) = base_liste_table_for_dump($exclude);
 	$tables = base_lister_toutes_tables('', $tables);
 
 	$valeurs = array(
@@ -40,7 +40,7 @@ function formulaires_sauvegarder_charger_dist() {
 		'_dir_img' => joli_repertoire(_DIR_IMG),
 		'_spipnet' => $GLOBALS['home_server'] . '/' . $GLOBALS['spip_lang'] . '_article1489.html',
 		'nom_sauvegarde' => basename(dump_nom_fichier($dir_dump, 'sqlite'), '.sqlite'),
-		'tout_sauvegarder' => (_request('nom_sauvegarde') AND !_request('tout_sauvegarder')) ? '' : 'oui',
+		'tout_sauvegarder' => (_request('nom_sauvegarde') and !_request('tout_sauvegarder')) ? '' : 'oui',
 		'_tables' => "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
 				base_saisie_tables('tables', $tables, $exclude,
 					_request('nom_sauvegarde') ? (_request('tables') ? _request('tables') : array()) : null)
@@ -61,7 +61,7 @@ function formulaires_sauvegarder_verifier_dist() {
 	if (!$nom = _request('nom_sauvegarde')) {
 		$erreurs['nom_sauvegarde'] = _T('info_obligatoire');
 	} elseif (!preg_match(',^[\w_][\w_.]*$,', $nom)
-		OR basename($nom) !== $nom
+		or basename($nom) !== $nom
 	) {
 		$erreurs['nom_sauvegarde'] = _T('dump:erreur_nom_fichier');
 	}
@@ -83,7 +83,7 @@ function formulaires_sauvegarder_traiter_dist() {
 		// ici on prend toutes les tables sauf celles exclues par defaut
 		// (tables de cache en pratique)
 		$exclude = lister_tables_noexport();
-		list($tables,) = base_liste_table_for_dump($exclude);
+		list($tables, ) = base_liste_table_for_dump($exclude);
 		$tables = base_lister_toutes_tables('', $tables, $exclude);
 	} else {
 		$tables = _request('tables');
@@ -103,5 +103,3 @@ function formulaires_sauvegarder_traiter_dist() {
 		return array('message_erreur' => $res);
 	}
 }
-
-?>

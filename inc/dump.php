@@ -33,7 +33,7 @@ if (!defined("_ECRIRE_INC_VERSION")) {
 function dump_repertoire() {
 	$repertoire = _DIR_DUMP;
 	if (!@file_exists($repertoire)
-		AND !$repertoire = sous_repertoire(_DIR_DUMP, '', false, true)
+		and !$repertoire = sous_repertoire(_DIR_DUMP, '', false, true)
 	) {
 		$repertoire = preg_replace(',' . _DIR_TMP . ',', '', _DIR_DUMP);
 		$repertoire = sous_repertoire(_DIR_TMP, $repertoire);
@@ -135,9 +135,9 @@ function dump_init($status_file, $archive, $tables = null, $where = array(), $ac
 	$status_file = _DIR_TMP . basename($status_file) . ".txt";
 
 	if (lire_fichier($status_file, $status)
-		AND $status = unserialize($status)
-		AND $status['etape'] !== 'fini'
-		AND filemtime($status_file) >= time()-120
+		and $status = unserialize($status)
+		and $status['etape'] !== 'fini'
+		and filemtime($status_file) >= time() - 120
 	) // si le fichier status est trop vieux c'est un abandon
 	{
 		return _T("dump:erreur_" . $action . "_deja_en_cours");
@@ -148,7 +148,7 @@ function dump_init($status_file, $archive, $tables = null, $where = array(), $ac
 	}
 
 	if (!$tables) {
-		list($tables,) = base_liste_table_for_dump(lister_tables_noexport());
+		list($tables, ) = base_liste_table_for_dump(lister_tables_noexport());
 	}
 	$status = array('tables' => $tables, 'where' => $where, 'archive' => $archive);
 
@@ -184,14 +184,14 @@ function dump_init($status_file, $archive, $tables = null, $where = array(), $ac
 function dump_afficher_progres($courant, $total, $table) {
 	static $etape = 1;
 	if (unique($table)) {
-		if ($total < 0 OR !is_numeric($total)) {
+		if ($total < 0 or !is_numeric($total)) {
 			echo "<br /><strong>" . $etape . '. ' . "</strong>$table ";
 		} else {
 			echo "<br /><strong>" . $etape . '. ' . "$table</strong> " . ($courant ? " <i>($courant)</i> " : "");
 		}
 		$etape++;
 	}
-	if (is_numeric($total) AND $total >= 0) {
+	if (is_numeric($total) and $total >= 0) {
 		echo ". ";
 	} else {
 		echo "(" . (-intval($total)) . ")";
@@ -225,7 +225,7 @@ function dump_relance($redirect) {
 function dump_end($status_file, $action = '') {
 	$status_file = _DIR_TMP . basename($status_file) . ".txt";
 	if (!lire_fichier($status_file, $status)
-		OR !$status = unserialize($status)
+		or !$status = unserialize($status)
 	) {
 		return;
 	}
@@ -302,7 +302,7 @@ function dump_lister_sauvegardes($dir, $tri = 'nom', $extension = "sqlite", $lim
 function dump_lire_status($status_file) {
 	$status_file = _DIR_TMP . basename($status_file) . ".txt";
 	if (!lire_fichier($status_file, $status)
-		OR !$status = unserialize($status)
+		or !$status = unserialize($status)
 	) {
 		return '';
 	}
@@ -318,7 +318,7 @@ function dump_lire_status($status_file) {
  */
 function dump_verifie_sauvegarde_finie($status_file) {
 	if (!$status = dump_lire_status($status_file)
-		OR $status['etape'] !== 'fini'
+		or $status['etape'] !== 'fini'
 	) {
 		return '';
 	}
@@ -334,7 +334,7 @@ function dump_verifie_sauvegarde_finie($status_file) {
  */
 function dump_nom_sauvegarde($status_file) {
 	if (!$status = dump_lire_status($status_file)
-		OR !file_exists($f = $status['archive'] . ".sqlite")
+		or !file_exists($f = $status['archive'] . ".sqlite")
 	) {
 		return '';
 	}
@@ -350,7 +350,7 @@ function dump_nom_sauvegarde($status_file) {
  */
 function dump_taille_sauvegarde($status_file) {
 	if (!$f = dump_nom_sauvegarde($status_file)
-		OR !$s = filesize($f)
+		or !$s = filesize($f)
 	) {
 		return '';
 	}
@@ -366,12 +366,10 @@ function dump_taille_sauvegarde($status_file) {
  */
 function dump_date_sauvegarde($status_file) {
 	if (!$f = dump_nom_sauvegarde($status_file)
-		OR !$d = filemtime($f)
+		or !$d = filemtime($f)
 	) {
 		return '';
 	}
 
 	return date('Y-m-d', $d);
 }
-
-?>

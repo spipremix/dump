@@ -25,5 +25,3 @@ if ($args = dump_serveur()) {
 		define('_DUMP_SERVEUR_OK', true);
 	}
 }
-
-?>

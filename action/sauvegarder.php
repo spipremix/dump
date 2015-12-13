@@ -40,7 +40,7 @@ function action_sauvegarder_dist($arg = null) {
 	}
 
 	$status_file = $arg;
-	$redirect = parametre_url(generer_action_auteur('sauvegarder', $status_file), "step", intval(_request('step')+1),
+	$redirect = parametre_url(generer_action_auteur('sauvegarder', $status_file), "step", intval(_request('step') + 1),
 		'&');
 
 	// lancer export qui va se relancer jusqu'a sa fin
@@ -61,5 +61,3 @@ function action_sauvegarder_dist($arg = null) {
 		@ob_end_flush();
 	}
 }
-
-?>

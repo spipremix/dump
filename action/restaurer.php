@@ -43,7 +43,7 @@ function action_restaurer_dist($arg = null) {
 	define('_DUMP_STATUS_FILE', $status_file);
 	$status_file = _DIR_TMP . basename($status_file) . ".txt";
 	if (!lire_fichier($status_file, $status)
-		OR !$status = unserialize($status)
+		or !$status = unserialize($status)
 	) {
 
 		include_spip('inc/headers');
@@ -65,5 +65,3 @@ function action_restaurer_dist($arg = null) {
 	}
 
 }
-
-?>

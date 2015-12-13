@@ -27,10 +27,10 @@ function base_restaurer_dist($titre = '', $reprise = false) {
 	$status_file = _DUMP_STATUS_FILE;
 	$status_file = _DIR_TMP . basename($status_file) . ".txt";
 	if (!lire_fichier($status_file, $status)
-		OR !$status = unserialize($status)
+		or !$status = unserialize($status)
 	) {
 	} else {
-		$redirect = parametre_url(generer_action_auteur('restaurer', _DUMP_STATUS_FILE), "step", intval(_request('step')+1),
+		$redirect = parametre_url(generer_action_auteur('restaurer', _DUMP_STATUS_FILE), "step", intval(_request('step') + 1),
 			'&');
 
 		$timeout = ini_get('max_execution_time');
@@ -38,7 +38,7 @@ function base_restaurer_dist($titre = '', $reprise = false) {
 		if (!$timeout) {
 			$timeout = 30;
 		} // parions sur une valeur tellement courante ...
-		$max_time = time()+$timeout/2;
+		$max_time = time() + $timeout / 2;
 
 		include_spip('inc/minipres');
 		@ini_set("zlib.output_compression", "0"); // pour permettre l'affichage au fur et a mesure
@@ -48,7 +48,7 @@ function base_restaurer_dist($titre = '', $reprise = false) {
 		$titre .= $balise_img(chemin_image('searching.gif'));
 		echo(install_debut_html($titre));
 		// script de rechargement auto sur timeout
-		echo http_script("window.setTimeout('location.href=\"" . $redirect . "\";'," . ($timeout*1000) . ")");
+		echo http_script("window.setTimeout('location.href=\"" . $redirect . "\";'," . ($timeout * 1000) . ")");
 		echo "<div style='text-align: left'>\n";
 
 		dump_serveur($status['connect']);
@@ -64,7 +64,7 @@ function base_restaurer_dist($titre = '', $reprise = false) {
 				'desc_tables_dest' => array()
 			);
 			if ($desc = sql_getfetsel('valeur', 'spip_meta', "nom='dump_structure_temp'", '', '', '', '', 'dump')
-				AND $desc = unserialize($desc)
+				and $desc = unserialize($desc)
 			) {
 				$options['desc_tables_dest'] = $desc;
 			}
@@ -96,6 +96,3 @@ function base_restaurer_dist($titre = '', $reprise = false) {
 
 	}
 }
-
-
-?>

@@ -28,7 +28,7 @@ function formulaires_restaurer_charger_dist() {
 		'_dir_dump' => dump_repertoire(),
 		'choisi' => _request('fichier') ? _request('fichier') : _request('nom'),
 		'nom_sauvegarde' => '',
-		'tout_restaurer' => (_request('check_tables') AND !_request('tout_restaurer')) ? '' : 'oui',
+		'tout_restaurer' => (_request('check_tables') and !_request('tout_restaurer')) ? '' : 'oui',
 		'fichier' => '',
 		'tri' => 'nom',
 	);
@@ -44,7 +44,7 @@ function formulaires_restaurer_charger_dist() {
 function formulaires_restaurer_verifier_dist() {
 	$erreurs = array();
 	$nom = "";
-	if (!$fichier = _request('fichier') AND !$nom = _request('nom_sauvegarde')) {
+	if (!$fichier = _request('fichier') and !$nom = _request('nom_sauvegarde')) {
 		$erreurs['fichier'] = _T('info_obligatoire');
 	} elseif ($fichier) {
 		$fichier = basename($fichier); // securite
@@ -75,13 +75,13 @@ function formulaires_restaurer_verifier_dist() {
 		$erreurs['tables'] = "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
 				$tables
 			) . "</li></ol><input type='hidden' name='check_tables' value='oui' />\n";
-		if (!count(_request('tables')) AND !_request('tout_restaurer') AND _request('check_tables')) {
+		if (!count(_request('tables')) and !_request('tout_restaurer') and _request('check_tables')) {
 			$erreurs['tout_restaurer'] = _T('dump:selectionnez_table_a_restaurer');
 		}
 	}
 
 	if ($nom
-		AND (!count($erreurs) OR (count($erreurs) == 1 AND isset($erreurs['tables'])))
+		and (!count($erreurs) or (count($erreurs) == 1 and isset($erreurs['tables'])))
 	) {
 		if (_request('confirm') !== $nom) {
 			$erreurs['message_confirm'] =
@@ -101,7 +101,7 @@ function formulaires_restaurer_verifier_dist() {
 		}
 	}
 
-	if (count($erreurs) AND !isset($erreurs['message_erreur'])) {
+	if (count($erreurs) and !isset($erreurs['message_erreur'])) {
 		$erreurs['message_erreur'] = '';
 	} // pas de message general automatique ici
 	return $erreurs;
@@ -142,6 +142,3 @@ function formulaires_restaurer_traiter_dist() {
 		return array('message_erreur' => $res);
 	}
 }
-
-
-?>

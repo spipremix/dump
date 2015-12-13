@@ -32,7 +32,7 @@ function action_telecharger_dump_dist($arg = null) {
 
 	if (
 		file_exists($file)
-		AND autoriser('webmestre')
+		and autoriser('webmestre')
 	) {
 
 		$f = basename($file);
@@ -62,5 +62,3 @@ function action_telecharger_dump_dist($arg = null) {
 	// et on finit comme ca d'un coup
 	exit;
 }
-
-?>
