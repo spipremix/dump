@@ -39,8 +39,9 @@
 	<langue code="eo" url="http://trad.spip.net/tradlang_module/dump?lang_cible=eo" total="42" traduits="17" relire="0" modifs="0" nouveaux="25" pourcent="40.48">
 		<traducteur nom="Matthieu Marcillaud" lien="http://trad.spip.net/auteur/matthieu-marcillaud" />
 	</langue>
-	<langue code="es" url="http://trad.spip.net/tradlang_module/dump?lang_cible=es" total="42" traduits="41" relire="0" modifs="0" nouveaux="1" pourcent="97.62">
+	<langue code="es" url="http://trad.spip.net/tradlang_module/dump?lang_cible=es" total="42" traduits="42" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
 		<traducteur nom="dani" lien="http://trad.spip.net/auteur/dani" />
+		<traducteur nom="kent1" lien="http://trad.spip.net/auteur/kent1" />
 	</langue>
 	<langue code="eu" url="http://trad.spip.net/tradlang_module/dump?lang_cible=eu" total="42" traduits="10" relire="0" modifs="2" nouveaux="30" pourcent="23.81">
 	</langue>
