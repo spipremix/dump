@@ -47,9 +47,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_selection_sauvegarde' => 'Avès chausit de restaurà la sauvagarda @fichier@. Aquela ouperacioun noun es reversìble.',
 
 	// L
-	'label_nom_fichier_restaurer' => 'O indàs lou noum dóu fichié da restaurà',
+	'label_nom_fichier_restaurer' => 'O indas lou noum dóu fichié da restaurà',
 	'label_nom_fichier_sauvegarde' => 'Noum dóu fichié per la sauvegarde',
-	'label_selectionnez_fichier' => 'Seleciounàs un fichié en la lista',
+	'label_selectionnez_fichier' => 'Seleciounas un fichié en la lista',
 
 	// N
 	'nb_donnees' => '@nb@ enregistramen',
@@ -60,11 +60,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// S
 	'sauvegarde_en_cours' => 'Sauvagarda en cours',
 	'sauvegardes_existantes' => 'Sauvagarda esistenti',
-	'selectionnez_table_a_restaurer' => 'Seleciounàs li taula da restaurà',
+	'selectionnez_table_a_restaurer' => 'Seleciounas li taula da restaurà',
 
 	// T
 	'texte_admin_tech_01' => 'Aquela oupcioun vous permete de sauvagardà lou countengut de la basa en un fichier que serà counservat en lou repertori @dossier@. Noun oublidès màncou de recuperà l’integralità dóu repertori @img@, que counten lu image e lu doucumen utilisat en lu article e rùbrica.',
-	'texte_admin_tech_02' => 'Mèfi : aquela sauvagarda si pourà estre restaurada SOULAMEN en un sit instalat embé la mema versioun de SPIP. Cau soubretout pas « vuà la basa » en esperant reinstalà la sauvagarda après una messa a jou... Cousultàs la <a href="@spipnet@">la doucumentacioun de SPIP</a>.',
+	'texte_admin_tech_02' => 'Mèfi : aquela sauvagarda si pourà estre restaurada SOULAMEN en un sit instalat embé la mema versioun de SPIP. Cau soubretout pas « vuà la basa » en esperant reinstalà la sauvagarda après una messa a jou... Cousultas la <a href="@spipnet@">la doucumentacioun de SPIP</a>.',
 	'texte_restaurer_base' => 'Restaurà lou countengut d’una sauvagarda de la basa',
 	'texte_restaurer_sauvegarde' => 'Aquela oupcioun vous permete de restaurà una sauvagarda prechedenta de la
  basa. Per faire acò, cau avé plaçat lou fichié que counten
