@@ -69,7 +69,9 @@ function inc_sauvegarder_dist($status_file, $redirect = '') {
 			echo dump_relance($redirect);
 		}
 		echo(install_fin_html());
-		ob_end_flush();
+		if (@ob_get_contents()) {
+			ob_end_flush();
+		}
 		flush();
 
 		return $res;
