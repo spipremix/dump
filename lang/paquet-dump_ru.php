@@ -13,4 +13,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'dump_description' => 'Резервная копия в SQLite',
 	'dump_slogan' => 'Резервное копирование'
 );
-

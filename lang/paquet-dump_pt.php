@@ -13,4 +13,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'dump_description' => 'Cópia de segurança e restauro da base de dados em SQLite ',
 	'dump_slogan' => 'Cópia de segurança e restauro da base de dados SPIP'
 );
-

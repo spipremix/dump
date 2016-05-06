@@ -13,4 +13,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'dump_description' => 'Backup vun der Datebank als SQLite an Zeréckspillen',
 	'dump_slogan' => 'Backup an Zeréckspillen vun der SPIP-Datebank'
 );
-

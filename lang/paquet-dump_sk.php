@@ -13,4 +13,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'dump_description' => 'Záloha databázy v SQLite a jej obnovenie',
 	'dump_slogan' => 'Záloha a obnovenie databázy SPIPu'
 );
-

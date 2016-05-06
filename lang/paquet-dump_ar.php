@@ -13,4 +13,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'dump_description' => 'نسخ احتياطي لقاعدة البيانات بتنسيق SQLite واسترجاعها',
 	'dump_slogan' => 'نسخ احتياطي لقاعدة بيانات SPIP واسترجاعها'
 );
-
