@@ -29,4 +29,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Dự trữ nội dung của database',
 	'texte_sauvegarde_base' => 'Dự trữ database'
 );
-

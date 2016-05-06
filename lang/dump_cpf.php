@@ -32,4 +32,3 @@ Inn ti péd prékosyon lé nésésèr èk lafonksyon-la : porézon <b>bann sanz
 	'texte_sauvegarde' => 'Sovgard lo kontnu labaz',
 	'texte_sauvegarde_base' => 'Sovgard labaz dodné'
 );
-

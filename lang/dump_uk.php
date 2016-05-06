@@ -76,4 +76,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// U
 	'une_donnee' => '1 запис'
 );
-

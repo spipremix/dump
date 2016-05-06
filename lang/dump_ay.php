@@ -12,4 +12,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// B
 	'bouton_restaurer_base' => 'Yatqallta askichaña'
 );
-

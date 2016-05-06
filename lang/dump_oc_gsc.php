@@ -32,4 +32,3 @@ dens lo repertòri @dossier@.
 	'texte_sauvegarde' => 'Sauvagardar lo contengut de la basa',
 	'texte_sauvegarde_base' => 'Sauvagardar la basa'
 );
-

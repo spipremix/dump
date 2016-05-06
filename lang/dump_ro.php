@@ -30,4 +30,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Salvaţi conţinutul bazei de date',
 	'texte_sauvegarde_base' => 'Salvaţi baza de date'
 );
-

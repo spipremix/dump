@@ -79,4 +79,3 @@ sa nedajú odvolať.</b>',
 	// U
 	'une_donnee' => '1 záznam'
 );
-

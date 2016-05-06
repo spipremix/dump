@@ -76,4 +76,3 @@ Sois prudent avec cette fonctionnalité : <b>les modifications, pertes éventue
 	// U
 	'une_donnee' => '1 enregistrement'
 );
-

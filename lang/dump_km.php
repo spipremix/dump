@@ -28,4 +28,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'ថត​ទុក​នូវ​ខ្លឹមសារ​សំណុំ​ទិន្នន័យ',
 	'texte_sauvegarde_base' => 'ថត​ទុក​នូវ​សំណុំ​ទិន្នន័យ'
 );
-

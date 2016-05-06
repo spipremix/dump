@@ -27,4 +27,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'データベースの内容をバックアップ',
 	'texte_sauvegarde_base' => 'データベースをバックアップ'
 );
-

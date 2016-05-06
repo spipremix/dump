@@ -76,4 +76,3 @@ Sea prudente con esta funcionalidad: <b>las modificaciones, eventuales pérdidas
 	// U
 	'une_donnee' => '1 registro'
 );
-

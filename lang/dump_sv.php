@@ -25,4 +25,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Säkerhetskopiera innehållet i databasen',
 	'texte_sauvegarde_base' => 'Säkerhetskopiera databasen'
 );
-

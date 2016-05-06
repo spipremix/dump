@@ -31,4 +31,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Facer copia de seguridá del conteníu de la base',
 	'texte_sauvegarde_base' => 'Facer copia de seguridá de la base'
 );
-

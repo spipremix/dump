@@ -31,4 +31,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Архивиране съдържанието на базата данни',
 	'texte_sauvegarde_base' => 'Архивиране на базата данни'
 );
-

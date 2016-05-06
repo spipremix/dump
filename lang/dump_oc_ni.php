@@ -31,4 +31,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Sauvagardar lo contengut de la basa',
 	'texte_sauvegarde_base' => 'Sauvagardar la basa'
 );
-

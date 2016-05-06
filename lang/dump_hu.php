@@ -29,4 +29,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Az adatbázis tartalmának mentése',
 	'texte_sauvegarde_base' => 'Adatbázis mentése'
 );
-

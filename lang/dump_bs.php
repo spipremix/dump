@@ -27,4 +27,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Snimiti sadrzj baze',
 	'texte_sauvegarde_base' => 'Snimiti bazu'
 );
-

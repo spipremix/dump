@@ -30,4 +30,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Zálohovat obsah databáze',
 	'texte_sauvegarde_base' => 'Uložit databázi'
 );
-

@@ -25,4 +25,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Varmistuskopioi tietokannan sisältö',
 	'texte_sauvegarde_base' => 'Varmistuskopioi tietokanta'
 );
-

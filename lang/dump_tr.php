@@ -27,4 +27,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => 'Veritabanının içeriğini yedekle',
 	'texte_sauvegarde_base' => 'Veritabanını yedekle'
 );
-

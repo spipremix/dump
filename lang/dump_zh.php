@@ -35,4 +35,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde' => '备份数据库内容',
 	'texte_sauvegarde_base' => '备份数据库'
 );
-
