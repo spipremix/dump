@@ -14,4 +14,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'dump_slogan' => 'Savkopio kaj restaŭro de la datumbazo SPIP'
 );
 
-?>

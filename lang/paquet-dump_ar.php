@@ -14,4 +14,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'dump_slogan' => 'نسخ احتياطي لقاعدة بيانات SPIP واسترجاعها'
 );
 
-?>

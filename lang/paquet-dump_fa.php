@@ -14,4 +14,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'dump_slogan' => 'بك‌آپ و ذخيره سازي پايگاه داده‌‌هاي اسپيپ'
 );
 
-?>

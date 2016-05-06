@@ -14,4 +14,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'dump_slogan' => 'Sicherung und Wiederherstellung der  SPIP-Datenbank'
 );
 
-?>
