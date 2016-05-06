@@ -35,4 +35,3 @@ B3 c4r3fu1 w17h 7h15 f347ur3: <b>4ny p073n7141 m0d1f1c4710n5 0r 105535 4r3
 	'texte_sauvegarde_base' => 'B4ckup 7h3 d474b453'
 );
 
-?>

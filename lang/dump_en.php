@@ -77,4 +77,3 @@ Be very careful with this feature: <b>any potential modifications or losses are 
 	'une_donnee' => '1 record'
 );
 
-?>

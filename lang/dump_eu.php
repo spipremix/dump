@@ -28,4 +28,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde_base' => 'Basean ziurtasun kopia bat sortu.'
 );
 
-?>

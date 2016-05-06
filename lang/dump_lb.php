@@ -75,4 +75,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'une_donnee' => '1 Zeil'
 );
 
-?>

@@ -30,4 +30,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde_base' => 'Saveteiñ an diaz'
 );
 
-?>

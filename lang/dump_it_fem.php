@@ -32,4 +32,3 @@ Attenzione: <b>le modifiche o la perdita eventuale di dati sono irreversibili.</
 	'texte_sauvegarde_base' => 'Salva il database'
 );
 
-?>

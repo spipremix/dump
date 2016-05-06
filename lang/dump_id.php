@@ -32,4 +32,3 @@ dapat dipulihkan kembali.</b>', # MODIF
 	'texte_sauvegarde_base' => 'Backup database'
 );
 
-?>

@@ -29,4 +29,3 @@ Sigueu prudents amb aquesta funcionalitat: <b>les modificacions o pèrdues event
 	'texte_sauvegarde_base' => 'Desar la base'
 );
 
-?>

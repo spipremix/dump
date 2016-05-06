@@ -80,4 +80,3 @@ sa nedajú odvolať.</b>',
 	'une_donnee' => '1 záznam'
 );
 
-?>

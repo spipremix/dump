@@ -32,4 +32,3 @@ dins lo repertòri @dossier@.
 	'texte_sauvegarde_base' => 'Salvagardar la basa'
 );
 
-?>

@@ -32,4 +32,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde_base' => 'Salvà a basa di dati'
 );
 
-?>

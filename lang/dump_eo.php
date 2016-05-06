@@ -44,4 +44,3 @@ NUR por retejo starigita per la sama versio de SPIP. Nepre ne " malplenigu la d
 	'texte_sauvegarde_base' => 'Konservi la datenbazon'
 );
 
-?>

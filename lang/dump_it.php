@@ -80,4 +80,3 @@ Attenzione: <b>le modifiche o la perdita eventuale di dati sono irreversibili.</
 	'une_donnee' => '1 record'
 );
 
-?>

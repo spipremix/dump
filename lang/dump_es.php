@@ -77,4 +77,3 @@ Sea prudente con esta funcionalidad: <b>las modificaciones, eventuales pérdidas
 	'une_donnee' => '1 registro'
 );
 
-?>

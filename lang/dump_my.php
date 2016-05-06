@@ -28,4 +28,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'texte_sauvegarde_base' => 'အချက်လက်သိုလှောင်မှုကို အရံသိမ်းထားပါ'
 );
 
-?>

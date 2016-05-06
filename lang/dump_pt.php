@@ -79,4 +79,3 @@ efectuada à base de dados. Para esse efeito, o ficheiro que contém a cópia de
 	'une_donnee' => '1 registo'
 );
 
-?>
