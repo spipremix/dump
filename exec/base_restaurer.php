@@ -22,10 +22,8 @@ if (!defined('_ECRIRE_INC_VERSION')) {
  * Finir une restauration interrompue par logout
  */
 function exec_base_restaurer_dist() {
-
 	include_spip('base/dump');
-	$status_file = base_dump_meta_name(0) . "_restauration";
-	$restaurer = charger_fonction("restaurer", "action");
+	$status_file = base_dump_meta_name(0) . '_restauration';
+	$restaurer = charger_fonction('restaurer', 'action');
 	$restaurer($status_file);
-
 }

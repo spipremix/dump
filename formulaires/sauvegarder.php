@@ -16,7 +16,7 @@
  * @package SPIP\Dump\Formulaires
  */
 
-if (!defined("_ECRIRE_INC_VERSION")) {
+if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 include_spip('base/dump');
@@ -41,10 +41,15 @@ function formulaires_sauvegarder_charger_dist() {
 		'_spipnet' => $GLOBALS['home_server'] . '/' . $GLOBALS['spip_lang'] . '_article1489.html',
 		'nom_sauvegarde' => basename(dump_nom_fichier($dir_dump, 'sqlite'), '.sqlite'),
 		'tout_sauvegarder' => (_request('nom_sauvegarde') and !_request('tout_sauvegarder')) ? '' : 'oui',
-		'_tables' => "<ol class='spip'><li class='choix'>\n" . join("</li>\n<li class='choix'>",
-				base_saisie_tables('tables', $tables, $exclude,
-					_request('nom_sauvegarde') ? (_request('tables') ? _request('tables') : array()) : null)
-			) . "</li></ol>\n",
+		'_tables' => "<ol class='spip'><li class='choix'>\n" . join(
+			"</li>\n<li class='choix'>",
+			base_saisie_tables(
+				'tables',
+				$tables,
+				$exclude,
+				_request('nom_sauvegarde') ? (_request('tables') ? _request('tables') : array()) : null
+			)
+		) . "</li></ol>\n",
 		'_prefixe' => base_prefixe_tables(''),
 	);
 
@@ -77,7 +82,7 @@ function formulaires_sauvegarder_verifier_dist() {
 function formulaires_sauvegarder_traiter_dist() {
 	$status_file = base_dump_meta_name(0);
 	$dir_dump = dump_repertoire();
-	$archive = $dir_dump . basename(_request('nom_sauvegarde'), ".sqlite");
+	$archive = $dir_dump . basename(_request('nom_sauvegarde'), '.sqlite');
 
 	if (_request('tout_sauvegarder')) {
 		// ici on prend toutes les tables sauf celles exclues par defaut

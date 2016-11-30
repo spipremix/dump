@@ -10,7 +10,7 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined("_ECRIRE_INC_VERSION")) {
+if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
@@ -34,29 +34,26 @@ function action_telecharger_dump_dist($arg = null) {
 		file_exists($file)
 		and autoriser('webmestre')
 	) {
-
 		$f = basename($file);
 		// ce content-type est necessaire pour eviter des corruptions de zip dans ie6
 		header('Content-Type: application/octet-stream');
 
 		header("Content-Disposition: attachment; filename=\"$f\";");
-		header("Content-Transfer-Encoding: binary");
+		header('Content-Transfer-Encoding: binary');
 
 		// fix for IE catching or PHP bug issue
-		header("Pragma: public");
-		header("Expires: 0"); // set expiration time
-		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+		header('Pragma: public');
+		header('Expires: 0'); // set expiration time
+		header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
 
 		if ($cl = filesize($file)) {
-			header("Content-Length: " . $cl);
+			header('Content-Length: ' . $cl);
 		}
-
 		readfile($file);
 	} else {
 		http_status(404);
 		include_spip('inc/minipres');
-		echo minipres(_T('erreur') . ' 404',
-			_T('info_acces_interdit'));
+		echo minipres(_T('erreur') . ' 404', _T('info_acces_interdit'));
 	}
 
 	// et on finit comme ca d'un coup

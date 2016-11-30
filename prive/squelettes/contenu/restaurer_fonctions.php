@@ -26,11 +26,11 @@ function dump_afficher_tables_restaurees_erreurs($status_file) {
 	$status = dump_lire_status($status_file);
 	$tables = $status['tables_copiees'];
 
-	$corps = "";
+	$corps = '';
 	$erreurs = array();
 
 	if (!$tables) {
-		return "<p>" . _T("dump:erreur_aucune_donnee_restauree") . "</p>";
+		return '<p>' . _T('dump:erreur_aucune_donnee_restauree') . '</p>';
 	}
 
 	// lister les tables copiees aller verifier dans la base
@@ -48,7 +48,7 @@ function dump_afficher_tables_restaurees_erreurs($status_file) {
 	}
 
 	if (count($erreurs)) {
-		$corps = "<ul class='spip'><li>" . implode("</li><li class='spip'>", $erreurs) . "</li></ul>";
+		$corps = "<ul class='spip'><li>" . implode("</li><li class='spip'>", $erreurs) . '</li></ul>';
 	}
 
 	return $corps;

@@ -16,7 +16,7 @@
  * @package SPIP\Dump\API
  */
 
-if (!defined("_ECRIRE_INC_VERSION")) {
+if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
@@ -57,8 +57,8 @@ function dump_nom_fichier($dir, $extension = 'sqlite') {
 	$site = 'spip';
 	if (isset($GLOBALS['meta']['nom_site'])) {
 		$site = typo($GLOBALS['meta']['nom_site']); // extraire_multi
-		$site = couper(translitteration(trim($site)), 30, "");
-		$site = preg_replace(array(",\W,is", ",_(?=_),", ",_$,"), array("_", "", ""), $site);
+		$site = couper(translitteration(trim($site)), 30, '');
+		$site = preg_replace(array(',\W,is', ',_(?=_),', ',_$,'), array('_', '', ''), $site);
 	}
 
 	$site .= '_' . date('Ymd');
@@ -118,7 +118,7 @@ function dump_connect_args($archive) {
 		return null;
 	}
 
-	return array(dirname($archive), '', '', '', basename($archive, ".sqlite"), $type_serveur, 'spip');
+	return array(dirname($archive), '', '', '', basename($archive, '.sqlite'), $type_serveur, 'spip');
 }
 
 /**
@@ -132,15 +132,15 @@ function dump_connect_args($archive) {
  * @return bool/string
  */
 function dump_init($status_file, $archive, $tables = null, $where = array(), $action = 'sauvegarde') {
-	$status_file = _DIR_TMP . basename($status_file) . ".txt";
+	$status_file = _DIR_TMP . basename($status_file) . '.txt';
 
 	if (lire_fichier($status_file, $status)
 		and $status = unserialize($status)
 		and $status['etape'] !== 'fini'
 		and filemtime($status_file) >= time() - 120
-	) // si le fichier status est trop vieux c'est un abandon
-	{
-		return _T("dump:erreur_" . $action . "_deja_en_cours");
+	) {
+		// si le fichier status est trop vieux c'est un abandon
+		return _T('dump:erreur_' . $action . '_deja_en_cours');
 	}
 
 	if (!$type_serveur = dump_type_serveur()) {
@@ -185,16 +185,16 @@ function dump_afficher_progres($courant, $total, $table) {
 	static $etape = 1;
 	if (unique($table)) {
 		if ($total < 0 or !is_numeric($total)) {
-			echo "<br /><strong>" . $etape . '. ' . "</strong>$table ";
+			echo '<br /><strong>' . $etape . '. ' . "</strong>$table ";
 		} else {
-			echo "<br /><strong>" . $etape . '. ' . "$table</strong> " . ($courant ? " <i>($courant)</i> " : "");
+			echo '<br /><strong>' . $etape . '. ' . "$table</strong> " . ($courant ? " <i>($courant)</i> " : '');
 		}
 		$etape++;
 	}
 	if (is_numeric($total) and $total >= 0) {
-		echo ". ";
+		echo '. ';
 	} else {
-		echo "(" . (-intval($total)) . ")";
+		echo '(' . (-intval($total)) . ')';
 	}
 	flush();
 }
@@ -223,7 +223,7 @@ function dump_relance($redirect) {
  *     - 'auvegarder : stocker dans le dump la structure de la base source
  */
 function dump_end($status_file, $action = '') {
-	$status_file = _DIR_TMP . basename($status_file) . ".txt";
+	$status_file = _DIR_TMP . basename($status_file) . '.txt';
 	if (!lire_fichier($status_file, $status)
 		or !$status = unserialize($status)
 	) {
@@ -244,13 +244,17 @@ function dump_end($status_file, $action = '') {
 			dump_serveur($status['connect']);
 			spip_connect('dump');
 			// si spip_meta n'a pas ete backup elle n'est pas dans le dump, il faut la creer pour y stocker cette meta
-			if (!sql_showtable("spip_meta", true, "dump")) {
-				$desc = sql_showtable("spip_meta", true);
-				sql_create("spip_meta", $desc['field'], $desc['key'], false, false, "dump");
+			if (!sql_showtable('spip_meta', true, 'dump')) {
+				$desc = sql_showtable('spip_meta', true);
+				sql_create('spip_meta', $desc['field'], $desc['key'], false, false, 'dump');
 			}
 			sql_delete('spip_meta', "nom='dump_structure_temp'", 'dump'); #enlever une vieille structure deja la, au cas ou
-			sql_insertq('spip_meta',
-				array('nom' => 'dump_structure_temp', 'valeur' => serialize($structure), 'impt' => 'non'), array(), 'dump');
+			sql_insertq(
+				'spip_meta',
+				array('nom' => 'dump_structure_temp', 'valeur' => serialize($structure), 'impt' => 'non'),
+				array(),
+				'dump'
+			);
 			break;
 	}
 
@@ -268,7 +272,7 @@ function dump_end($status_file, $action = '') {
  * @param int $limit Nombre max de fichiers listes
  * @return array
  */
-function dump_lister_sauvegardes($dir, $tri = 'nom', $extension = "sqlite", $limit = 100) {
+function dump_lister_sauvegardes($dir, $tri = 'nom', $extension = 'sqlite', $limit = 100) {
 	$liste_dump = preg_files($dir, '\.' . $extension . '$', $limit, false);
 
 	$n = strlen($dir);
@@ -300,7 +304,7 @@ function dump_lister_sauvegardes($dir, $tri = 'nom', $extension = "sqlite", $lim
  * @return array
  */
 function dump_lire_status($status_file) {
-	$status_file = _DIR_TMP . basename($status_file) . ".txt";
+	$status_file = _DIR_TMP . basename($status_file) . '.txt';
 	if (!lire_fichier($status_file, $status)
 		or !$status = unserialize($status)
 	) {
@@ -334,7 +338,7 @@ function dump_verifie_sauvegarde_finie($status_file) {
  */
 function dump_nom_sauvegarde($status_file) {
 	if (!$status = dump_lire_status($status_file)
-		or !file_exists($f = $status['archive'] . ".sqlite")
+		or !file_exists($f = $status['archive'] . '.sqlite')
 	) {
 		return '';
 	}

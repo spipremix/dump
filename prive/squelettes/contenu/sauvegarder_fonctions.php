@@ -36,7 +36,7 @@ function dump_afficher_tables_sauvegardees($status_file) {
 		$n_dump = intval(sql_countsel($t, '', '', '', 'dump'));
 		$res = "$t ";
 		if ($n_dump == 0 and $n == 0) {
-			$res .= "(" . _T('dump:aucune_donnee') . ")";
+			$res .= '(' . _T('dump:aucune_donnee') . ')';
 		} else {
 			$res .= "($n_dump/$n)";
 		}
@@ -46,33 +46,32 @@ function dump_afficher_tables_sauvegardees($status_file) {
 		$tables[$t] = $res;
 	}
 
-	$corps = "";
+	$corps = '';
 	switch (count($tables)) {
-		case 0;
+		case 0:
 			break;
 		case 1:
-			$corps = "<div style='width:49%;float:left;'><ul class='spip'><li class='spip'>" . join("</li><li class='spip'>",
-					$tables) . "</li></ul></div>";
+			$corps = "<div style='width:49%;float:left;'><ul class='spip'><li class='spip'>" .join("</li><li class='spip'>", $tables) . '</li></ul></div>';
 			break;
 		default:
 			$n = floor(count($tables) / 2);
-			$corps = "<div style='width:49%;float:left;'><ul class='spip'><li class='spip'>" . join("</li><li class='spip'>",
-					array_slice($tables, 0, $n)) . "</li></ul></div>"
-				. "<div style='width:49%;float:left;'><ul class='spip'><li>" . join("</li><li class='spip'>",
-					array_slice($tables, $n)) . "</li></ul></div>";
+			$corps = "<div style='width:49%;float:left;'><ul class='spip'><li class='spip'>" .
+				join("</li><li class='spip'>", array_slice($tables, 0, $n)) . '</li></ul></div>'
+				. "<div style='width:49%;float:left;'><ul class='spip'><li>" . join(
+					"</li><li class='spip'>",
+					array_slice($tables, $n)
+				) . '</li></ul></div>';
 	}
 	$corps .= "<div class='nettoyeur'></div>";
 
 	return $corps;
-
 }
 
 function dump_afficher_erreurs($status_file) {
-	$erreurs = "";
+	$erreurs = '';
 	$status = dump_lire_status($status_file);
 	if (isset($status['errors'])) {
-		$erreurs = implode("<br />", $status['errors']);
+		$erreurs = implode('<br />', $status['errors']);
 	}
-
 	return $erreurs;
 }

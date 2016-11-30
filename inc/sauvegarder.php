@@ -10,7 +10,7 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined("_ECRIRE_INC_VERSION")) {
+if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
@@ -25,7 +25,7 @@ include_spip('inc/dump');
  * @return bool
  */
 function inc_sauvegarder_dist($status_file, $redirect = '') {
-	$status_file = _DIR_TMP . basename($status_file) . ".txt";
+	$status_file = _DIR_TMP . basename($status_file) . '.txt';
 	if (!lire_fichier($status_file, $status)
 		or !$status = unserialize($status)
 	) {
@@ -38,14 +38,14 @@ function inc_sauvegarder_dist($status_file, $redirect = '') {
 		$max_time = time() + $timeout / 2;
 
 		include_spip('inc/minipres');
-		@ini_set("zlib.output_compression", "0"); // pour permettre l'affichage au fur et a mesure
+		@ini_set('zlib.output_compression', '0'); // pour permettre l'affichage au fur et a mesure
 
-		$titre = _T('dump:sauvegarde_en_cours') . " (" . count($status['tables']) . ") ";
+		$titre = _T('dump:sauvegarde_en_cours') . ' (' . count($status['tables']) . ') ';
 		$balise_img = chercher_filtre('balise_img');
 		$titre .= $balise_img(chemin_image('searching.gif'));
 		echo(install_debut_html($titre));
 		// script de rechargement auto sur timeout
-		echo http_script("window.setTimeout('location.href=\"" . $redirect . "\";'," . ($timeout * 1000) . ")");
+		echo http_script("window.setTimeout('location.href=\"" . $redirect . "\";'," . ($timeout * 1000) . ')');
 		echo "<div style='text-align: left'>\n";
 
 		dump_serveur($status['connect']);

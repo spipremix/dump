@@ -10,7 +10,7 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined("_ECRIRE_INC_VERSION")) {
+if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
@@ -40,8 +40,7 @@ function action_sauvegarder_dist($arg = null) {
 	}
 
 	$status_file = $arg;
-	$redirect = parametre_url(generer_action_auteur('sauvegarder', $status_file), "step", intval(_request('step') + 1),
-		'&');
+	$redirect = parametre_url(generer_action_auteur('sauvegarder', $status_file), 'step', intval(_request('step') + 1), '&');
 
 	// lancer export qui va se relancer jusqu'a sa fin
 	$sauvegarder = charger_fonction('sauvegarder', 'inc');
@@ -50,7 +49,7 @@ function action_sauvegarder_dist($arg = null) {
 	if ($sauvegarder($status_file, $redirect)) {
 		dump_end($status_file, 'sauvegarder');
 		include_spip('inc/headers');
-		echo redirige_formulaire(generer_url_ecrire("sauvegarder", 'status=' . $status_file, '', true, true));
+		echo redirige_formulaire(generer_url_ecrire('sauvegarder', 'status=' . $status_file, '', true, true));
 	}
 
 	// forcer l'envoi du buffer par tous les moyens !

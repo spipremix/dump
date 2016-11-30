@@ -10,7 +10,7 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined("_ECRIRE_INC_VERSION")) {
+if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
@@ -32,7 +32,7 @@ function action_supprimer_dump_dist($arg = null) {
 
 	if (autoriser('webmestre')) {
 		// verifier que c'est bien une sauvegarde
-		include_spip("inc/dump");
+		include_spip('inc/dump');
 		$dir = dump_repertoire();
 		$dumps = dump_lister_sauvegardes($dir);
 
@@ -42,5 +42,4 @@ function action_supprimer_dump_dist($arg = null) {
 			}
 		}
 	}
-
 }

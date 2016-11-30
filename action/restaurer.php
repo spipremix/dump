@@ -10,7 +10,7 @@
  *  Pour plus de details voir le fichier COPYING.txt ou l'aide en ligne.   *
 \***************************************************************************/
 
-if (!defined("_ECRIRE_INC_VERSION")) {
+if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
@@ -41,19 +41,18 @@ function action_restaurer_dist($arg = null) {
 
 	$status_file = $arg;
 	define('_DUMP_STATUS_FILE', $status_file);
-	$status_file = _DIR_TMP . basename($status_file) . ".txt";
+	$status_file = _DIR_TMP . basename($status_file) . '.txt';
 	if (!lire_fichier($status_file, $status)
 		or !$status = unserialize($status)
 	) {
-
 		include_spip('inc/headers');
-		echo redirige_formulaire(generer_url_ecrire("restaurer", 'status=' . _DUMP_STATUS_FILE, '', true, true));
+		echo redirige_formulaire(generer_url_ecrire('restaurer', 'status=' . _DUMP_STATUS_FILE, '', true, true));
 	} else {
 		utiliser_langue_visiteur();
-		$archive = "<br />" . joli_repertoire($status['archive']);
+		$archive = '<br />' . joli_repertoire($status['archive']);
 		$action = _T('dump:info_restauration_sauvegarde', array('archive' => $archive));
 		$admin = charger_fonction('admin', 'inc');
-		echo $admin('restaurer', $action, "", true);
+		echo $admin('restaurer', $action, '', true);
 	}
 
 	// forcer l'envoi du buffer par tous les moyens !
@@ -63,5 +62,4 @@ function action_restaurer_dist($arg = null) {
 		@flush();
 		@ob_end_flush();
 	}
-
 }
