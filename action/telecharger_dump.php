@@ -35,6 +35,12 @@ function action_telecharger_dump_dist($arg = null) {
 		and autoriser('webmestre')
 	) {
 
+		// Vider tous les tampons pour ne pas provoquer de Fatal memory exhausted
+		$level = @ob_get_level();
+		while ($level--) {
+			@ob_end_clean();
+		}
+
 		$f = basename($file);
 		// ce content-type est necessaire pour eviter des corruptions de zip dans ie6
 		header('Content-Type: application/octet-stream');
