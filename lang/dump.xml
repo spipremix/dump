@@ -37,7 +37,8 @@
 	</langue>
 	<langue code="en_hx" url="https://trad.spip.net/tradlang_module/dump?lang_cible=en_hx" total="42" traduits="9" relire="0" modifs="3" nouveaux="30" pourcent="21.43">
 	</langue>
-	<langue code="eo" url="https://trad.spip.net/tradlang_module/dump?lang_cible=eo" total="42" traduits="17" relire="0" modifs="0" nouveaux="25" pourcent="40.48">
+	<langue code="eo" url="https://trad.spip.net/tradlang_module/dump?lang_cible=eo" total="42" traduits="34" relire="8" modifs="0" nouveaux="0" pourcent="80.95">
+		<traducteur nom="gpl" lien="https://trad.spip.net/auteur/gpl" />
 		<traducteur nom="Matthieu Marcillaud" lien="https://trad.spip.net/auteur/matthieu-marcillaud" />
 	</langue>
 	<langue code="es" url="https://trad.spip.net/tradlang_module/dump?lang_cible=es" total="42" traduits="42" relire="0" modifs="0" nouveaux="0" pourcent="100.00">
