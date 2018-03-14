@@ -25,16 +25,16 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'details_sauvegarde' => 'Detaloj de la savkopio :',
 
 	// E
-	'erreur_aucune_donnee_restauree' => 'Nenio restaŭrita', # RELIRE
+	'erreur_aucune_donnee_restauree' => 'Nenio restaŭrita',
 	'erreur_connect_dump' => 'Servilo nomita « @dump@ » jam ekzistas. Bonvolu alinomi ĝin.',
 	'erreur_creation_base_sqlite' => 'Ne eblas krei SQLite-datenbazon por la savkopio.',
 	'erreur_nom_fichier' => 'Tiu dosiernomo ne eblas.',
 	'erreur_restaurer_verifiez' => 'Korektu la eraron por povi restaŭri.',
 	'erreur_sauvegarde_deja_en_cours' => 'Jam savkopiante.',
 	'erreur_sqlite_indisponible' => 'Ne eblas fari SQLite-savkopion kun via retejgastigo',
-	'erreur_table_absente' => 'Tabelo @table@ mankas', # RELIRE
-	'erreur_table_donnees_manquantes' => 'Tabelo @table@, datenoj mankas', # RELIRE
-	'erreur_taille_sauvegarde' => 'La savkopio ŝajne fiaskis. Dosiero @fichier@ malplenas aŭ mankas.', # RELIRE
+	'erreur_table_absente' => 'Tabelo @table@ mankas',
+	'erreur_table_donnees_manquantes' => 'Tabelo @table@, datumo mankas',
+	'erreur_taille_sauvegarde' => 'La savkopio ŝajne fiaskis. Dosiero @fichier@ malplenas aŭ mankas.',
 
 	// I
 	'info_aucune_sauvegarde_trouvee' => 'Neniu savkopio trovita',
@@ -47,7 +47,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'info_selection_sauvegarde' => 'Vi elektis restaŭri la savkopion @fichier@. Tiu ago ne estos nuligebla.',
 
 	// L
-	'label_nom_fichier_restaurer' => 'Aŭ indiku la nomon de la restaŭrota dosiero ', # RELIRE
+	'label_nom_fichier_restaurer' => 'Aŭ indiku la nomon de la restaŭrota dosiero ',
 	'label_nom_fichier_sauvegarde' => 'Dosiernomo por la savkopio',
 	'label_selectionnez_fichier' => 'Elektu dosieron en la listo',
 
@@ -55,12 +55,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'nb_donnees' => '@nb@ rikordoj',
 
 	// R
-	'restauration_en_cours' => 'Restaŭrante', # RELIRE
+	'restauration_en_cours' => 'Restaŭrante',
 
 	// S
-	'sauvegarde_en_cours' => 'Savkopiante', # RELIRE
+	'sauvegarde_en_cours' => 'Savkopiante',
 	'sauvegardes_existantes' => 'Ekzistantaj savkopioj',
-	'selectionnez_table_a_restaurer' => 'Elektu la restaŭrotajn tabelojn', # RELIRE
+	'selectionnez_table_a_restaurer' => 'Elektu la restaŭrotajn tabelojn',
 
 	// T
 	'texte_admin_tech_01' => 'Tiu opcio ebligas al vi konservi enhavon de bazo en dosiero stokota en dosierujo @dossier@. Ne forgesu ankaŭ reakiri la tuton de la dosierujo @img@, kiu enhavas bildojn kaj dokumentojn uzatajn en artikoloj kaj rubrikoj.',
