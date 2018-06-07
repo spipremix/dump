@@ -13,7 +13,7 @@
 /**
  * Déclarations d'autorisations
  *
- * @package SPIP\Breves\Autorisations
+ * @package SPIP\Dump\Autorisations
  **/
 if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
