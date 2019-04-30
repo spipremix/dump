@@ -1,0 +1,11 @@
+{
+    "name": "spip/dump",
+    "type": "spip-plugin",
+    "description": "Sauvegarde et restauration de la base SPIP",
+    "license": "GPL-3.0-or-later",
+    "authors": [{
+        "name": "Collectif SPIP",
+        "email": "spip-dev@rezo.net"
+    }],
+    "require": {}
+}
